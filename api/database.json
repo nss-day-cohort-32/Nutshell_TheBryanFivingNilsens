@@ -9,6 +9,16 @@
       "id:": 2,
       "username": "nate",
       "email": "nate@google.com"
+    },
+    {
+      "id": 3,
+      "username": "john",
+      "email": "john@google.com"
+    },
+    {
+      "username": "bill",
+      "email": "bill@google.com",
+      "id": 4
     }
   ],
   "Messages": [
