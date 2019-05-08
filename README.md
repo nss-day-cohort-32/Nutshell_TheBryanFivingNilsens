@@ -1,36 +1,81 @@
-# Browserify Boilerplate Repository
+# Nutshell: The Information Dashboard
 
-Use this repository for when you want to start a new modular JavaScript application that gets compiled by Browserify. You start off with three JavaScript modules in the `src/scripts` directory.
+Nutshell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.
 
-1. `hello.js` - Exports a simple function that says hello
-1. `goodbye.js` - Exports a simple function that says goodbye
-1. `sandwichMaker.js` - Exports an object with a single method named `placeOrder()`
-1. `main.js` - Contains the logic of your application. It imports the other three modules, and invokes all of the functions.
+You will be utilizing all of the skills and concepts that you've learned up to this point in the course.
 
-## Prerequisites for Everyone
+1. Functions
+1. Databases/API
+1. Github
+1. Objects
+1. CSS
+1. Handling user events
+1. Factory functions
+1. Data entry/editing
+1. Modular code with Browserify
+1. Relational data
 
-Run this first
+To start you off, here's an example of what the resources in your API should look like once it's populated with some data from your application.
 
-```sh
-npm i -g cross-env
+### Users
+
+```json
+{ "id": 1, "username": "Steve", "email": "me@me.com" }
 ```
 
-## Project Setup
+### Messages
 
-1. Clone this repository.
-1. `cd browserify-boilerplate/src/lib`
-1. `npm install`
-1. `npm start`
+```json
+{ "id": 1, "userId": 1, "message": "What's up?" }
+```
 
-The `npm start` command will run grunt for you.
+### News
 
-The web server will be started, and the JavaScript code in the `src/scripts` directory will be compiled into `public/bundle.js`.
+```json
+{
+    "id": 1,
+    "userId": 2,
+    "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+    "title": "Wormholes Allow Information to Escape Black Holes",
+    "synopsis": "Check out this recent discovery about workholes"
+}
+```
 
-1. Open Chome and make sure your developer tools are open.
-1. Open [http://localhost:8080](http://localhost:8080) in your browser.
-1. You should see the following output in the console.
+### Friends
 
-![sample boilerplate output](./browserify-boilerplate-output.png)
-# Browserify-Template-CS
-# Browserify-Template_CS
+```json
+{ "connectionId": 1, "userId": 1, "otherFriendId": 3 }
+```
+
+### Tasks
+
+```json
+{ "id": 1, "userId": 3, "task": "Take out garbage" }
+```
+
+## Professional Requirements
+
+1. All teammates must be using Grunt to run ESLint and Browserify during development
+1. Each module should have a comment at the top with the following info: author(s) and purpose of module
+1. The README for your project should include instructions on how another person can download and run the application
+
+## How to Handle Authentication
+
+You will be using session storage to keep track of which user has logged into Nutshell. When the user fills out the registration form, you will POST their username and password to the `users` collection in your API. You will then immediately take the `id` of the object in the response and save it to session storage.
+
+```js
+sessionStorage.setItem("activeUser", user.id)
+```
+
+If you want to add a Logout feature, all you need to do it remove the session storage item.
+
+```js
+sessionStorage.removeItem("activeUser")
+```
+
+## Visual Feature List
+
+To help you along, here is a visualization of the features, and behaviors of the application to get you started.
+
+![nutshell features](./Nutshell.png)
 # Nutshell_THEBryanFuckingNilsens
