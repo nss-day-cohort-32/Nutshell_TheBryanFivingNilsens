@@ -1,0 +1,44 @@
+{
+  "Users": [
+    {
+      "id:": 1,
+      "username": "sean",
+      "email": "sean@glavin.us"
+    },
+    {
+      "id:": 2,
+      "username": "nate",
+      "email": "nate@google.com"
+    }
+  ],
+  "Messages": [
+    {
+      "id": 1,
+      "userID": 1,
+      "message": "Hello World"
+    }
+  ],
+  "News": [
+    {
+      "id": 1,
+      "userID": 1,
+      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+      "title": "House Democrats aim -- and train -- for more air time on Fox News",
+      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
+    }
+  ],
+  "Friends": [
+    {
+      "connectionID": 1,
+      "userID": 1,
+      "otherfriendID": 2
+    }
+  ],
+  "Tasks": [
+    {
+      "id": 1,
+      "userID": 1,
+      "task": "Get shit done"
+    }
+  ]
+}
