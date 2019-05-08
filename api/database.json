@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "Users": [
+=======
+    "Users": [
+>>>>>>> master
     {
       "id:": 1,
       "username": "sean",
@@ -10,6 +14,7 @@
       "username": "nate",
       "email": "nate@google.com"
     }
+<<<<<<< HEAD
   ],
   "Messages": [
     {
@@ -19,10 +24,24 @@
     }
   ],
   "News": [
+=======
+
+    ],
+    "Messages": [
+    {
+      "id": 1,
+      "userID": 1,
+      "message": "Hello World",
+      "sendDate": "datetime"
+    }
+    ],
+    "News": [
+>>>>>>> master
     {
       "id": 1,
       "userID": 1,
       "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+<<<<<<< HEAD
       "title": "House Democrats aim -- and train -- for more air time on Fox News",
       "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
     }
@@ -42,3 +61,40 @@
     }
   ]
 }
+=======
+      "dateAdded": "datetime",
+      "title": "House Democrats aim -- and train -- for more air time on Fox News",
+      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
+    }
+    ],
+    "Friends": [
+    {
+      "connectionID": 1,
+      "userID": 1,
+      "otherfriendID": 2,
+      "accepted": true
+    }
+    ],
+    "Tasks": [
+    {
+      "id": 1,
+      "userID": 1,
+      "task": "Get shit done",
+      "name": "Thing to do",
+      "targetCompletionDate": "datetime",
+      "complete": false
+    }
+    ],
+    "Events": [
+    {
+        "id": 1,
+        "userID": 1,
+        "name": "party",
+        "description": "its a party.",
+        "eventDate": "datetime",
+        "location": "My house",
+        "url": ""
+    }
+    ]
+}
+>>>>>>> master
