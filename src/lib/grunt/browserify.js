@@ -17,7 +17,10 @@ module.exports = {
             ]
         ],
         browserifyOptions: {
-            debug: true
+            debug: true,
+            paths: [
+                "./node_modules"
+            ]
         }
     },
     app: {
