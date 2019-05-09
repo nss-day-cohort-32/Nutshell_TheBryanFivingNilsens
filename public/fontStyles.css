@@ -1,0 +1,80 @@
+/* fonts */
+h1, h2, h3 {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  h4, h5, h6, p {
+    font-family: 'Work Sans', sans-serif;
+  }
+  
+  h1 {
+    font-size: 2em;
+    color: #1f5858;
+    margin: 10px;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 1.75em;
+    color: #1f5858;
+    margin: 10px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 1.5em;
+    color: #1f5858;
+    margin: 10px;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 1.25em;
+    color: #2d7e7e;
+    margin: 10px;
+    font-weight: 700;
+  }
+  h5 {
+    font-size: 1.0em;
+    color: #2d7e7e;
+    margin: 10px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1em;
+    color: #1f5858;
+    margin: 10px;
+    font-weight: 400;
+  }
+
+  #links-container a {
+    margin-right: 40px;
+    margin-top: 40px;
+  }
+  
+  #links-container a:active,  
+  #links-container a:hover
+  {
+    border-bottom: 1.5px solid #c9eddc;
+    margin-bottom: 35px;
+  }
+
+  #top-nav a {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #c9eddc;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .75em;
+  }
+
+  #footer-nav a {
+    align-self: center;
+    justify-self: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #c9eddc;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .7em;
+  }

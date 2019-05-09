@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>BFN Nutshell</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <nav id="top-nav">
-      <div id="logo-container">
-        <img src="#" />
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>BFN Nutshell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./pageStyles.css" />
+  <link rel="stylesheet" href="./fontStyles.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i|Work+Sans:200,300,400,500,600,700,800,900"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav id="top-nav">
+    <div id="logo-container">
+      <!-- <img src="#" /> -->
+      <h1>Bryan F'n Nilsens</h1>
+    </div>
+    <div id="links-container">
+      <a href="#">My Friends</a>
+      <a href="#">My News</a>
+      <a href="#">My Events</a>
+      <a href="#">My Tasks</a>
+      <a href="#">My Messages</a>
+    </div>
+  </nav>
+
+  <main id="page-container">
+
+    <div id="login-container" class="">
+      <label id="">Username:</label>
+      <input type="text" id="username" />
+      <label id="">Email:</label>
+      <input type="text" id="email" />
+      <button id="login-btn">Login</button>
+      <a href="#" id="register-link">Register</a>
+      <button id="register-btn" class="hidden">Register</button>
+    </div>
+
+    <aside id="friends-container" class="">
+      <div id="friend-list">
       </div>
-      <div id="links-container">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
-        <a href="#">Link 5</a>
-      </div>
-    </nav>
+      <div id="friend-request"></div>
+    </aside>
 
-    <main id="page-container">
-      <div id="login-container">
-        <label id="">Username:</label>
-        <input type="text" id="username" />
-        <label id="">Email:</label>
-        <input type="text" id="email" />
-        <button id="login-btn">Login</button>
-        <a href="#" id="register-link">Register</a>
-        <button id="register-btn" class="hidden">Register</button>
-      </div>
+    <div id="primary-container" class="">
+      <div id="news-container"></div>
+      <div id="events-container"></div>
+    </div>
+  </main>
 
-      <aside id="friends-container">
-        <div id="friend-list"></div>
-        <div id="friend-request"></div>
-      </aside>
+  <footer id="footer-nav">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+    <a href="#">Link 5</a>
+  </footer>
 
-      <div id="primary-container">
-        <div id="news-container"></div>
-        <div id="events-container"></div>
-      </div>
-    </main>
+  <script src="bundle.js"></script>
+</body>
 
-    <footer id="footer-nav">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-      <a href="#">Link 4</a>
-      <a href="#">Link 5</a>
-    </footer>
-
-    <script src="bundle.js"></script>
-  </body>
 </html>

@@ -29,15 +29,15 @@ const API = {
             .then(response => response.json())
     },
     getUserNews: function (userId) {
-        return fetch(`http://localhost:8088/news?userID=${userId}`)
+        return fetch(`http://localhost:8088/news?userId=${userId}`)
             .then(response => response.json())
     },
     getUserTasks: function (userId) {
-        return fetch(`http://localhost:8088/tasks?userID=${userId}`)
+        return fetch(`http://localhost:8088/tasks?userId=${userId}`)
             .then(response => response.json())
     },
     getUserEvents: function (userId) {
-        return fetch(`http://localhost:8088/events?userID=${userId}`)
+        return fetch(`http://localhost:8088/events?userId=${userId}`)
     },
     addNews: function (obj) {
         return fetch("http://localhost:8088/news", {
@@ -84,9 +84,9 @@ const API = {
             })
         return friendsArray
     },
-    getFriendsEvents: function (userID) {
+    getFriendsEvents: function (userId) {
         let friendsArray = []
-        getFriends(userID)
+        getFriends(userId)
             .then(reply => {
                 reply.forEach(freindObj => {
                     var friend = freindObj.otherfriendId
