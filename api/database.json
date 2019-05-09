@@ -21,25 +21,40 @@
       "id": 4
     },
     {
-      "name": "jim",
+      "username": "jim",
       "email": "jim@dm.com",
       "id": 5
     },
     {
-      "name": "dwight",
+      "username": "dwight",
       "email": "dwight@dm.com",
       "id": 6
     },
     {
-      "name": "andy",
+      "username": "andy",
       "email": "andy@dm.com",
       "id": 7
     },
     {
-      "name": "stanley",
+      "username": "stanley",
       "email": "stanley@dm.com",
       "id": 8
     },
+    {
+      "username": "ryan",
+      "email": "thetemp@dm.com",
+      "id": 32
+    },
+    {
+      "username": "ryan",
+      "email": "thetemp@dm.com",
+      "id": 33
+    },
+    {
+      "username": "kelly",
+      "email": "kelly@dm.com",
+      "id": 34
+    }
   ],
   "messages": [
     {
