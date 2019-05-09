@@ -1,163 +1,163 @@
 {
-  "users": [
-    {
-      "username": "sean",
-      "email": "sean@glavin.us",
-      "id": 1
-    },
-    {
-      "username": "nate",
-      "email": "nate@google.com",
-      "id": 2
-    },
-    {
-      "username": "john",
-      "email": "john@google.com",
-      "id": 3
-    },
-    {
-      "username": "bill",
-      "email": "bill@google.com",
-      "id": 4
-    },
-    {
-      "name": "jim",
-      "email": "jim@dm.com",
-      "id": 5
-    },
-    {
-      "name": "dwight",
-      "email": "dwight@dm.com",
-      "id": 6
-    },
-    {
-      "name": "andy",
-      "email": "andy@dm.com",
-      "id": 7
-    },
-    {
-      "name": "stanley",
-      "email": "stanley@dm.com",
-      "id": 8
-    },
-  ],
-  "messages": [
-    {
-      "id": 1,
-      "userId": 1,
-      "message": "Hello World",
-      "sendDate": "datetime"
-    }
-  ],
-  "news": [
-    {
-      "id": 1,
-      "userId": 1,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
-    },
-    {
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-      "id": 3
-    }
-  ],
-  "friends": [
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 2,
-      "accepted": true
-    },
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 3,
-      "accepted": true
-    },
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 4,
-      "accepted": true
-    }
-  ],
-  "tasks": [
-    {
-      "id": 1,
-      "userId": 1,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "complete": false
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "complete": false,
-      "id": 2
-    }
-  ],
-  "events": [
-    {
-      "id": 1,
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": ""
-    },
-    {
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 5
-    }
-  ]
+    "users": [
+        {
+            "username": "sean",
+            "email": "sean@glavin.us",
+            "id": 1
+        },
+        {
+            "username": "nate",
+            "email": "nate@google.com",
+            "id": 2
+        },
+        {
+            "username": "john",
+            "email": "john@google.com",
+            "id": 3
+        },
+        {
+            "username": "bill",
+            "email": "bill@google.com",
+            "id": 4
+        },
+        {
+            "name": "jim",
+            "email": "jim@dm.com",
+            "id": 5
+        },
+        {
+            "name": "dwight",
+            "email": "dwight@dm.com",
+            "id": 6
+        },
+        {
+            "name": "andy",
+            "email": "andy@dm.com",
+            "id": 7
+        },
+        {
+            "name": "stanley",
+            "email": "stanley@dm.com",
+            "id": 8
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "userId": 1,
+            "message": "Hello World",
+            "sendDate": "datetime"
+        }
+    ],
+    "news": [
+        {
+            "id": 1,
+            "userId": 1,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
+        },
+        {
+            "userId": 2,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+            "id": 2
+        },
+        {
+            "userId": 2,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+            "id": 3
+        }
+    ],
+    "friends": [
+        {
+            "connectionId": 1,
+            "userId": 1,
+            "otherfriendId": 2,
+            "accepted": true
+        },
+        {
+            "connectionId": 1,
+            "userId": 1,
+            "otherfriendId": 3,
+            "accepted": true
+        },
+        {
+            "connectionId": 1,
+            "userId": 1,
+            "otherfriendId": 4,
+            "accepted": true
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "userId": 1,
+            "task": "Get shit done",
+            "name": "Thing to do",
+            "targetCompletionDate": "datetime",
+            "completed": false
+        },
+        {
+            "userId": 2,
+            "task": "Get shit done",
+            "name": "Thing to do",
+            "targetCompletionDate": "datetime",
+            "completed": false,
+            "id": 2
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": ""
+        },
+        {
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 2
+        },
+        {
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 3
+        },
+        {
+            "userId": 2,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 4
+        },
+        {
+            "userId": 2,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 5
+        }
+    ]
 }

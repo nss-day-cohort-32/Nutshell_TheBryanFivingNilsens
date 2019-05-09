@@ -38,6 +38,7 @@ const API = {
     },
     getUserEvents: function (userId) {
         return fetch(`http://localhost:8088/events?userId=${userId}`)
+            .then(response => response.json())
     },
     addNews: function (obj) {
         return fetch("http://localhost:8088/news", {
@@ -59,7 +60,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    addTasks: function (obj) {
+    addTask: function (obj) {
         return fetch("http://localhost:8088/tasks", {
             method: "POST",
             headers: {

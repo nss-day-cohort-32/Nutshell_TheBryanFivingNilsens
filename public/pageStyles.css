@@ -64,7 +64,7 @@ color {
   display: flex;
   flex-direction: column;
   flex-grow: 4;
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
 }
 
 #news-container {
@@ -94,4 +94,47 @@ color {
 
 .hidden {
   display: none;
+}
+
+/* TASK PAGE STYLES */
+#form-elements {
+  display: inline;
+  text-align: center;
+  padding: 10px;
+}
+
+#form-elements > fieldset {
+  border: none;
+}
+
+.task-div {
+  width: 60%; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.item-div {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.action-div {
+  display: flex;
+  align-items: center;
+  border: 1px solid green;
+}
+
+.remove-btn {
+  min-height: 50px;
+  min-width: 50px;
+  margin: 10px;
+}
+
+.complete-check {
+  min-height: 50px;
+  min-width: 50px;
+  margin: 10px;
 }
