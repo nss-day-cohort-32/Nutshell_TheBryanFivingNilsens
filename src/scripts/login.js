@@ -5,10 +5,9 @@ const registerBtn = document.querySelector("#register-btn")
 const registerLink = document.querySelector("#register-link")
 
 
+
 const handleUser = {
-    login() {
-        const username = document.querySelector("#username").value
-        const email = document.querySelector("#email").value
+    login(username, email) {
         API.loginUser(username, email).then(response => {
             console.log(response.length)
             if (response.length === 0) {
@@ -16,9 +15,7 @@ const handleUser = {
             }
         })
     },
-    register() {
-        const username = document.querySelector("#username").value
-        const email = document.querySelector("#email").value
+    register(username, email) {
         const newUser = {
             name: username,
             email: email

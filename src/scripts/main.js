@@ -3,11 +3,14 @@ import handleUser from "./login"
 const loginBtn = document.querySelector("#login-btn")
 const registerLink = document.querySelector("#register-link")
 const registerBtn = document.querySelector("#register-btn")
-
+const username = document.querySelector("#username")
+const email = document.querySelector("#email")
 
 
 loginBtn.addEventListener("click", () => {
-    handleUser.login()
+    handleUser.login(username.value, email.value)
+    username.value = ""
+    email.value = ""
 })
 
 registerLink.addEventListener("click", (e) => {
@@ -15,5 +18,5 @@ registerLink.addEventListener("click", (e) => {
 })
 
 registerBtn.addEventListener("click", (e) => {
-    handleUser.register()
+    handleUser.register(username.value, email.value)
 })
