@@ -250,8 +250,8 @@ const API = {
         })
             .then(response => response.json())
     },
-    getFriendsList: function (userId) {
-        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=true&_expand=user`)
+    getFriendsList: function (userId, TorF) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=${TorF}&_expand=user`)
             .then(response => response.json())
     }
 }
