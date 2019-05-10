@@ -33,14 +33,22 @@ friendsContainer.addEventListener("click", (e) => {
     e.preventDefault()
     console.log(e)
     // handle remove friend
-    if (e.target.id === "friend-in-list") {
-        const friendEmail = document.querySelector("#friend-in-list-email")
-        const deleteFriendBtn = ocument.querySelector("#delete-friend")
-        friendEmail.classList.remove("hidden")
-        deleteFriendBtn.classList.remove("hidden")
+    if (e.target.className === "friendName") {
+        const friendDiv = e.target.nextElementSibling
+        friendDiv.classList.toggle("hidden")
     }
 })
 
+
+
+
+
+
+
+// const friendsListId = e.target.id.split("--")[1]
+// const friendListInfo = document.querySelectorAll(".friend-info")
+// const friendEmail = document.querySelector("#friend-in-list-email")
+// const deleteFriendBtn = document.querySelector("#delete-friend")
 
 
 

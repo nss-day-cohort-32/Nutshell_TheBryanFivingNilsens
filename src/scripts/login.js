@@ -1,5 +1,6 @@
 import API from "./dbCalls";
-import makeFriendsList from "./friendsList"
+import handleFriends from "./friendsList"
+
 
 const loginBtn = document.querySelector("#login-btn")
 const registerBtn = document.querySelector("#register-btn")
@@ -19,11 +20,12 @@ const handleUser = {
                 sessionStorage.setItem("activeUser", user[0].id)
                 API.getFriendsList(user[0].id, "true")
                     .then(friends => {
-                        makeFriendsList(friends)
+                        console.log(friends)
+                        handleFriends.makeFriendsList(friends)
                     })
                 API.getFriendsList(user[0].id, "false")
                     .then(friends => {
-                        makeFriendsList(friends)
+                        handleFriends.makeFriendRequestList(friends)
                     })
             }
         })
