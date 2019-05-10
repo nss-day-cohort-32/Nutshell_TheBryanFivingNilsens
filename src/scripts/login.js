@@ -1,11 +1,14 @@
 import API from "./dbCalls";
 import makeFriendsList from "./friendsList"
+import createFriendsNews from "./friendsNews";
+import createFriendsEvents from "./friendsEvents"
 
 const loginBtn = document.querySelector("#login-btn")
 const registerBtn = document.querySelector("#register-btn")
 const registerLink = document.querySelector("#register-link")
 const logOutBtn = document.querySelector("#logout")
 const mainDiv = document.querySelector("#primary-container")
+const loginDiv = document.querySelector("#login-container")
 
 const handleUser = {
     login(username, email) {
@@ -14,7 +17,7 @@ const handleUser = {
                 alert("username and email do not match")
             } else {
                 console.log(user[0].id)
-                mainDiv.innerHTML = ""
+                loginDiv.setAttribute("style", "display: none;")
                 logOutBtn.classList.remove("hidden")
                 sessionStorage.setItem("activeUser", user[0].id)
                 API.getFriendsList(user[0].id, "true")
@@ -25,6 +28,8 @@ const handleUser = {
                     .then(friends => {
                         makeFriendsList(friends)
                     })
+                createFriendsEvents()
+                createFriendsNews()
             }
         })
     },

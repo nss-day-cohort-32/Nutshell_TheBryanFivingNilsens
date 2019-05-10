@@ -1,16 +1,16 @@
 import API from "./dbCalls"
 
-function createNewsCards(news, container) {
-    const location = container;
+function createNewsCard(news, container) {
+    const location = document.querySelector(`${container}`);
     const frag = document.createDocumentFragment();
     const newsCard = document.createElement("div");
     newsCard.setAttribute("id", `news-${news.id}-card`);
     newsCard.setAttribute("class", "news-card");
 
-    const newsImgContainer = document.createElement("div"); newsImgContainer.setAttribute("class", "news-image-container");
+    // const newsImgContainer = document.createElement("div"); newsImgContainer.setAttribute("class", "news-image-container");
 
-    const image = document.createElement("img");
-    image.setAttribute("src", `${news.url}`);
+    // const image = document.createElement("img");
+    // image.setAttribute("src", `${news.url}`);
 
     const newsInfoContainer = document.createElement("div"); newsInfoContainer.setAttribute("class", "news-info-container");
 
@@ -26,9 +26,9 @@ function createNewsCards(news, container) {
     const newsDescr = document.createElement("p");
     newsDescr.innerText = `${news.description}`;
 
-    newsImgContainer.appendChild(image);
-    newsCard.appendChild(newsActionContainer);
-    newsCard.appendChild(newsImgContainer);
+    // newsImgContainer.appendChild(image);
+    // newsCard.appendChild(newsActionContainer);
+    // newsCard.appendChild(newsImgContainer);
     newsCard.appendChild(newsInfoContainer);
     newsInfoContainer.appendChild(newsName);
     newsInfoContainer.appendChild(newsDate);
@@ -40,11 +40,22 @@ function createNewsCards(news, container) {
 }
 
 const createFriendsNews = () => {
-    const $newsContainer = document.querySelector("#news-container")
-    const friendsNews = API.getFriendsNews(1)
-    console.log()
-    friendsNews.forEach(event => {
-        createNewsCards(event, $newsContainer)
+    API.getFriendsNews(sessionStorage.getItem("activeUser")).then(friendsNews => {
+
+        for (let i = 0; i < friendsNews.length; i++) {
+            if (friendsNews[i].news.length === 0) {
+                friendsNews.splice(i)
+            }
+        }
+        if (friendsNews.length !== 0) {
+            friendsNews.forEach(friend => {
+                let news = friend.news
+                console.log(news)
+                news.forEach(event => {
+                    createNewsCard(event, "#news-container")
+                })
+            })
+        }
     })
 }
 

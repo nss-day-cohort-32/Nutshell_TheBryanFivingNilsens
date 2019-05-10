@@ -107,6 +107,7 @@ color {
   flex-direction: column;
   /* border: 1px solid grey; */
   height: 50%;
+  background-color: red;
 }
 
 #events-container {

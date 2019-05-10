@@ -44,5 +44,3 @@ friendsContainer.addEventListener("click", (e) => {
 
 
 
-
-
