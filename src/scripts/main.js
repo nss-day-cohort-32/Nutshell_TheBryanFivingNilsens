@@ -71,4 +71,12 @@ registerBtn.addEventListener("click", (e) => {
 })
 
 tasks.buildTasks(2)
+// console.log(API.acceptFriends(1, "john"))
+
+
+
+
+
+
+
 
