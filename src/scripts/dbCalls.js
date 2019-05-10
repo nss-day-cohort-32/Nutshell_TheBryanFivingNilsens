@@ -38,6 +38,11 @@ const API = {
     },
     getUserEvents: function (userId) {
         return fetch(`http://localhost:8088/events?userId=${userId}`)
+            .then(response => response.json())
+    },
+    getSingleUserEvent: function (eventId) {
+        return fetch(`http://localhost:8088/events/${eventId}`)
+            .then(response => response.json())
     },
     addNews: function (obj) {
         return fetch("http://localhost:8088/news", {
@@ -52,6 +57,16 @@ const API = {
     addEvents: function (obj) {
         return fetch("http://localhost:8088/events", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(response => response.json())
+    },
+    editEvent: function (eventsId, obj) {
+        return fetch(`http://localhost:8088/events/${eventsId}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
