@@ -1,33 +1,59 @@
 import API from "./dbCalls";
+import makeFriendsList from "./friendsList"
 
 const loginBtn = document.querySelector("#login-btn")
 const registerBtn = document.querySelector("#register-btn")
 const registerLink = document.querySelector("#register-link")
-
-
+const logOutBtn = document.querySelector("#logout")
+const mainDiv = document.querySelector("#primary-container")
 
 const handleUser = {
     login(username, email) {
-        API.loginUser(username, email).then(response => {
-            console.log(response.length)
-            if (response.length === 0) {
+        API.loginUser(username, email).then(user => {
+            if (user.length === 0) {
                 alert("username and email do not match")
+            } else {
+                console.log(user[0].id)
+                mainDiv.innerHTML = ""
+                logOutBtn.classList.remove("hidden")
+                sessionStorage.setItem("activeUser", user[0].id)
+                API.getFriendsList(user[0].id, "true")
+                    .then(friends => {
+                        makeFriendsList(friends)
+                    })
+                API.getFriendsList(user[0].id, "false")
+                    .then(friends => {
+                        makeFriendsList(friends)
+                    })
             }
         })
     },
     register(username, email) {
         const newUser = {
-            name: username,
+            username: username,
             email: email
         }
 
-        API.addUser(newUser).then(response => console.log(response))
+        API.getAllUsers().then(users => {
+            if (users.find(user =>
+                username === user.username || email === user.email
+            ) !== undefined) {
+                alert("You are already a user")
+            } else {
+                API.addUser(newUser).then(newuserInfo => {
+                    handleUser.login(newuserInfo.username, newuserInfo.email)
+                })
+            }
+        })
+
     },
     makeRegistration() {
-        console.log("hello")
         loginBtn.className = "hidden"
         registerLink.className = "hidden"
         registerBtn.classList.remove("hidden")
+    },
+    logOut() {
+        sessionStorage.removeItem("activeUser")
     }
 }
 

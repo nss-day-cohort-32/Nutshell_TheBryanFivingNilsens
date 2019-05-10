@@ -21,24 +21,52 @@
       "id": 4
     },
     {
+<<<<<<< HEAD
       "name": "jim",
+=======
+      "username": "jim",
+>>>>>>> master
       "email": "jim@dm.com",
       "id": 5
     },
     {
+<<<<<<< HEAD
       "name": "dwight",
+=======
+      "username": "dwight",
+>>>>>>> master
       "email": "dwight@dm.com",
       "id": 6
     },
     {
+<<<<<<< HEAD
       "name": "andy",
+=======
+      "username": "andy",
+>>>>>>> master
       "email": "andy@dm.com",
       "id": 7
     },
     {
+<<<<<<< HEAD
       "name": "stanley",
       "email": "stanley@dm.com",
       "id": 8
+=======
+      "username": "stanley",
+      "email": "stanley@dm.com",
+      "id": 8
+    },
+    {
+      "username": "ryan",
+      "email": "thetemp@dm.com",
+      "id": 32
+    },
+    {
+      "username": "kelly",
+      "email": "kelly@dm.com",
+      "id": 33
+>>>>>>> master
     }
   ],
   "messages": [
@@ -77,6 +105,7 @@
   ],
   "friends": [
     {
+<<<<<<< HEAD
       "connectionId": 1,
       "userId": 1,
       "otherfriendId": 2,
@@ -93,6 +122,60 @@
       "userId": 1,
       "otherfriendId": 4,
       "accepted": true
+=======
+      "id": 1,
+      "srcUserId": 1,
+      "userId": 2,
+      "accepted": true
+    },
+    {
+      "id": 2,
+      "srcUserId": 1,
+      "userId": 3,
+      "accepted": true
+    },
+    {
+      "id": 3,
+      "srcUserId": 2,
+      "userId": 1,
+      "accepted": false
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 4
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 5
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 6
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 7
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 8
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 9
+>>>>>>> master
     }
   ],
   "tasks": [
@@ -142,7 +225,11 @@
       "id": 3
     },
     {
+<<<<<<< HEAD
       "userId": 1,
+=======
+      "userId": 2,
+>>>>>>> master
       "name": "party",
       "description": "its a party.",
       "eventDate": "datetime",
@@ -151,6 +238,7 @@
       "id": 4
     },
     {
+<<<<<<< HEAD
       "userId": null,
       "name": "Sausage Party w/ Jonah Hill duh",
       "description": "Lorem ipsum dolor amet enamel pin small batch vaporware, hell of microdosing typewriter bicycle rights. Polaroid celiac listicle vexillologist lomo migas YOLO fam single-origin coffee health goth. Marfa tousled 8-bit skateboard everyday carry af. Helvetica health goth quinoa slow-carb af.",
@@ -202,6 +290,14 @@
       "eventDate": "2015-09-12",
       "location": "My house",
       "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+=======
+      "userId": 2,
+      "name": "party",
+      "description": "its a party.",
+      "eventDate": "datetime",
+      "location": "My house",
+      "url": "",
+>>>>>>> master
       "id": 5
     }
   ]
