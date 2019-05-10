@@ -112,7 +112,7 @@ color {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
+  justify-content: center;
   background-color: white;
 }
 
@@ -129,14 +129,20 @@ color {
   padding-right: 10px;
 }
 
+.task-item .task-item-link {
+  text-decoration: none;
+  color: #2d7e7e;
+}
+
 .task-label .line-through {
   flex-grow: 2;
   margin-left: 0;
 }
 
 .date-span {
-  font-size: .8em;
+  font-size: .7em;
   font-weight: 400;
+  margin-left: 10px;
 }
 
 .remove-btn,
@@ -149,9 +155,13 @@ color {
   margin-left: 10px;
 }
 
-.complete-check:checked + .line-through {
+.complete-check:checked + .line-through > a {
   color: gray;
   font-weight: 400;
   text-decoration: line-through;
+}
+
+.complete-check:checked + .line-through > span {
+  display: none;
 }
 /* END TASK PAGE STYLES */

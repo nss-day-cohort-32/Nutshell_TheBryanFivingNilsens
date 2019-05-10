@@ -60,6 +60,16 @@ const API = {
         })
             .then(response => response.json())
     },
+    editTask: function (tasksId, obj) {
+        return fetch(`http://localhost:8088/tasks/${tasksId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(response => response.json())
+    },
     addTask: function (obj) {
         return fetch("http://localhost:8088/tasks", {
             method: "POST",

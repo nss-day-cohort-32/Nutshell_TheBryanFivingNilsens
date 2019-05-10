@@ -67,13 +67,18 @@ const tasks = {
         label.className = `task-label`;
 
         const dateSpan = document.createElement('span');
-        dateSpan.textContent = ` - complete by ${task.targetCompletionDate}`;
+        dateSpan.textContent = `complete by ${task.targetCompletionDate}`;
         dateSpan.className = 'date-span';
+
+        const taskItemLink = document.createElement('a');
+        taskItemLink.className = 'task-item-link';
+        taskItemLink.textContent = task.name;
 
         const taskItem = document.createElement('h4');
         taskItem.id = `task-item--${task.id}`;
         taskItem.className = `task-item line-through`;
-        taskItem.textContent = task.name;
+        // taskItem.textContent = task.name;
+        taskItem.append(taskItemLink);
         taskItem.append(dateSpan);
 
         const removeBtn = document.createElement('button');
@@ -83,7 +88,7 @@ const tasks = {
 
         const completeCheckbox = document.createElement('input');
         completeCheckbox.type = 'checkbox';
-        completeCheckbox.id = `complete - check--${task.id} `;
+        completeCheckbox.id = `complete-check--${task.id}`;
         completeCheckbox.className = 'complete-check';
 
         label.append(removeBtn, completeCheckbox, taskItem);

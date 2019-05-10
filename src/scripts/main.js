@@ -11,10 +11,9 @@ const registerBtn = document.querySelector("#register-btn")
 const username = document.querySelector("#username")
 const email = document.querySelector("#email")
 
+// JASON - TASK LISTENERS SECTION *********************************************
 // Primary Container Event Listener - Tasks
 primaryContainer.addEventListener('click', (e) => {
-    e.stopPropagation();
-    console.log(e)
     // Form - Save/Submit Button
     if (e.target.id === 'save-task-btn') {
         e.preventDefault()
@@ -29,22 +28,33 @@ primaryContainer.addEventListener('click', (e) => {
             })
     }
     // Task List Item - Checkbox
-    if (e.target.className === 'complete-target') {
+    if (e.target.className === 'complete-check') {
         if (e.target.checked) {
-            // update "completed": true
-            // userId, taskId, method "PATCH"
+            const taskId = e.target.id.split('--')[1];
+            console.log(taskId)
+            const obj = {
+                completed: true
+            }
+            API.editTask()
+            userId, taskId, method "PATCH"
         } else {
             // update "completed": false
             // userId, taskId, method "PATCH"
         }
     }
     // Task List Item Name - h4
+    if (e.target.className === 'task-item') {
+        e.preventDefault()
+        const itemId = e.target.id.split('--')[1]
+        console.log(itemId)
+    }
     // Task List - Remove Button
-
-
+    if (e.target.className === 'remove-btn') {
+        e.preventDefault()
+        console.log('Remove Button Clicked')
+    }
 })
-
-// ****************************************
+// END JASON TASK SECTION ***************************************************
 
 loginBtn.addEventListener("click", () => {
     handleUser.login(username.value, email.value)
