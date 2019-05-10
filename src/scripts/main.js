@@ -23,6 +23,12 @@ registerBtn.addEventListener("click", (e) => {
     handleUser.register(username.value, email.value)
 })
 
+console.log(API.acceptFriends(1, "john"))
 
-var obj1 = { accepted: false }
-console.log(API.editFriends(1, "nate", obj1));
+
+
+
+
+
+
+

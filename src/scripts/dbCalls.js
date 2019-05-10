@@ -4,11 +4,6 @@ Purpose: Database fetch calls
 Date: 5/8/19
 */
 
-const getFriends = (userId) => {
-    return fetch(`http://localhost:8088/friends?userId=${userId}`)
-        .then(response => response.json())
-}
-
 const API = {
     loginUser: function (username, email) {
         return fetch(`http://localhost:8088/users?username=${username}&email=${email}`)
@@ -38,6 +33,7 @@ const API = {
     },
     getUserEvents: function (userId) {
         return fetch(`http://localhost:8088/events?userId=${userId}`)
+            .then(response => response.json())
     },
     addNews: function (obj) {
         return fetch("http://localhost:8088/news", {
@@ -49,7 +45,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    addEvents: function (obj) {
+    addEvent: function (obj) {
         return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {
@@ -59,7 +55,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    addTasks: function (obj) {
+    addTask: function (obj) {
         return fetch("http://localhost:8088/tasks", {
             method: "POST",
             headers: {
@@ -69,35 +65,66 @@ const API = {
         })
             .then(response => response.json())
     },
-    getFriendsNews: function (userId) {
-        let friendsArray = []
-        getFriends(userId)
-            .then(reply => {
-                reply.forEach(freindObj => {
-                    var friend = freindObj.otherfriendId
-                    fetch(`http://localhost:8088/users/${friend}?_embed=news`)
+    addFriends: function (currentUserId, friendName) {
+        fetch(`http://localhost:8088/friends?srcUserId=${currentUserId}&_expand=user`)
+            .then(response => response.json())
+            .then(friends => {
+                if (friends.find(freind => freind.user.username === friendName) === undefined) {
+                    fetch(`http://localhost:8088/users?username=${friendName}`)
                         .then(response => response.json())
                         .then(reply => {
-                            friendsArray.push(reply)
+                            console.log(reply)
+                            let obj1 = {
+                                srcUserId: currentUserId,
+                                userId: reply[0].id,
+                                accepted: false
+                            }
+                            let obj2 = {
+                                srcUserId: reply[0].id,
+                                userId: currentUserId,
+                                accepted: false
+                            }
+                            fetch("http://localhost:8088/friends", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(obj1)
+                            })
+                            fetch("http://localhost:8088/friends", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(obj2)
+                            })
                         })
-                })
+                }
             })
-        return friendsArray
+    },
+    getFriendsNews: function (userId) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}`)
+            .then(response => response.json())
+            .then(friendList => {
+                const friendDetails = friendList.map(freindObj => {
+                    var friend = freindObj.userId
+                    return fetch(`http://localhost:8088/users/${friend}?_embed=news`)
+                        .then(response => response.json())
+                })
+                return Promise.all(friendDetails)
+            })
     },
     getFriendsEvents: function (userId) {
-        let friendsArray = []
-        getFriends(userId)
-            .then(reply => {
-                reply.forEach(freindObj => {
-                    var friend = freindObj.otherfriendId
-                    fetch(`http://localhost:8088/users/${friend}?_embed=events`)
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}`)
+            .then(response => response.json())
+            .then(friendList => {
+                const friendDetails = friendList.map(freindObj => {
+                    var friend = freindObj.userId
+                    return fetch(`http://localhost:8088/users/${friend}?_embed=events`)
                         .then(response => response.json())
-                        .then(reply => {
-                            friendsArray.push(reply)
-                        })
                 })
+                return Promise.all(friendDetails)
             })
-        return friendsArray
     },
     editNews: function (newsId, obj) {
         return fetch(`http://localhost:8088/news/${newsId}`, {
@@ -109,7 +136,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    editEvents: function (eventsId, obj) {
+    editEvent: function (eventsId, obj) {
         return fetch(`http://localhost:8088/events/${eventsId}`, {
             method: "PATCH",
             headers: {
@@ -119,7 +146,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    editTasks: function (tasksId, obj) {
+    editTask: function (tasksId, obj) {
         return fetch(`http://localhost:8088/tasks/${tasksId}`, {
             method: "PATCH",
             headers: {
@@ -129,45 +156,38 @@ const API = {
         })
             .then(response => response.json())
     },
-    editFriends: function (userId, friendUsername, obj) {
-        getFriends(userId)
+    acceptFriends: function (userId, friendUsername) {
+        let obj = { accepted: true }
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=false&_expand=user`)
+            .then(response => response.json())
             .then(reply => {
-                reply.forEach(freindObj => {
-                    var friend = freindObj.otherfriendId
-                    fetch(`http://localhost:8088/users/${friend}`)
+                console.log("reply", reply)
+                if (reply.find(freind => freind.user.username === friendUsername) != undefined) {
+                    fetch(`http://localhost:8088/friends?userId=${reply[0].user.id}&srcUserId=${userId}`)
                         .then(response => response.json())
                         .then(reply => {
-                            if (reply.username === friendUsername) {
-                                fetch(`http://localhost:8088/friends?_userId=${userId}&otherfriendId=${reply.id}`)
-                                    .then(response => response.json())
-                                    .then(reply => {
-                                        var recordId = reply[0].id
-                                        fetch(`http://localhost:8088/friends/${recordId}`, {
-                                            method: "PATCH",
-                                            headers: {
-                                                "Content-Type": "application/json"
-                                            },
-                                            body: JSON.stringify(obj)
-                                        })
-                                            .then(response => response.json())
-                                    })
-                                fetch(`http://localhost:8088/friends?_userId=${reply.id}&otherfriendId=${userId}`)
-                                    .then(response => response.json())
-                                    .then(reply => {
-                                        var recordId = reply[0].id
-                                        fetch(`http://localhost:8088/friends/${recordId}`, {
-                                            method: "PATCH",
-                                            headers: {
-                                                "Content-Type": "application/json"
-                                            },
-                                            body: JSON.stringify(obj)
-                                        })
-                                            .then(response => response.json())
-                                    })
-                            }
-
+                            var recordId = reply[0].id
+                            fetch(`http://localhost:8088/friends/${recordId}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(obj)
+                            })
                         })
-                })
+                    fetch(`http://localhost:8088/friends?userId=${userId}&srcUserId=${reply[0].user.id}`)
+                        .then(response => response.json())
+                        .then(reply => {
+                            var recordId = reply[0].id
+                            fetch(`http://localhost:8088/friends/${recordId}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(obj)
+                            })
+                        })
+                }
             })
     },
     deleteNews: function (newsId) {
@@ -188,7 +208,7 @@ const API = {
         })
             .then(response => response.json())
     },
-    deleteTasks: function (tasksId) {
+    deleteTask: function (tasksId) {
         return fetch(`http://localhost:8088/tasks/${tasksId}`, {
             method: "DELETE",
             headers: {
@@ -231,22 +251,10 @@ const API = {
             .then(response => response.json())
     },
     getFriendsList: function (userId) {
-        let friendsArray = []
-        getFriends(userId)
-            .then(reply => {
-                reply.forEach(freindObj => {
-                    var friend = freindObj.otherfriendId
-                    fetch(`http://localhost:8088/users/${friend}`)
-                        .then(response => response.json())
-                        .then(reply => {
-                            friendsArray.push(reply)
-                        })
-                })
-            })
-        return friendsArray
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=true&_expand=user`)
+            .then(response => response.json())
     }
 }
-
 
 
 

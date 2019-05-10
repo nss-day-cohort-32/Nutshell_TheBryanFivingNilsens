@@ -70,21 +70,27 @@
   "friends": [
     {
       "id": 1,
-      "userId": 1,
-      "otherfriendId": 2,
-      "accepted": false
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "otherfriendId": 3,
+      "srcUserId": 1,
+      "userId": 2,
       "accepted": true
     },
     {
       "id": 3,
-      "userId": 2,
-      "otherfriendId": 1,
-      "accepted": false
+      "srcUserId": 2,
+      "userId": 1,
+      "accepted": true
+    },
+    {
+      "srcUserId": 1,
+      "userId": 3,
+      "accepted": true,
+      "id": 4
+    },
+    {
+      "srcUserId": 3,
+      "userId": 1,
+      "accepted": true,
+      "id": 5
     }
   ],
   "tasks": [
@@ -93,7 +99,7 @@
       "task": "Get shit done",
       "name": "Thing to do",
       "targetCompletionDate": "datetime",
-      "complete": false,
+      "completed": false,
       "id": 2
     }
   ],
