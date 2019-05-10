@@ -27,11 +27,11 @@ const eventsPage = {
         eventActionContainer.setAttribute("class", "event-action-container");
 
         const editButton = document.createElement("i");
-        editButton.setAttribute("class", "fas fa-pen edit-btn");
-        editButton.setAttribute("id", `edit-btn--${event.id}`);
+        editButton.setAttribute("class", "fas fa-pen edit-event-btn");
+        editButton.setAttribute("id", `event-edit-btn--${event.id}`);
         const deleteButton = document.createElement("i")
-        deleteButton.setAttribute("class", "far fa-times-circle delete-btn");
-        deleteButton.setAttribute("id", `delete-btn--${event.id}`);
+        deleteButton.setAttribute("class", "far fa-times-circle event-delete-btn");
+        deleteButton.setAttribute("id", `event-delete-btn--${event.id}`);
 
         const eventImgContainer = document.createElement("div"); eventImgContainer.setAttribute("class", "event-image-container");
 
@@ -152,7 +152,7 @@ const eventsPage = {
         location.innerHTML = "";
         eventsPage.renderEventForm();
         const submitButton = document.querySelector("#submit-new-event");
-        submitButton.setAttribute("id", "edited-submission-btn");
+        submitButton.setAttribute("id", "edited-event-submission-btn");
         API.getSingleUserEvent(eventId).then(results => {
             console.log(results);
             for (let key in results) {
