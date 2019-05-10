@@ -46,14 +46,9 @@
       "id": 32
     },
     {
-      "username": "ryan",
-      "email": "thetemp@dm.com",
-      "id": 33
-    },
-    {
       "username": "kelly",
       "email": "kelly@dm.com",
-      "id": 34
+      "id": 33
     }
   ],
   "messages": [
@@ -92,22 +87,58 @@
   ],
   "friends": [
     {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 2,
+      "id": 1,
+      "srcUserId": 1,
+      "userId": 2,
       "accepted": true
     },
     {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 3,
+      "id": 2,
+      "srcUserId": 1,
+      "userId": 3,
       "accepted": true
     },
     {
-      "connectionId": 1,
+      "id": 3,
+      "srcUserId": 2,
       "userId": 1,
-      "otherfriendId": 4,
-      "accepted": true
+      "accepted": false
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 4
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 5
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 6
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 7
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 8
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 9
     }
   ],
   "tasks": [

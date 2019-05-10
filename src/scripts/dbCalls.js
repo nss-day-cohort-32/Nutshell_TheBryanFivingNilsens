@@ -99,19 +99,9 @@ const API = {
             })
         return friendsArray
     },
-    getFriendsList: function (userId) {
-        getFriends(userId)
-            .then(friendList => {
-                const friendDetails = friendList.map(freindObj => {
-                    var friend = freindObj.otherfriendId
-                    return fetch(`http://localhost:8088/users/${friend}`)
-                        .then(response => response.json())
-                        .then(friendInfo => {
-                            console.log(friendInfo)
-                        })
-                })
-                console.log(friendDetails)
-            })
+    getFriendsList: function (userId, TorF) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=${TorF}&_expand=user`)
+            .then(response => response.json())
     }
 }
 
