@@ -19,27 +19,32 @@ primaryContainer.addEventListener('click', (e) => {
         e.preventDefault()
         const taskName = document.querySelector('#task-input');
         const completionDate = document.querySelector('#task-completion-date');
+        // Format date
+        const formattedDate = tasks.saveTheDate(completionDate.value);
         // Create new task object
-        const newTask = tasks.createNewTaskObject(2, taskName.value, completionDate.value);
+        const newTask = tasks.createNewTaskObject(2, taskName.value, formattedDate);
+        // Reset input fields
+        taskName.value = '';
+        completionDate.value = '';
         // Save new task to db
         API.addTask(newTask)
             .then(newTask => {
                 tasks.addToTaskList(newTask)
             })
     }
-    // Task List Item - Checkbox
+    // Task List Item - Checkbox (create true/false object to patch)
     if (e.target.className === 'complete-check') {
+        const taskId = e.target.id.split('--')[1];
         if (e.target.checked) {
-            const taskId = e.target.id.split('--')[1];
-            console.log(taskId)
-            const obj = {
+            const trueObj = {
                 completed: true
             }
-            API.editTask()
-            // userId, taskId, method "PATCH"
+            API.editTask(taskId, trueObj);
         } else {
-            // update "completed": false
-            // userId, taskId, method "PATCH"
+            const falseObj = {
+                completed: false
+            }
+            API.editTask(taskId, falseObj);
         }
     }
     // Task List Item Name - h4

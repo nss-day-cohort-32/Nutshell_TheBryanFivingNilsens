@@ -146,8 +146,8 @@ const API = {
         })
             .then(response => response.json())
     },
-    editTask: function (tasksId, obj) {
-        return fetch(`http://localhost:8088/tasks/${tasksId}`, {
+    editTask: function (taskId, obj) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

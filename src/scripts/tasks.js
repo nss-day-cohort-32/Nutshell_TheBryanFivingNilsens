@@ -104,6 +104,13 @@ const tasks = {
     },
     deleteTask() {
 
+    },
+    saveTheDate(date) {
+        const dateArray = date.split('-');
+        const year = dateArray.shift();
+        dateArray.push(year);
+        const formattedDate = dateArray.join('-');
+        return formattedDate
     }
 }
 
