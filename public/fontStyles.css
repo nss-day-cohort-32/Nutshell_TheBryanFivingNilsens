@@ -49,12 +49,21 @@ h1, h2, h3 {
     margin-right: 40px;
     margin-top: 40px;
   }
-  
-  #links-container a:active,  
+
+  #links-container a:active,
   #links-container a:hover
   {
     border-bottom: 1.5px solid #c9eddc;
     margin-bottom: 35px;
+    overflow: hidden;
+  }
+
+  #links-container a:active::after,
+  #links-container a:hover::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    margin-bottom: -35px;
   }
 
   #top-nav a {

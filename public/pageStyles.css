@@ -44,6 +44,7 @@ color {
   align-content: flex-end;
   flex-grow: 4;
   justify-content: flex-end;
+  overflow: hidden;
 }
 
 
