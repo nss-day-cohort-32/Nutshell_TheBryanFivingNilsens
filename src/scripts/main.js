@@ -1,9 +1,9 @@
 
 import handleUser from "./login"
-import API from "./dbCalls";
+import API from "./dbCalls"
 
 const loginContainer = document.querySelector("#login-container")
-const friendsContainer = document.querySelector("friends-container")
+const friendsContainer = document.querySelector("#friends-container")
 const username = document.querySelector("#username")
 const email = document.querySelector("#email")
 
@@ -27,4 +27,20 @@ loginContainer.addEventListener("click", (e) => {
         handleUser.logOut()
     }
 })
+
+friendsContainer.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log(e)
+    // handle remove friend
+    if (e.target.id === "friend-in-list") {
+        console.log(e.target)
+    }
+})
+
+
+
+
+
+
+
 

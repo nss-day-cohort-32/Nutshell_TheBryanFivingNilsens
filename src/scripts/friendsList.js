@@ -3,10 +3,9 @@ const friendsDiv = document.querySelector("#friend-list")
 const makeFriendsList = (friends) => {
     friends.forEach(friend => {
         let addFriend = `
-            <p>${friend.user.username}</p>
-            <p class="hidden">${friend.user.email}
-            <button id="remove-friend-btn--${friend.user.id}">Remove Friend>
-            </p>
+            <p id="friend-in-list">${friend.user.username}</p>
+            <p class="hidden">${friend.user.email}</p>
+            <button id="delete-friend" class="hidden deleteFriend--${friend.user.id}">Register</button>
         `
         friendsDiv.innerHTML += addFriend
     })
