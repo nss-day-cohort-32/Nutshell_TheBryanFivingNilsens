@@ -1,4 +1,4 @@
-/* 
+/*
 font-family: 'Crimson Text', serif; = 400,400i,600,600i,700,700i
 font-family: 'Work Sans', sans-serif; = 200,300,400,500,600,700,800,900
 
@@ -23,7 +23,7 @@ color {
 
 #top-nav {
   width: 100%;
-  background-color: #3e8989; 
+  background-color: #3e8989;
   height: 100px;
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@ color {
 #page-container {
   display: flex;
   min-height: 1000px;
-  background-color:rgb(230, 233, 236); 
+  background-color:rgb(230, 233, 236);
 }
 
 #friends-container {
@@ -67,6 +67,40 @@ color {
   flex-grow: 4;
   /* border: 1px solid grey; */
 }
+
+/* begin nf-login-container */
+
+#login-container {
+  background-color: #3e8989;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 40%;
+  margin-top: 10%;
+  border: 4px solid #1f5858;
+  border-radius: 8px;
+  padding: 5%;
+  text-align: center
+}
+
+#login-container * {
+  padding: 1%;
+  margin-top: 1%
+}
+
+#login-btn {
+  align-self: center;
+  margin-top: 8%;
+  width: 40%
+}
+
+#register-btn {
+  align-self: center;
+  margin-top: 8%;
+  width: 40%
+}
+
+/* end nf-login-container */
 
 #news-container {
   display: flex;
