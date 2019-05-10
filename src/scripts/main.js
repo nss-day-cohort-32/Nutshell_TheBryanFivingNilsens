@@ -13,7 +13,9 @@ const email = document.querySelector("#email")
 
 // Primary Container Event Listener - Tasks
 primaryContainer.addEventListener('click', (e) => {
-
+    e.stopPropagation();
+    console.log(e)
+    // Form - Save/Submit Button
     if (e.target.id === 'save-task-btn') {
         e.preventDefault()
         const taskName = document.querySelector('#task-input');
@@ -26,6 +28,20 @@ primaryContainer.addEventListener('click', (e) => {
                 tasks.addToTaskList(newTask)
             })
     }
+    // Task List Item - Checkbox
+    if (e.target.className === 'complete-target') {
+        if (e.target.checked) {
+            // update "completed": true
+            // userId, taskId, method "PATCH"
+        } else {
+            // update "completed": false
+            // userId, taskId, method "PATCH"
+        }
+    }
+    // Task List Item Name - h4
+    // Task List - Remove Button
+
+
 })
 
 // ****************************************

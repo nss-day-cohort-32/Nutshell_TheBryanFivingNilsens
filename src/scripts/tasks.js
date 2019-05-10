@@ -34,6 +34,7 @@ const tasks = {
                     <label for="task-completion-date">Complete Task By: </label>
                     <input type="date" name="task-completion-date" id="task-completion-date" required>
                     <input id="save-task-btn" type="submit" value="Save Task">
+                    <input id="update-task-btn" type="submit" class="hidden" value="Save Updated Task">
                 </fieldset>
             </div>
             `;
@@ -62,34 +63,42 @@ const tasks = {
         taskDiv.id = `task-div--${task.id}`;
         taskDiv.className = 'task-div';
 
-        const itemDiv = document.createElement('div');
-        itemDiv.id = `item-div--${task.id}`;
-        itemDiv.className = 'item-div';
+        const label = document.createElement('label');
+        label.className = `task-label`;
 
-        const actionDiv = document.createElement('div');
-        actionDiv.id = `action-div--${task.id}`;
-        actionDiv.className = 'action-div';
+        const dateSpan = document.createElement('span');
+        dateSpan.textContent = ` - complete by ${task.targetCompletionDate}`;
+        dateSpan.className = 'date-span';
 
         const taskItem = document.createElement('h4');
         taskItem.id = `task-item--${task.id}`;
-        taskItem.className = `task-item`;
+        taskItem.className = `task-item line-through`;
         taskItem.textContent = task.name;
+        taskItem.append(dateSpan);
 
         const removeBtn = document.createElement('button');
-        removeBtn.id = `remove-btn--${task.id}`;
+        removeBtn.id = `remove-btn--${task.id} `;
         removeBtn.className = 'remove-btn';
         removeBtn.textContent = 'X';
 
         const completeCheckbox = document.createElement('input');
         completeCheckbox.type = 'checkbox';
-        completeCheckbox.id = `complete-check--${task.id}`;
+        completeCheckbox.id = `complete - check--${task.id} `;
         completeCheckbox.className = 'complete-check';
 
-        itemDiv.append(taskItem);
-        actionDiv.append(removeBtn, completeCheckbox);
-        taskDiv.append(itemDiv, actionDiv);
+        label.append(removeBtn, completeCheckbox, taskItem);
+        taskDiv.append(label);
 
         renderToDom(taskListContainer, taskDiv);
+    },
+    editTask() {
+
+    },
+    updateTask() {
+
+    },
+    deleteTask() {
+
     }
 }
 
