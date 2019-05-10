@@ -1,6 +1,6 @@
 
 import handleUser from "./login"
-import API from "./dbCalls";
+import API from "./dbCalls"
 
 const loginBtn = document.querySelector("#login-btn")
 const registerLink = document.querySelector("#register-link")
@@ -23,4 +23,12 @@ registerBtn.addEventListener("click", (e) => {
     handleUser.register(username.value, email.value)
 })
 
-console.log(API.getUserNews(1));
+console.log(API.acceptFriends(1, "john"))
+
+
+
+
+
+
+
+

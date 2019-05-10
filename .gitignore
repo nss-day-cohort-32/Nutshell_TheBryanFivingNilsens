@@ -10,3 +10,4 @@ obj
 .vscode
 dist
 src/scripts/keys.js
+api
