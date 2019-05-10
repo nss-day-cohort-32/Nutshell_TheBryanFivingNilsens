@@ -76,3 +76,12 @@ primaryContainer.addEventListener("click", (e) => {
         eventsPage.newEventSuccessMsg();
     }
 })
+console.log(API.acceptFriends(1, "john"))
+
+
+
+
+
+
+
+
