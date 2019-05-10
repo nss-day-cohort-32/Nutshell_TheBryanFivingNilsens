@@ -1,222 +1,256 @@
 {
-  "users": [
-    {
-      "username": "sean",
-      "email": "sean@glavin.us",
-      "id": 1
-    },
-    {
-      "username": "nate",
-      "email": "nate@google.com",
-      "id": 2
-    },
-    {
-      "username": "john",
-      "email": "john@google.com",
-      "id": 3
-    },
-    {
-      "username": "bill",
-      "email": "bill@google.com",
-      "id": 4
-    },
-    {
-      "name": "jim",
-      "email": "jim@dm.com",
-      "id": 5
-    },
-    {
-      "name": "dwight",
-      "email": "dwight@dm.com",
-      "id": 6
-    },
-    {
-      "name": "andy",
-      "email": "andy@dm.com",
-      "id": 7
-    },
-    {
-      "name": "stanley",
-      "email": "stanley@dm.com",
-      "id": 8
-    }
-  ],
-  "messages": [
-    {
-      "id": 1,
-      "userId": 1,
-      "message": "Hello World",
-      "sendDate": "datetime"
-    }
-  ],
-  "news": [
-    {
-      "id": 1,
-      "userId": 1,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
-    },
-    {
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-      "id": 3
-    }
-  ],
-  "friends": [
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 2,
-      "accepted": true
-    },
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 3,
-      "accepted": true
-    },
-    {
-      "connectionId": 1,
-      "userId": 1,
-      "otherfriendId": 4,
-      "accepted": true
-    }
-  ],
-  "tasks": [
-    {
-      "id": 1,
-      "userId": 1,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "completed": false
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "01-24-2019",
-      "completed": false,
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "name": "Build A Task Form",
-      "targetCompletionDate": "2019-05-09",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "name": "Piss in Nate's thermos",
-      "targetCompletionDate": "2019-05-09",
-      "completed": true,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "name": "Tell Nate you're kidding",
-      "targetCompletionDate": "2019-05-10",
-      "completed": true,
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "name": "Walk dogs",
-      "targetCompletionDate": "05-10-2019",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "name": "Clear input fields",
-      "targetCompletionDate": "05-10-2019",
-      "completed": false,
-      "id": 10
-    }
-  ],
-  "events": [
-    {
-      "id": 1,
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": ""
-    },
-    {
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
-      "location": "My house",
-      "url": "",
-      "id": 5
-    }
-  ]
+    "users": [
+        {
+            "username": "sean",
+            "email": "sean@glavin.us",
+            "id": 1
+        },
+        {
+            "username": "nate",
+            "email": "nate@google.com",
+            "id": 2
+        },
+        {
+            "username": "john",
+            "email": "john@google.com",
+            "id": 3
+        },
+        {
+            "username": "bill",
+            "email": "bill@google.com",
+            "id": 4
+        },
+        {
+            "username": "jim",
+            "email": "jim@dm.com",
+            "id": 5
+        },
+        {
+            "username": "dwight",
+            "email": "dwight@dm.com",
+            "id": 6
+        },
+        {
+            "username": "andy",
+            "email": "andy@dm.com",
+            "id": 7
+        },
+        {
+            "username": "stanley",
+            "email": "stanley@dm.com",
+            "id": 8
+        },
+        {
+            "username": "ryan",
+            "email": "thetemp@dm.com",
+            "id": 32
+        },
+        {
+            "username": "kelly",
+            "email": "kelly@dm.com",
+            "id": 33
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "userId": 1,
+            "message": "Hello World",
+            "sendDate": "datetime"
+        }
+    ],
+    "news": [
+        {
+            "id": 1,
+            "userId": 1,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
+        },
+        {
+            "userId": 2,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+            "id": 2
+        },
+        {
+            "userId": 2,
+            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
+            "dateAdded": "datetime",
+            "title": "House Democrats aim -- and train -- for more air time on Fox News",
+            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+            "id": 3
+        }
+    ],
+    "friends": [
+        {
+            "id": 1,
+            "srcUserId": 1,
+            "userId": 2,
+            "accepted": true
+        },
+        {
+            "id": 2,
+            "srcUserId": 1,
+            "userId": 3,
+            "accepted": true
+        },
+        {
+            "id": 3,
+            "srcUserId": 2,
+            "userId": 1,
+            "accepted": false
+        },
+        {
+            "srcUserId": 1,
+            "userId": 4,
+            "accepted": false,
+            "id": 4
+        },
+        {
+            "srcUserId": 4,
+            "userId": 1,
+            "accepted": false,
+            "id": 5
+        },
+        {
+            "srcUserId": 1,
+            "userId": 4,
+            "accepted": false,
+            "id": 6
+        },
+        {
+            "srcUserId": 4,
+            "userId": 1,
+            "accepted": false,
+            "id": 7
+        },
+        {
+            "srcUserId": 1,
+            "userId": 4,
+            "accepted": false,
+            "id": 8
+        },
+        {
+            "srcUserId": 4,
+            "userId": 1,
+            "accepted": false,
+            "id": 9
+        }
+    ],
+    "tasks": [
+        {
+            "userId": 2,
+            "name": "Tackle Edit Function",
+            "targetCompletionDate": "05-10-2019",
+            "completed": false,
+            "id": 1
+        },
+        {
+            "userId": 2,
+            "name": "Wire up update",
+            "targetCompletionDate": "05-10-2019",
+            "completed": false,
+            "id": 2
+        },
+        {
+            "userId": 2,
+            "name": "Adjust task form size",
+            "targetCompletionDate": "05-10-2019",
+            "completed": false,
+            "id": 3
+        },
+        {
+            "userId": 2,
+            "name": "Add circle check icons",
+            "targetCompletionDate": "05-13-2019",
+            "completed": false,
+            "id": 4
+        },
+        {
+            "userId": 2,
+            "name": "Add remove icon",
+            "targetCompletionDate": "05-13-2019",
+            "completed": false,
+            "id": 5
+        },
+        {
+            "userId": 2,
+            "name": "Incomplete fileds warning",
+            "targetCompletionDate": "05-13-2019",
+            "completed": false,
+            "id": 6
+        },
+        {
+            "userId": 2,
+            "name": "Dummy Task to Edit",
+            "targetCompletionDate": "05-13-2019",
+            "completed": false,
+            "id": 7
+        },
+        {
+            "userId": 2,
+            "name": "Dummy task to delete",
+            "targetCompletionDate": "05-13-2019",
+            "completed": false,
+            "id": 8
+        },
+        {
+            "userId": 2,
+            "name": "Tasks should reflect state on load",
+            "targetCompletionDate": "05-13-2019",
+            "completed": true,
+            "id": 9
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": ""
+        },
+        {
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 2
+        },
+        {
+            "userId": 1,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 3
+        },
+        {
+            "userId": 2,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 4
+        },
+        {
+            "userId": 2,
+            "name": "party",
+            "description": "its a party.",
+            "eventDate": "datetime",
+            "location": "My house",
+            "url": "",
+            "id": 5
+        }
+    ]
 }

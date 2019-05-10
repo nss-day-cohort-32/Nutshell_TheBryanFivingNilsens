@@ -5,11 +5,41 @@ import tasks from "./tasks"
 
 const primaryContainer = document.querySelector("#primary-container")
 
-const loginBtn = document.querySelector("#login-btn")
-const registerLink = document.querySelector("#register-link")
-const registerBtn = document.querySelector("#register-btn")
+const loginContainer = document.querySelector("#login-container")
+const friendsContainer = document.querySelector("#friends-container")
 const username = document.querySelector("#username")
 const email = document.querySelector("#email")
+
+// LOGIN - LOGIN LISTENER
+loginContainer.addEventListener("click", (e) => {
+    e.preventDefault()
+    //handle login
+    if (e.target.id === "login-btn") {
+        handleUser.login(username.value, email.value)
+        username.value = ""
+        email.value = ""
+        //regigister link
+    } else if (e.target.id === "register-link") {
+        handleUser.makeRegistration()
+        //register user
+    } else if (e.target.id === "register-btn") {
+        handleUser.register(username.value, email.value)
+        username.value = ""
+        email.value = ""
+    } else if (e.target.id === "logout") {
+        handleUser.logOut()
+    }
+})
+
+// FRIENDS LISTENER
+friendsContainer.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log(e)
+    // handle remove friend
+    if (e.target.id === "friend-in-list") {
+        console.log(e.target)
+    }
+})
 
 // JASON - TASK LISTENERS SECTION *********************************************
 // Primary Container Event Listener - Tasks
@@ -56,27 +86,16 @@ primaryContainer.addEventListener('click', (e) => {
     // Task List - Remove Button
     if (e.target.className === 'remove-btn') {
         e.preventDefault()
-        console.log('Remove Button Clicked')
+        const taskId = e.target.id.split('--')[1];
+        // Delete task from database
+        // API.deleteTask(taskId)
+        tasks.removeTask(taskId);
     }
 })
 // END JASON TASK SECTION ***************************************************
 
-loginBtn.addEventListener("click", () => {
-    handleUser.login(username.value, email.value)
-    username.value = ""
-    email.value = ""
-})
-
-registerLink.addEventListener("click", (e) => {
-    handleUser.makeRegistration()
-})
-
-registerBtn.addEventListener("click", (e) => {
-    handleUser.register(username.value, email.value)
-})
-
 tasks.buildTasks(2)
-// console.log(API.acceptFriends(1, "john"))
+
 
 
 

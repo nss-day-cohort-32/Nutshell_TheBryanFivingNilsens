@@ -90,6 +90,9 @@ const tasks = {
         completeCheckbox.type = 'checkbox';
         completeCheckbox.id = `complete-check--${task.id}`;
         completeCheckbox.className = 'complete-check';
+        if (task.completed) {
+            completeCheckbox.checked = true;
+        }
 
         label.append(removeBtn, completeCheckbox, taskItem);
         taskDiv.append(label);
@@ -102,15 +105,16 @@ const tasks = {
     updateTask() {
 
     },
-    deleteTask() {
-
+    removeTask(taskId) {
+        const taskToRemove = document.querySelector(`#task-div--${taskId}`);
+        taskToRemove.parentNode.removeChild(taskToRemove);
     },
     saveTheDate(date) {
         const dateArray = date.split('-');
         const year = dateArray.shift();
         dateArray.push(year);
         const formattedDate = dateArray.join('-');
-        return formattedDate
+        return formattedDate;
     }
 }
 
