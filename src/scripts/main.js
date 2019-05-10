@@ -8,6 +8,7 @@ const username = document.querySelector("#username")
 const email = document.querySelector("#email")
 
 
+
 loginContainer.addEventListener("click", (e) => {
     e.preventDefault()
     //handle login
@@ -33,7 +34,10 @@ friendsContainer.addEventListener("click", (e) => {
     console.log(e)
     // handle remove friend
     if (e.target.id === "friend-in-list") {
-        console.log(e.target)
+        const friendEmail = document.querySelector("#friend-in-list-email")
+        const deleteFriendBtn = ocument.querySelector("#delete-friend")
+        friendEmail.classList.remove("hidden")
+        deleteFriendBtn.classList.remove("hidden")
     }
 })
 
