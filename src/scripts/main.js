@@ -36,7 +36,7 @@ primaryContainer.addEventListener('click', (e) => {
                 completed: true
             }
             API.editTask()
-            userId, taskId, method "PATCH"
+            // userId, taskId, method "PATCH"
         } else {
             // update "completed": false
             // userId, taskId, method "PATCH"
