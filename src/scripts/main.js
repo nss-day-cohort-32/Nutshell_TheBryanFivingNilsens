@@ -43,9 +43,7 @@ friendsContainer.addEventListener("click", (e) => {
     }
 })
 
-registerBtn.addEventListener("click", (e) => {
-    handleUser.register(username.value, email.value)
-})
+
 
 myEventsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
@@ -57,7 +55,7 @@ myEventsBtn.addEventListener("click", (e) => {
 myNewsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
     primary.innerHTML = "";
-    newsPage.getMyNews(2);
+    newsPage.getUserNews(2);
     newsPage.createAddNewsButton();
 })
 
@@ -126,7 +124,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (event.target.id === "create-new-news-btn") {
         const primary = document.querySelector("#primary-container");
         primary.innerHTML = "";
-        newsPage.renderEventForm();
+        newsPage.renderNewsForm();
         const submitButton = document.querySelector("#submit-new-news");
         submitButton.setAttribute("id", "new-submission-btn");
     }
@@ -137,7 +135,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.id === "new-news-submission-btn") {
         e.preventDefault();
         const newNewsObj = newsPage.captureNewNewsData();
-        API.addNews(newEventObj);
+        API.addNews(newNewsObj);
         newsPage.newNewsSuccessMsg();
     }
 })
@@ -147,7 +145,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("edit-news-btn")) {
         let itemArray = e.target.id.split("--");
         let targetId = itemArray[1];
-        newssPage.populateExistingNewsData(5);
+        newsPage.populateExistingNewsData(2);
     }
 })
 
@@ -165,14 +163,13 @@ primaryContainer.addEventListener("click", (e) => {
 
 // Delete entry
 primaryContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete-news-btn")) {
+    if (e.target.classList.contains("news-delete-btn")) {
         let itemArray = e.target.id.split("--");
         let targetId = itemArray[1];
         if (confirm("Are you sure you want to delete this news item?") == true) {
             API.deleteNews(targetId).then(() => {
                 newssPage.newNewsSuccessMsg();
             })
-
         }
     }
 })

@@ -39,6 +39,10 @@ const API = {
         return fetch(`http://localhost:8088/events/${eventId}`)
             .then(response => response.json())
     },
+    getSingleUserNews: function (newsId) {
+        return fetch(`http://localhost:8088/news/${newsId}`)
+            .then(response => response.json())
+    },
     addNews: function (obj) {
         return fetch("http://localhost:8088/news", {
             method: "POST",

@@ -9,18 +9,19 @@ import API from "./dbCalls";
 
 
 const newsPage = {
-    getMyNews(userId) {
+    getUserNews(userId) {
         API.getUserNews(userId).then(news => {
-            news.forEach(news => {
-                newsPage.createEventCards(news);
+            console.log(news);
+            news.forEach(newz => {
+                newsPage.createNewsCards(newz);
             })
         })
     },
-    createEventCards(news) {
+    createNewsCards(newz) {
         const location = document.querySelector("#primary-container");
         const frag = document.createDocumentFragment();
         const newsCard = document.createElement("div");
-        newsCard.setAttribute("id", `news-${news.id}-card`);
+        newsCard.setAttribute("id", `news-${newz.id}-card`);
         newsCard.setAttribute("class", "news-card");
 
         const newsActionContainer = document.createElement("div");
@@ -28,29 +29,27 @@ const newsPage = {
 
         const editButton = document.createElement("i");
         editButton.setAttribute("class", "fas fa-pen edit-news-btn");
-        editButton.setAttribute("id", `news-edit-btn--${news.id}`);
+        editButton.setAttribute("id", `news-edit-btn--${newz.id}`);
         const deleteButton = document.createElement("i")
         deleteButton.setAttribute("class", "far fa-times-circle news-delete-btn");
-        deleteButton.setAttribute("id", `news-delete-btn--${news.id}`);
+        deleteButton.setAttribute("id", `news-delete-btn--${newz.id}`);
 
         const newsImgContainer = document.createElement("div"); newsImgContainer.setAttribute("class", "news-image-container");
 
         const image = document.createElement("img");
-        image.setAttribute("src", `${news.url}`);
+        image.setAttribute("src", `${newz.url}`);
 
         const newsInfoContainer = document.createElement("div"); newsInfoContainer.setAttribute("class", "news-info-container");
 
         const newsName = document.createElement("h2");
-        newsName.innerText = `${news.name}`;
+        newsName.innerText = `${newz.title}`;
 
         const newsDate = document.createElement("h5");
-        newsDate.innerText = `${news.newsDate}`
+        newsDate.innerText = `${newz.dateAdded}`;
 
-        const newsLocation = document.createElement("h6");
-        newsLocation.innerText = `Location: ${news.location}`;
 
         const newsDescr = document.createElement("p");
-        newsDescr.innerText = `${news.description}`;
+        newsDescr.innerText = `${newz.synopsis}`;
 
         newsActionContainer.appendChild(editButton);
         newsActionContainer.appendChild(deleteButton);
@@ -60,13 +59,12 @@ const newsPage = {
         newsCard.appendChild(newsInfoContainer);
         newsInfoContainer.appendChild(newsName);
         newsInfoContainer.appendChild(newsDate);
-        newsInfoContainer.appendChild(newsLocation);
         newsInfoContainer.appendChild(newsDescr);
         frag.appendChild(newsCard);
         let finalOutput = location.appendChild(frag);
         return finalOutput;
     },
-    createAddEventButton() {
+    createAddNewsButton() {
         const location = document.querySelector("#primary-container");
         location.innerHTML += `
         <div id="new-news-btn" class="">
@@ -78,22 +76,18 @@ const newsPage = {
         `
 
     },
-    renderEventForm() {
+    renderNewsForm() {
         const location = document.querySelector("#primary-container");
         location.innerHTML += `
         <div id="news-form">
-            <h1>Info for Your Party Peeps:</h1>
+            <h1>New News:</h1>
             <div>
-                <label>Event Title:</label>
+                <label>News Title:</label>
                 <input type="text" id="news-title">
             </div>
             <div>
-                <label>Event Date:</label>
+                <label>Today's Date:</label>
                 <input type="date" id="news-date">
-            </div>
-            <div>
-                <label>Location:</label>
-                <input type="text" id="news-location">
             </div>
             <div>
                 <label>Image URL:</label>
@@ -106,7 +100,7 @@ const newsPage = {
                 <input type="text" id="news-id" class="hidden">
             </div>
             <div>
-                <label>Event Description:</label>
+                <label>Synopsis:</label>
                 <textArea type="text" id="news-desc"></textArea>
             </div>
             <div>
@@ -114,79 +108,76 @@ const newsPage = {
             </div>
         </div>`;
     },
-    captureNewEventData() {
-        const newEventTitle = document.querySelector("#news-title");
-        const newEventDate = document.querySelector("#news-date");
-        const newEventLocation = document.querySelector("#news-location");
-        const newEventImg = document.querySelector("#news-image");
-        const newEventUserId = localStorage.getItem("id");
-        const newEventDesc = document.querySelector("#news-desc");
+    captureNewNewsData() {
+        const newNewsTitle = document.querySelector("#news-title");
+        const newNewsDate = document.querySelector("#news-date");
+        const newNewsLocation = document.querySelector("#news-location");
+        const newNewsImg = document.querySelector("#news-image");
+        const newNewsUserId = localStorage.getItem("id");
+        const newNewsDesc = document.querySelector("#news-desc");
 
 
-        const newEventObj = {
-            userId: newEventUserId,
-            name: newEventTitle.value,
-            description: newEventDesc.value,
-            newsDate: newEventDate.value,
-            location: newEventLocation.value,
-            url: newEventImg.value,
+        const newNewsObj = {
+            userId: newNewsUserId,
+            title: newNewsTitle.value,
+            synopsis: newNewsDesc.value,
+            dateAdded: newNewsDate.value,
+            url: newNewsImg.value,
             id: ""
         }
-        return newEventObj;
+        return newNewsObj;
     },
-    newEventSuccessMsg() {
+    newNewsSuccessMsg() {
         const userId = localStorage.getItem("id");
         const location = document.querySelector("#primary-container");
         location.innerHTML = `
         <div id="news-success-msg">
-            <h1>Event Successfully Submitted!</h1>
+            <h1>News Successfully Submitted!</h1>
         </div>`
         setTimeout(() => {
             location.innerHTML = "";
-            newsPage.createAddEventButton();
+            newsPage.createAddNewsButton();
             newsPage.getMyNews(2);
         }, 2000)
     },
-    populateExistingEventData(newsId) {
+    populateExistingNewsData(newsId) {
         const location = document.querySelector("#primary-container");
         location.innerHTML = "";
-        newsPage.renderEventForm();
+        newsPage.renderNewsForm();
         const submitButton = document.querySelector("#submit-new-news");
         submitButton.setAttribute("id", "edited-news-submission-btn");
-        API.getSingleUserEvent(newsId).then(results => {
+        API.getSingleUserNews(newsId).then(results => {
             console.log(results);
             for (let key in results) {
                 if (results.hasOwnProperty(key)) {
-                    document.querySelector("#news-title").value = results.name;
-                    document.querySelector("#news-date").value = results.newsDate;
-                    document.querySelector("#news-location").value = results.location;
+                    document.querySelector("#news-title").value = results.title;
+                    document.querySelector("#news-date").value = results.dateAdded;
                     document.querySelector("#news-image").value = results.url;
-                    document.querySelector("#news-desc").value = results.description;
+                    document.querySelector("#news-desc").value = results.synopsis;
                     document.querySelector("#news-id").value = results.id;
                 };
             }
         })
     },
-    captureEditedEventData() {
-        const editedEventTitle = document.querySelector("#news-title");
-        const editedEventDate = document.querySelector("#news-date");
-        const editedEventLocation = document.querySelector("#news-location");
-        const editedEventImg = document.querySelector("#news-image");
-        const editedEventUserId = localStorage.getItem("id");
-        const editedEventDesc = document.querySelector("#news-desc");
-        const editedEventId = document.querySelector("#news-id");
+    captureEditedNewsData() {
+        const editedNewsTitle = document.querySelector("#news-title");
+        const editedNewsDate = document.querySelector("#news-date");
+        const editedNewsLocation = document.querySelector("#news-location");
+        const editedNewsImg = document.querySelector("#news-image");
+        const editedNewsUserId = localStorage.getItem("id");
+        const editedNewsDesc = document.querySelector("#news-desc");
+        const editedNewsId = document.querySelector("#news-id");
 
 
-        const editedEventObj = {
-            userId: editedEventUserId,
-            name: editedEventTitle.value,
-            description: editedEventDesc.value,
-            newsDate: editedEventDate.value,
-            location: editedEventLocation.value,
-            url: editedEventImg.value,
-            id: editedEventId.value
+        const editedNewsObj = {
+            userId: editedNewsUserId,
+            title: editedNewsTitle.value,
+            synopsis: editedNewsDesc.value,
+            dateAdded: editedNewsDate.value,
+            url: editedNewsImg.value,
+            id: editedNewsId.value
         }
-        return editedEventObj;
+        return editedNewsObj;
     }
 }
 

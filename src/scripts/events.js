@@ -30,7 +30,7 @@ const eventsPage = {
         editButton.setAttribute("class", "fas fa-pen edit-event-btn");
         editButton.setAttribute("id", `event-edit-btn--${event.id}`);
         const deleteButton = document.createElement("i")
-        deleteButton.setAttribute("class", "far fa-times-circle event-delete-btn");
+        deleteButton.setAttribute("class", "far fa-times-circle delete-event-btn");
         deleteButton.setAttribute("id", `event-delete-btn--${event.id}`);
 
         const eventImgContainer = document.createElement("div"); eventImgContainer.setAttribute("class", "event-image-container");
