@@ -1,3 +1,5 @@
+import API from "./dbCalls";
+
 const friendsDiv = document.querySelector("#friend-list")
 const friendRequestDiv = document.querySelector("#friend-requests")
 
@@ -28,6 +30,8 @@ const handleFriends = {
         `
             friendRequestDiv.innerHTML += addFriendRequest
         })
+    },
+    deleteFriend(id) {
     }
 }
 

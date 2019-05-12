@@ -37,6 +37,10 @@ friendsContainer.addEventListener("click", (e) => {
         const friendDiv = e.target.nextElementSibling
         friendDiv.classList.toggle("hidden")
     }
+    if (e.target.className === "deleteFriend") {
+        const deleteFriendId = e.target.id.split("--"[1])
+        deleteFriendId(deleteFriendId)
+    }
 })
 
 
