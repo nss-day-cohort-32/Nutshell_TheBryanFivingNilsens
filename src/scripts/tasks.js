@@ -4,9 +4,13 @@
     Purpose: Build Tasks Component
 */
 import API from "./dbCalls"
+// Task Form Inputs
+const hiddenInput = document.querySelector('#hidden-input');
+const taskName = document.querySelector('#task-input');
+const completionDate = document.querySelector('#task-completion-date');
 
 // Create elements and target divs
-const primaryContainer = document.querySelector('#primary-container');
+// const primaryContainer = document.querySelector('#primary-container');
 const tasksContainer = document.querySelector('#tasks-container');
 const taskListContainer = document.querySelector('#task-list-container');
 // const tasksContainer = document.createElement('div');
@@ -25,26 +29,6 @@ function renderToDom(target, frag) {
 
 const tasks = {
     renderUserTasks(userId) {
-        // Clear primary container
-        // primaryContainer.innerHTML = '';
-
-        // Create task form
-        // tasksForm.innerHTML = `
-        //     <div id="form-elements">
-        //         <fieldset>
-        //             <input type="text" id="hidden-input" class="hidden">
-        //             <input type="text" id="task-input" placeholder="Enter a task...">
-        //             <label for="task-completion-date">Complete Task By: </label>
-        //             <input type="date" name="task-completion-date" id="task-completion-date" required>
-        //             <input id="save-task-btn" type="submit" value="Save Task">
-        //             <input id="update-task-btn" type="submit" class="hidden" value="Save Updated Task">
-        //         </fieldset>
-        //     </div>
-        //     `;
-
-        // tasksContainer.append(tasksForm, taskListContainer);
-        // renderToDom(primaryContainer, tasksContainer);
-
         API.getUserTasks(userId)  // needs to be userId
             .then(userTasks => {
                 userTasks.forEach(task => {
@@ -103,8 +87,16 @@ const tasks = {
 
         renderToDom(taskListContainer, taskDiv);
     },
-    editTask() {
-
+    editTask(taskToEditId) {    // Populate form task data to edit
+        API.getSingleUserTask(taskToEditId)
+            .then(task => {
+                // Populate form to edit task
+                hiddenInput.value = task.id;
+                taskName.value = task.name;
+                completionDate.value = task.targetCompletionDate;
+                // Remove task from list
+                tasks.removeTaskFromDOM(taskToEditId)
+            })
     },
     removeTaskFromDOM(taskId) {
         const taskToRemove = document.querySelector(`#task-div--${taskId}`);
@@ -121,6 +113,43 @@ const tasks = {
         dateArray.push(year);
         const formattedDate = dateArray.join('-');
         return formattedDate;
+    },
+    // Event Listener Functionality
+    handleSubmitBtn(userId) {   // Save or Update Task
+        const taskId = hiddenInput.value;
+        const formattedDate = completionDate.value;
+        // Create task object
+        const taskObj = tasks.createNewTaskObject(userId, taskName.value, formattedDate);
+        // Reset input fields and hidden input
+        hiddenInput.value = '';
+        taskName.value = '';
+        completionDate.value = '';
+
+        if (!taskId) {  // Save NEW task to db
+            API.addTask(taskObj)
+                .then(newTask => {
+                    tasks.addToTaskList(newTask)
+                })
+        } else {    // Update EDITED task to db
+            API.editTask(taskId, taskObj)
+                .then(editedTask => {
+                    tasks.addToTaskList(editedTask)
+                })
+        }
+    },
+    handleCheckbox(e) { // Create true/false object to patch
+        const taskId = e.target.id.split('--')[1];
+        if (e.target.checked) {
+            const trueObj = {
+                completed: true
+            }
+            API.editTask(taskId, trueObj);
+        } else {
+            const falseObj = {
+                completed: false
+            }
+            API.editTask(taskId, falseObj);
+        }
     }
 }
 

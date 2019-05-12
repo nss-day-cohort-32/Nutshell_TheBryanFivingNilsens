@@ -15,9 +15,9 @@ const myNewsBtn = document.querySelector("#my-news-link");
 const primaryContainer = document.querySelector("#primary-container");
 
 // TASK FORM Inputs
-const hiddenInput = document.querySelector('#hidden-input');
-const taskName = document.querySelector('#task-input');
-const completionDate = document.querySelector('#task-completion-date');
+// const hiddenInput = document.querySelector('#hidden-input');
+// const taskName = document.querySelector('#task-input');
+// const completionDate = document.querySelector('#task-completion-date');
 
 // LOGIN - LOGIN LISTENER
 loginContainer.addEventListener("click", (e) => {
@@ -49,79 +49,34 @@ friendsContainer.addEventListener("click", (e) => {
         console.log(e.target)
     }
 })
-const taskUserId = 2;
-tasks.renderUserTasks(taskUserId) // temporary call to load user tasks
+
+
+
 // TASK LISTENERS SECTION ///////////////////////////////////////////////////
+const userId = 2;   // temporary userId
+tasks.renderUserTasks(userId) // temporary call to load user tasks
+
 primaryContainer.addEventListener('click', (e) => {
-    // Form - Save/Submit Button
-    if (e.target.id === 'save-task-btn') {
+    if (e.target.id === 'save-task-btn') {  // Task Form - Save/Update Button
         e.preventDefault()
-        // const hiddenInput = document.querySelector('#hidden-input');
-        // const taskName = document.querySelector('#task-input');
-        // const completionDate = document.querySelector('#task-completion-date');
-        // Hidden input value
-        const taskId = hiddenInput.value;
-        // Format date
-        const formattedDate = completionDate.value;
-        // Create new task object
-        const taskObj = tasks.createNewTaskObject(2, taskName.value, formattedDate);
-        // Reset input fields and hidden input
-        hiddenInput.value = '';
-        taskName.value = '';
-        completionDate.value = '';
-        // Save task...
-        if (!taskId) {
-            // Save NEW task to db
-            API.addTask(taskObj)
-                .then(newTask => {
-                    tasks.addToTaskList(newTask)
-                })
-        } else {
-            // Update EDITED task to db
-            API.editTask(taskId, taskObj)
-                .then(editedTask => {
-                    tasks.addToTaskList(editedTask)
-                })
-        }
+        tasks.handleSubmitBtn(userId)
     }
-    // Task List Item - Checkbox (create true/false object to patch)
-    if (e.target.className === 'complete-check') {
-        const taskId = e.target.id.split('--')[1];
-        if (e.target.checked) {
-            const trueObj = {
-                completed: true
-            }
-            API.editTask(taskId, trueObj);
-        } else {
-            const falseObj = {
-                completed: false
-            }
-            API.editTask(taskId, falseObj);
-        }
+    if (e.target.className === 'complete-check') {  // Task Form - Checkbox
+        tasks.handleCheckbox(e)
     }
-    // Task List Item - Anchor Tag (populate form to edit task)
-    if (e.target.className === 'task-item-link') {
+    if (e.target.className === 'task-item-link') { // Task List - Anchor Tag
         e.preventDefault()
         const taskToEditId = e.target.id.split('--')[1]
-        API.getSingleUserTask(taskToEditId)
-            .then(task => {
-                // Populate form to edit task
-                hiddenInput.value = task.id;
-                taskName.value = task.name;
-                completionDate.value = task.targetCompletionDate;
-                // Remove task from list
-                tasks.removeTaskFromDOM(taskToEditId)
-            })
+        tasks.editTask(taskToEditId)
     }
     // Task List - Remove Button
-    if (e.target.className === 'remove-btn') {
+    if (e.target.className === 'remove-btn') {  // Task List - Remove Button
         e.preventDefault()
         const taskId = e.target.id.split('--')[1];
-        // Remove task from DOM and Delete task from database
-        tasks.removeAndDeleteTask(taskId);
+        tasks.removeAndDeleteTask(taskId);  // Remove task from DOM & Delete task from db
     }
 })
-// END TASK SECTION ///////////////////////////////////////////
+// END TASK SECTION //////////////////////////////////////////////////////////
 
 
 
