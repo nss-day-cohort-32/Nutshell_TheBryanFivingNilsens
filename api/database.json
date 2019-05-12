@@ -1,256 +1,227 @@
 {
-    "users": [
-        {
-            "username": "sean",
-            "email": "sean@glavin.us",
-            "id": 1
-        },
-        {
-            "username": "nate",
-            "email": "nate@google.com",
-            "id": 2
-        },
-        {
-            "username": "john",
-            "email": "john@google.com",
-            "id": 3
-        },
-        {
-            "username": "bill",
-            "email": "bill@google.com",
-            "id": 4
-        },
-        {
-            "username": "jim",
-            "email": "jim@dm.com",
-            "id": 5
-        },
-        {
-            "username": "dwight",
-            "email": "dwight@dm.com",
-            "id": 6
-        },
-        {
-            "username": "andy",
-            "email": "andy@dm.com",
-            "id": 7
-        },
-        {
-            "username": "stanley",
-            "email": "stanley@dm.com",
-            "id": 8
-        },
-        {
-            "username": "ryan",
-            "email": "thetemp@dm.com",
-            "id": 32
-        },
-        {
-            "username": "kelly",
-            "email": "kelly@dm.com",
-            "id": 33
-        }
-    ],
-    "messages": [
-        {
-            "id": 1,
-            "userId": 1,
-            "message": "Hello World",
-            "sendDate": "datetime"
-        }
-    ],
-    "news": [
-        {
-            "id": 1,
-            "userId": 1,
-            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-            "dateAdded": "datetime",
-            "title": "House Democrats aim -- and train -- for more air time on Fox News",
-            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
-        },
-        {
-            "userId": 2,
-            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-            "dateAdded": "datetime",
-            "title": "House Democrats aim -- and train -- for more air time on Fox News",
-            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-            "id": 2
-        },
-        {
-            "userId": 2,
-            "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-            "dateAdded": "datetime",
-            "title": "House Democrats aim -- and train -- for more air time on Fox News",
-            "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
-            "id": 3
-        }
-    ],
-    "friends": [
-        {
-            "id": 1,
-            "srcUserId": 1,
-            "userId": 2,
-            "accepted": true
-        },
-        {
-            "id": 2,
-            "srcUserId": 1,
-            "userId": 3,
-            "accepted": true
-        },
-        {
-            "id": 3,
-            "srcUserId": 2,
-            "userId": 1,
-            "accepted": false
-        },
-        {
-            "srcUserId": 1,
-            "userId": 4,
-            "accepted": false,
-            "id": 4
-        },
-        {
-            "srcUserId": 4,
-            "userId": 1,
-            "accepted": false,
-            "id": 5
-        },
-        {
-            "srcUserId": 1,
-            "userId": 4,
-            "accepted": false,
-            "id": 6
-        },
-        {
-            "srcUserId": 4,
-            "userId": 1,
-            "accepted": false,
-            "id": 7
-        },
-        {
-            "srcUserId": 1,
-            "userId": 4,
-            "accepted": false,
-            "id": 8
-        },
-        {
-            "srcUserId": 4,
-            "userId": 1,
-            "accepted": false,
-            "id": 9
-        }
-    ],
-    "tasks": [
-        {
-            "userId": 2,
-            "name": "Tackle Edit Function",
-            "targetCompletionDate": "05-10-2019",
-            "completed": false,
-            "id": 1
-        },
-        {
-            "userId": 2,
-            "name": "Wire up update",
-            "targetCompletionDate": "05-10-2019",
-            "completed": false,
-            "id": 2
-        },
-        {
-            "userId": 2,
-            "name": "Adjust task form size",
-            "targetCompletionDate": "05-10-2019",
-            "completed": false,
-            "id": 3
-        },
-        {
-            "userId": 2,
-            "name": "Add circle check icons",
-            "targetCompletionDate": "05-13-2019",
-            "completed": false,
-            "id": 4
-        },
-        {
-            "userId": 2,
-            "name": "Add remove icon",
-            "targetCompletionDate": "05-13-2019",
-            "completed": false,
-            "id": 5
-        },
-        {
-            "userId": 2,
-            "name": "Incomplete fileds warning",
-            "targetCompletionDate": "05-13-2019",
-            "completed": false,
-            "id": 6
-        },
-        {
-            "userId": 2,
-            "name": "Dummy Task to Edit",
-            "targetCompletionDate": "05-13-2019",
-            "completed": false,
-            "id": 7
-        },
-        {
-            "userId": 2,
-            "name": "Dummy task to delete",
-            "targetCompletionDate": "05-13-2019",
-            "completed": false,
-            "id": 8
-        },
-        {
-            "userId": 2,
-            "name": "Tasks should reflect state on load",
-            "targetCompletionDate": "05-13-2019",
-            "completed": true,
-            "id": 9
-        }
-    ],
-    "events": [
-        {
-            "id": 1,
-            "userId": 1,
-            "name": "party",
-            "description": "its a party.",
-            "eventDate": "datetime",
-            "location": "My house",
-            "url": ""
-        },
-        {
-            "userId": 1,
-            "name": "party",
-            "description": "its a party.",
-            "eventDate": "datetime",
-            "location": "My house",
-            "url": "",
-            "id": 2
-        },
-        {
-            "userId": 1,
-            "name": "party",
-            "description": "its a party.",
-            "eventDate": "datetime",
-            "location": "My house",
-            "url": "",
-            "id": 3
-        },
-        {
-            "userId": 2,
-            "name": "party",
-            "description": "its a party.",
-            "eventDate": "datetime",
-            "location": "My house",
-            "url": "",
-            "id": 4
-        },
-        {
-            "userId": 2,
-            "name": "party",
-            "description": "its a party.",
-            "eventDate": "datetime",
-            "location": "My house",
-            "url": "",
-            "id": 5
-        }
-    ]
+  "users": [
+    {
+      "username": "sean",
+      "email": "sean@glavin.us",
+      "id": 1
+    },
+    {
+      "username": "nate",
+      "email": "nate@google.com",
+      "id": 2
+    },
+    {
+      "username": "john",
+      "email": "john@google.com",
+      "id": 3
+    },
+    {
+      "username": "bill",
+      "email": "bill@google.com",
+      "id": 4
+    },
+    {
+      "username": "jim",
+      "email": "jim@dm.com",
+      "id": 5
+    },
+    {
+      "username": "dwight",
+      "email": "dwight@dm.com",
+      "id": 6
+    },
+    {
+      "username": "andy",
+      "email": "andy@dm.com",
+      "id": 7
+    },
+    {
+      "username": "stanley",
+      "email": "stanley@dm.com",
+      "id": 8
+    },
+    {
+      "username": "ryan",
+      "email": "thetemp@dm.com",
+      "id": 32
+    },
+    {
+      "username": "kelly",
+      "email": "kelly@dm.com",
+      "id": 33
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "Hello World",
+      "sendDate": "datetime"
+    }
+  ],
+  "news": [
+    {
+      "userId": 1,
+      "url": "",
+      "dateAdded": "2015-09-12",
+      "title": "House Democrats aim -- and train -- for more air time on Fox News",
+      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "url": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/10/Family-portrait-FAMILY-GROUP.jpg?fit=750%2C600&ssl=1",
+      "dateAdded": "2019-05-14",
+      "title": "Annoying Friends Made A Child",
+      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "url": "https://www.traveldudes.org/sites/default/files/styles/image_node_main/public/offthepath.jpg",
+      "dateAdded": "2015-09-12",
+      "title": "Trust-Funded Friend Travels Abroad....Again",
+      "synopsis": "Lorem ipsum dolor amet you probably haven't heard of them ethical raclette, knausgaard vice enamel pin craft beer pok pok pabst. Raw denim leggings cloud bread jianbing. Gastropub single-origin coffee 8-bit taiyaki yr blog cloud bread sriracha drinking vinegar jean shorts master cleanse slow-carb shoreditch DIY. Authentic vexillologist raw denim mixtape kombucha. Succulents pour-over viral tote bag mustache mixtape +1.",
+      "id": 3
+    }
+  ],
+  "friends": [
+    {
+      "connectionId": 1,
+      "userId": 1,
+      "otherfriendId": 2,
+      "accepted": true
+    },
+    {
+      "connectionId": 1,
+      "userId": 1,
+      "otherfriendId": 3,
+      "accepted": true
+    },
+    {
+      "connectionId": 1,
+      "userId": 1,
+      "otherfriendId": 4,
+      "accepted": true
+    },
+    {
+      "id": 1,
+      "srcUserId": 1,
+      "userId": 2,
+      "accepted": true
+    },
+    {
+      "id": 2,
+      "srcUserId": 1,
+      "userId": 3,
+      "accepted": true
+    },
+    {
+      "id": 3,
+      "srcUserId": 2,
+      "userId": 1,
+      "accepted": false
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 4
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 5
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 6
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 7
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 8
+    },
+    {
+      "srcUserId": 4,
+      "userId": 1,
+      "accepted": false,
+      "id": 9
+    }
+  ],
+  "tasks": [
+    {
+      "userId": 2,
+      "name": "Edit task",
+      "targetCompletionDate": "2019-05-13",
+      "completed": false,
+      "id": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "party",
+      "description": "its a party.",
+      "eventDate": "datetime",
+      "location": "My house",
+      "url": ""
+    },
+    {
+      "userId": 1,
+      "name": "party",
+      "description": "its a party.",
+      "eventDate": "datetime",
+      "location": "My house",
+      "url": "",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "party",
+      "description": "its a party.",
+      "eventDate": "datetime",
+      "location": "My house",
+      "url": "",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "name": "Sausage Party w/ Jonah Hill",
+      "description": "Lorem ipsum dolor amet enamel pin small batch vaporware, hell of microdosing typewriter bicycle rights. Polaroid celiac listicle vexillologist lomo migas YOLO fam single-origin coffee health goth. Marfa tousled 8-bit skateboard everyday carry af. Helvetica health goth quinoa slow-carb af.",
+      "eventDate": "2015-09-12",
+      "location": "My house",
+      "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "name": "Sausage Party w/ Jonah Hill",
+      "description": "Lorem ipsum dolor amet enamel pin small batch vaporware, hell of microdosing typewriter bicycle rights. Polaroid celiac listicle vexillologist lomo migas YOLO fam single-origin coffee health goth. Marfa tousled 8-bit skateboard everyday carry af. Helvetica health goth quinoa slow-carb af.",
+      "eventDate": "2015-09-12",
+      "location": "My house",
+      "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "name": "party",
+      "description": "its a party.",
+      "eventDate": "datetime",
+      "location": "My house",
+      "url": "",
+      "id": 5
+    }
+  ]
 }

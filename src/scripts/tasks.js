@@ -7,13 +7,15 @@ import API from "./dbCalls"
 
 // Create elements and target divs
 const primaryContainer = document.querySelector('#primary-container');
-const tasksContainer = document.createElement('div');
-const taskListContainer = document.createElement('div');
-const tasksForm = document.createElement('form');
+const tasksContainer = document.querySelector('#tasks-container');
+const taskListContainer = document.querySelector('#task-list-container');
+// const tasksContainer = document.createElement('div');
+// const taskListContainer = document.createElement('div');
+// const tasksForm = document.createElement('form');
 
-tasksContainer.setAttribute('id', 'tasks-container');
-taskListContainer.setAttribute('id', 'tasks-list-container');
-tasksForm.setAttribute('id', 'tasks-form');
+// tasksContainer.setAttribute('id', 'tasks-container');
+// taskListContainer.setAttribute('id', 'tasks-list-container');
+// tasksForm.setAttribute('id', 'tasks-form');
 
 // TEMPORARY RENDER TO DOM FUNCTION
 function renderToDom(target, frag) {
@@ -22,25 +24,26 @@ function renderToDom(target, frag) {
 // ********************************
 
 const tasks = {
-    buildTasks(userId) {
+    renderUserTasks(userId) {
         // Clear primary container
-        primaryContainer.innerHTML = '';
+        // primaryContainer.innerHTML = '';
 
         // Create task form
-        tasksForm.innerHTML = `
-            <div id="form-elements">
-                <fieldset>
-                    <input type="text" id="task-input" placeholder="Enter a task...">
-                    <label for="task-completion-date">Complete Task By: </label>
-                    <input type="date" name="task-completion-date" id="task-completion-date" required>
-                    <input id="save-task-btn" type="submit" value="Save Task">
-                    <input id="update-task-btn" type="submit" class="hidden" value="Save Updated Task">
-                </fieldset>
-            </div>
-            `;
+        // tasksForm.innerHTML = `
+        //     <div id="form-elements">
+        //         <fieldset>
+        //             <input type="text" id="hidden-input" class="hidden">
+        //             <input type="text" id="task-input" placeholder="Enter a task...">
+        //             <label for="task-completion-date">Complete Task By: </label>
+        //             <input type="date" name="task-completion-date" id="task-completion-date" required>
+        //             <input id="save-task-btn" type="submit" value="Save Task">
+        //             <input id="update-task-btn" type="submit" class="hidden" value="Save Updated Task">
+        //         </fieldset>
+        //     </div>
+        //     `;
 
-        tasksContainer.append(tasksForm, taskListContainer);
-        renderToDom(primaryContainer, tasksContainer);
+        // tasksContainer.append(tasksForm, taskListContainer);
+        // renderToDom(primaryContainer, tasksContainer);
 
         API.getUserTasks(userId)  // needs to be userId
             .then(userTasks => {
@@ -67,15 +70,16 @@ const tasks = {
         label.className = `task-label`;
 
         const dateSpan = document.createElement('span');
-        dateSpan.textContent = `complete by ${task.targetCompletionDate}`;
+        const formattedDate = tasks.saveTheDate(task.targetCompletionDate);
+        dateSpan.textContent = `complete by: ${formattedDate}`;
         dateSpan.className = 'date-span';
 
         const taskItemLink = document.createElement('a');
+        taskItemLink.id = `task-item--${task.id}`;
         taskItemLink.className = 'task-item-link';
         taskItemLink.textContent = task.name;
 
         const taskItem = document.createElement('h4');
-        taskItem.id = `task-item--${task.id}`;
         taskItem.className = `task-item line-through`;
         // taskItem.textContent = task.name;
         taskItem.append(taskItemLink);
@@ -102,12 +106,14 @@ const tasks = {
     editTask() {
 
     },
-    updateTask() {
-
-    },
-    removeTask(taskId) {
+    removeTaskFromDOM(taskId) {
         const taskToRemove = document.querySelector(`#task-div--${taskId}`);
         taskToRemove.parentNode.removeChild(taskToRemove);
+    },
+    removeAndDeleteTask(taskId) {
+        const taskToRemove = document.querySelector(`#task-div--${taskId}`);
+        taskToRemove.parentNode.removeChild(taskToRemove);
+        API.deleteTask(taskId)
     },
     saveTheDate(date) {
         const dateArray = date.split('-');

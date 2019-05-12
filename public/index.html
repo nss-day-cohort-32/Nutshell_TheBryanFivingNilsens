@@ -11,6 +11,10 @@
     <link
         href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i|Work+Sans:200,300,400,500,600,700,800,900"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -21,8 +25,8 @@
         </div>
         <div id="links-container">
             <a href="#">My Friends</a>
-            <a href="#">My News</a>
-            <a href="#">My Events</a>
+            <a href="#" id="my-news-link">My News</a>
+            <a href="#" id="my-events-link">My Events</a>
             <a href="#">My Tasks</a>
             <a href="#">My Messages</a>
             <a href="" id="logout" class="hidden">Log Out</a>
@@ -31,7 +35,6 @@
 
     <main id="page-container">
 
-
         <aside id="friends-container" class="">
             <div id="friend-list">
             </div>
@@ -39,8 +42,7 @@
         </aside>
 
         <div id="primary-container" class="">
-            <div id="login-container" class="">
-                <h2>Login or Sign up</h2>
+            <div id="login-container" class="hidden">
                 <label id="">Username:</label>
                 <input type="text" id="username" />
                 <label id="">Email:</label>
@@ -51,6 +53,22 @@
             </div>
             <div id="news-container"></div>
             <div id="events-container"></div>
+
+            <div id="tasks-container" class="">
+                <form id="tasks-form">
+                    <div id="form-elements">
+                        <fieldset>
+                            <input type="text" id="hidden-input" class="hidden">
+                            <input type="text" id="task-input" placeholder="Enter a task...">
+                            <label for="task-completion-date">Complete Task By: </label>
+                            <input type="date" name="task-completion-date" id="task-completion-date" required>
+                            <input id="save-task-btn" type="submit" value="Save Task">
+                            <input id="update-task-btn" type="submit" class="hidden" value="Save Updated Task">
+                        </fieldset>
+                    </div>
+                </form>
+                <div id="task-list-container"></div>
+            </div>
         </div>
     </main>
 
