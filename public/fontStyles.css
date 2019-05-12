@@ -12,12 +12,14 @@ h1, h2, h3 {
     color: #1f5858;
     margin: 10px;
     font-weight: 700;
+    line-height: 1em;
   }
   h2 {
     font-size: 1.75em;
     color: #1f5858;
     margin: 10px;
     font-weight: 700;
+    line-height: 1em;
   }
   h3 {
     font-size: 1.5em;
