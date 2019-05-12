@@ -76,6 +76,13 @@ h1, h2, h3 {
     font-size: .75em;
   }
 
+  #top-nav a:last-of-type {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #154545;
+    letter-spacing: 0em;
+  }
+
   #footer-nav a {
     align-self: center;
     justify-self: center;

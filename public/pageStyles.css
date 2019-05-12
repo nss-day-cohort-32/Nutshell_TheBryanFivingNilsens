@@ -36,7 +36,14 @@ color {
   flex-direction: row;
   justify-content: left;
   align-content: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
+}
+
+#logo-container > img {
+  width: 85px;
+  margin-left: 20px;
+  margin-top: 7.5px;
+
 }
 
 #links-container {
@@ -78,7 +85,7 @@ color {
   align-self: center;
   width: 40%;
   margin-top: 0%;
-  border-bottom: 3px solid #1f5858;
+  border-bottom: 3px solid #3e8989;
   padding: 5%;
   text-align: center;
   width:40em;
@@ -103,7 +110,7 @@ color {
   font-family: 'Work Sans', sans-serif;
   font-size: .75em;
   text-decoration: none;
-  color: #1f5858;
+  color: #3e8989;
   margin: 10px;
   font-weight: 400;
 }
@@ -235,7 +242,7 @@ color {
   background-color: white;
   padding: 20px;
   justify-content: center;
-  border-bottom: 3px solid #3e8989; 
+  border-bottom: 3px solid #3e8989;
 }
 
 #event-form > div, #event-form > h1{
@@ -345,7 +352,7 @@ color {
   background-color: white;
   padding: 20px;
   justify-content: center;
-  border-bottom: 3px solid #3e8989; 
+  border-bottom: 3px solid #3e8989;
 }
 
 #news-form > div, #news-form > h1{
