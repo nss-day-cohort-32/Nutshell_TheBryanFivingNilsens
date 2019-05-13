@@ -99,6 +99,10 @@ const tasks = {
                 // Show cancel button
                 targets.cancelEditBtn.classList.remove('hidden');
                 targets.submitBtn.value = 'Update Task';
+                // Clear any messages that may be present
+                targets.noTaskOrDateMessage.classList.add('hidden');
+                targets.taskNameMessage.classList.add('hidden');
+                targets.taskCompletionDateMessage.classList.add('hidden');
             })
     },
     removeTaskFromDOM(taskId) { // Remove task item from list when selected for edit
@@ -161,7 +165,10 @@ const tasks = {
         targets.hiddenInput.value = '';
         targets.taskName.value = '';
         targets.completionDate.value = '';
-        targets.cancelEditBtn.className = 'hidden';
+        targets.noTaskOrDateMessage.classList.add('hidden');
+        targets.taskNameMessage.classList.add('hidden');
+        targets.taskCompletionDateMessage.classList.add('hidden');
+        targets.cancelEditBtn.classList.add('hidden');
         targets.submitBtn.value = 'Save Task';
     },
     handleCheckbox(e) { // Create true/false object to patch
