@@ -318,6 +318,10 @@ color {
   display: none;
 }
 
+.error {
+  color: red;
+}
+
 /* TASKS */
 
 #tasks-container {

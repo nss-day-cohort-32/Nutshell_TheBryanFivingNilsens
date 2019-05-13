@@ -4,32 +4,27 @@
     Purpose: Build Tasks Component
 */
 import API from "./dbCalls"
-// Task Form Inputs
-const hiddenInput = document.querySelector('#hidden-input');
-const taskName = document.querySelector('#task-input');
-const completionDate = document.querySelector('#task-completion-date');
+// import renderToDom from "./rendorToDom"  // NOT WORKING ???
 
-// Create elements and target divs
-// const primaryContainer = document.querySelector('#primary-container');
-const tasksContainer = document.querySelector('#tasks-container');
+// Task Form Elements
+// const hiddenInput = document.querySelector('#hidden-input');
+// const taskName = document.querySelector('#task-input');
+// const completionDate = document.querySelector('#task-completion-date');
+// const cancelEditBtn = document.querySelector('#cancel-edit-btn');
+// const submitBtn = document.querySelector('#save-task-btn');
+// const taskNameMessage = document.querySelector('#task-name-message');
+// const taskCompletionDateMessage = document.querySelector('#task-date-message');
+
 const taskListContainer = document.querySelector('#task-list-container');
-// const tasksContainer = document.createElement('div');
-// const taskListContainer = document.createElement('div');
-// const tasksForm = document.createElement('form');
+const taskListInstructions = document.querySelector('#task-list-instructions');
 
-// tasksContainer.setAttribute('id', 'tasks-container');
-// taskListContainer.setAttribute('id', 'tasks-list-container');
-// tasksForm.setAttribute('id', 'tasks-form');
-
-// TEMPORARY RENDER TO DOM FUNCTION
 function renderToDom(target, frag) {
-    target.append(frag);
+    target.appendChild(frag);
 }
-// ********************************
 
 const tasks = {
     renderUserTasks(userId) {
-        API.getUserTasks(userId)  // needs to be userId
+        API.getUserTasks(userId)
             .then(userTasks => {
                 userTasks.forEach(task => {
                     tasks.addToTaskList(task)
@@ -45,7 +40,7 @@ const tasks = {
         }
         return taskObj;
     },
-    addToTaskList(task) {
+    addToTaskList(task) {   // Create task element and render to DOM
         const taskDiv = document.createElement('div');
         taskDiv.id = `task-div--${task.id}`;
         taskDiv.className = 'task-div';
@@ -85,24 +80,29 @@ const tasks = {
         label.append(removeBtn, completeCheckbox, taskItem);
         taskDiv.append(label);
 
+        if (task) {
+            taskListInstructions.classList.remove('hidden');
+        }
+        taskListInstructions.classList.remove('hidden');
         renderToDom(taskListContainer, taskDiv);
     },
-    editTask(taskToEditId) {    // Populate form task data to edit
+    editTask(targets, taskToEditId) {    // Fill form with task data to edit, show cancel button
         API.getSingleUserTask(taskToEditId)
             .then(task => {
                 // Populate form to edit task
-                hiddenInput.value = task.id;
-                taskName.value = task.name;
-                completionDate.value = task.targetCompletionDate;
-                // Remove task from list
-                tasks.removeTaskFromDOM(taskToEditId)
+                targets.hiddenInput.value = task.id;
+                targets.taskName.value = task.name;
+                targets.completionDate.value = task.targetCompletionDate;
+                // Show cancel button
+                targets.cancelEditBtn.classList.remove('hidden');
+                targets.submitBtn.value = 'Update Task';
             })
     },
-    removeTaskFromDOM(taskId) {
+    removeTaskFromDOM(taskId) { // Remove task item from list when selected for edit
         const taskToRemove = document.querySelector(`#task-div--${taskId}`);
         taskToRemove.parentNode.removeChild(taskToRemove);
     },
-    removeAndDeleteTask(taskId) {
+    removeAndDeleteTask(taskId) {   // Remove task item from DOM and delete task from db
         const taskToRemove = document.querySelector(`#task-div--${taskId}`);
         taskToRemove.parentNode.removeChild(taskToRemove);
         API.deleteTask(taskId)
@@ -115,27 +115,44 @@ const tasks = {
         return formattedDate;
     },
     // Event Listener Functionality
-    handleSubmitBtn(userId) {   // Save or Update Task
-        const taskId = hiddenInput.value;
-        const formattedDate = completionDate.value;
-        // Create task object
-        const taskObj = tasks.createNewTaskObject(userId, taskName.value, formattedDate);
-        // Reset input fields and hidden input
-        hiddenInput.value = '';
-        taskName.value = '';
-        completionDate.value = '';
+    handleSubmitBtn(targets, userId) {   // Save or Update Task
+        if (!targets.taskName.value && !targets.completionDate.value) {
+            targets.noTaskOrDateMessage.classList.remove('hidden');
+        } else if (!targets.taskName.value) {
+            targets.taskNameMessage.classList.remove('hidden');
+        } else if (!targets.completionDate.value) {
+            targets.taskCompletionDateMessage.classList.remove('hidden');
+        } else {
+            const taskId = targets.hiddenInput.value;
+            const formattedDate = targets.completionDate.value;
+            // Create task object
+            const taskObj = tasks.createNewTaskObject(userId, targets.taskName.value, formattedDate);
+            // Reset input fields and hidden input
+            targets.hiddenInput.value = '';
+            targets.taskName.value = '';
+            targets.completionDate.value = '';
 
-        if (!taskId) {  // Save NEW task to db
-            API.addTask(taskObj)
-                .then(newTask => {
-                    tasks.addToTaskList(newTask)
-                })
-        } else {    // Update EDITED task to db
-            API.editTask(taskId, taskObj)
-                .then(editedTask => {
-                    tasks.addToTaskList(editedTask)
-                })
+            if (!taskId) {  // Save NEW task to db
+                API.addTask(taskObj)
+                    .then(newTask => {
+                        tasks.addToTaskList(newTask)
+                    })
+            } else {    // Update EDITED task to db
+                targets.submitBtn.value = 'Save Task'; // Reset submit button text
+                tasks.removeTaskFromDOM(taskId)   // Remove old task from list
+                API.editTask(taskId, taskObj)   // Save updated task to db and render to DOM
+                    .then(editedTask => {
+                        tasks.addToTaskList(editedTask)
+                    })
+            }
         }
+    },
+    handleCancelEditBtn(targets) {
+        targets.hiddenInput.value = '';
+        targets.taskName.value = '';
+        targets.completionDate.value = '';
+        targets.cancelEditBtn.className = 'hidden';
+        targets.submitBtn.value = 'Save Task';
     },
     handleCheckbox(e) { // Create true/false object to patch
         const taskId = e.target.id.split('--')[1];
@@ -149,6 +166,18 @@ const tasks = {
                 completed: false
             }
             API.editTask(taskId, falseObj);
+        }
+    },
+    clearMessage(targets, targetId, targetValue) {    // Clear incomplete fields messages
+        if (targetId === 'task-input' && targetValue) {
+            console.log(targetValue);
+            targets.taskNameMessage.classList.add('hidden');
+            targets.noTaskOrDateMessage.classList.add('hidden');
+        }
+        if (targetId === 'task-completion-date' && targetValue) {
+            console.log(targetValue);
+            targets.taskCompletionDateMessage.classList.add('hidden');
+            targets.noTaskOrDateMessage.classList.add('hidden');
         }
     }
 }
