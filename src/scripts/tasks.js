@@ -113,7 +113,21 @@ const tasks = {
             taskListInstructions.classList.add('hidden');
         }
     },
-    removeAndDeleteTask(taskId) {   // Remove task item from DOM and delete task from db
+    removeAndDeleteTask(targets, taskId) {   // Remove task item from DOM and delete task from db
+        // Clear any messages or that may be present
+        targets.noTaskOrDateMessage.classList.add('hidden');
+        targets.taskNameMessage.classList.add('hidden');
+        targets.taskCompletionDateMessage.classList.add('hidden');
+        // Clear form fields
+        targets.taskName.value = '';
+        targets.completionDate.value = '';
+
+        // Reset submit button text  if necessary
+        targets.submitBtn.value = 'Save Task';
+
+        // Hide cancel button
+        targets.cancelEditBtn.classList.add('hidden');
+
         tasks.removeTaskFromDOM(taskId);
         API.deleteTask(taskId)
     },

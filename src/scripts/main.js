@@ -83,7 +83,8 @@ myTasksLink.addEventListener('click', (e) => {
     tasksContainer.classList.remove('hidden');
 })
 
-primaryContainer.addEventListener('click', (e) => {
+// Tasks Container Event Listener
+tasksContainer.addEventListener('click', (e) => {
     if (e.target.id === 'cancel-edit-btn') {
         e.preventDefault()
         tasks.handleCancelEditBtn(targets)
@@ -104,7 +105,7 @@ primaryContainer.addEventListener('click', (e) => {
     if (e.target.className === 'remove-btn') {  // Task List - Remove Button
         e.preventDefault()
         const taskId = e.target.id.split('--')[1];
-        tasks.removeAndDeleteTask(taskId);  // Remove task from DOM & Delete task from db
+        tasks.removeAndDeleteTask(targets, taskId);  // Remove task from DOM & Delete task from db
     }
 })
 
