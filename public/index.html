@@ -24,12 +24,12 @@
       <h1>Bryan F'n Nilsens</h1>
     </div>
     <div id="links-container">
-      <a href="#">My Friends</a>
-      <a href="#" id="my-news-link">My News</a>
-      <a href="#" id="my-events-link">My Events</a>
-      <a href="#">My Tasks</a>
-      <a href="#">My Messages</a>
-      <a href="" id="logout" class="hidden">Log Out</a>
+      <div class="navLink"><a href="#" id="my-friends-link">My Friends</a></div>
+      <div class="navLink"><a href="#" id="my-news-link">My News</a></div>
+      <div class="navLink"><a href="#" id="my-events-link">My Events</a></div>
+      <div class="navLink"><a href="#">My Tasks</a></div>
+      <div class="navLink"><a href="#">My Messages</a></div>
+      <div class="navLink"><a href="" id="logout" class="hidden">Log Out</a></div>
     </div>
   </nav>
 
@@ -51,8 +51,12 @@
         <a href="#" id="register-link">Register</a>
         <button id="register-btn" class="hidden">Register</button>
       </div>
-      <div id="news-container"></div>
-      <div id="events-container"></div>
+      <div id="news-container">
+        <div id="news-modals"></div>
+      </div>
+      <div id="events-container">
+        <div id="events-modals"></div>
+      </div>
     </div>
   </main>
 

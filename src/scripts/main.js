@@ -1,10 +1,11 @@
 
 import handleUser from "./login"
 import API from "./dbCalls"
-import createFriendsEvents from "./friendsEvents"
-import createFriendsNews from "./friendsNews"
+import friendsEvents from "./friendsEvents"
+import friendsNews from "./friendsNews"
 import eventsPage from "./events";
 import newsPage from "./news";
+
 
 const loginContainer = document.querySelector("#login-container")
 const friendsContainer = document.querySelector("#friends-container")
@@ -13,8 +14,8 @@ const email = document.querySelector("#email")
 
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
+const myFriedndsBtn = document.querySelector("#my-friends-link")
 const primaryContainer = document.querySelector("#primary-container");
-
 
 loginContainer.addEventListener("click", (e) => {
     e.preventDefault()
@@ -61,6 +62,27 @@ myNewsBtn.addEventListener("click", (e) => {
     newsPage.createAddNewsButton();
 })
 
+myFriedndsBtn.addEventListener("click", (e) => {
+    const primary = document.querySelector("#primary-container");
+    const news = document.createElement("div")
+    news.setAttribute("id", "news-container")
+    const newsModal = document.createElement("div")
+    newsModal.setAttribute("id", "news-modals")
+    const events = document.createElement("div")
+    events.setAttribute("id", "events-container")
+    const eventsModal = document.createElement("div")
+    eventsModal.setAttribute("id", "events-modals")
+    primary.innerHTML = "";
+    news.appendChild(newsModal)
+    events.appendChild(eventsModal)
+    primary.appendChild(news)
+    primary.appendChild(events)
+    friendsEvents.createFriendsEvents()
+    friendsEvents.createEventListener()
+    friendsNews.createFriendsNews()
+    friendsNews.createNewsListener()
+})
+
 /////////////////////EVENTS////////////////////////////
 
 // Plus button to bring up new event form
@@ -93,9 +115,6 @@ primaryContainer.addEventListener("click", (e) => {
     }
 })
 
-<<<<<<< HEAD
-=======
-// Submit edited data to database
 primaryContainer.addEventListener("click", (e) => {
     if (e.target.id === "edited-event-submission-btn") {
         console.log("edited event button");
@@ -177,4 +196,3 @@ primaryContainer.addEventListener("click", (e) => {
         }
     }
 })
->>>>>>> master

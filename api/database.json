@@ -66,12 +66,6 @@
   ],
   "news": [
     {
-<<<<<<< HEAD
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-=======
       "userId": 1,
       "url": "",
       "dateAdded": "2015-09-12",
@@ -84,7 +78,6 @@
       "url": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/10/Family-portrait-FAMILY-GROUP.jpg?fit=750%2C600&ssl=1",
       "dateAdded": "2019-05-14",
       "title": "Annoying Friends Made A Child",
->>>>>>> master
       "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
       "id": 2
     },
@@ -137,13 +130,13 @@
     {
       "srcUserId": 1,
       "userId": 4,
-      "accepted": false,
+      "accepted": true,
       "id": 4
     },
     {
       "srcUserId": 4,
       "userId": 1,
-      "accepted": false,
+      "accepted": true,
       "id": 5
     },
     {
@@ -224,7 +217,7 @@
       "eventDate": "2015-09-12",
       "location": "My house",
       "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 5
+      "id": 4
     },
     {
       "userId": 2,
@@ -242,7 +235,7 @@
       "eventDate": "datetime",
       "location": "My house",
       "url": "",
-      "id": 5
+      "id": 6
     }
   ]
 }

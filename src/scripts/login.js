@@ -1,7 +1,7 @@
 import API from "./dbCalls";
 import makeFriendsList from "./friendsList"
-import createFriendsNews from "./friendsNews";
-import createFriendsEvents from "./friendsEvents"
+import friendsNews from "./friendsNews";
+import friendsEvents from "./friendsEvents"
 
 const loginBtn = document.querySelector("#login-btn")
 const registerBtn = document.querySelector("#register-btn")
@@ -28,8 +28,10 @@ const handleUser = {
                     .then(friends => {
                         makeFriendsList(friends)
                     })
-                createFriendsEvents()
-                createFriendsNews()
+                friendsEvents.createFriendsEvents()
+                friendsEvents.createEventListener()
+                friendsNews.createFriendsNews()
+                friendsNews.createNewsListener()
             }
         })
     },

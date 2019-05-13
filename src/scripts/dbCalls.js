@@ -91,7 +91,6 @@ const API = {
                     fetch(`http://localhost:8088/users?username=${friendName}`)
                         .then(response => response.json())
                         .then(reply => {
-                            console.log(reply)
                             let obj1 = {
                                 srcUserId: currentUserId,
                                 userId: reply[0].id,
@@ -179,7 +178,6 @@ const API = {
         return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=false&_expand=user`)
             .then(response => response.json())
             .then(reply => {
-                console.log("reply", reply)
                 if (reply.find(freind => freind.user.username === friendUsername) != undefined) {
                     fetch(`http://localhost:8088/friends?userId=${reply[0].user.id}&srcUserId=${userId}`)
                         .then(response => response.json())

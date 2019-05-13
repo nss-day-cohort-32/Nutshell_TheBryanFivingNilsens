@@ -44,7 +44,7 @@ h1, h2, h3 {
     margin: 10px;
     font-weight: 600;
   }
-  
+
   p {
     font-size: 1em;
     color: #a5a5a5;
@@ -52,25 +52,31 @@ h1, h2, h3 {
     font-weight: 400;
   }
 
-  #links-container a {
+  .navLink a {
     margin-right: 40px;
     margin-top: 40px;
   }
 
-  #links-container a:active,
-  #links-container a:hover
+  .navLink:active a,
+  .navLink:hover a
   {
     border-bottom: 1.5px solid #c9eddc;
     margin-bottom: 35px;
     overflow: hidden;
   }
 
-  #links-container a:active::after,
-  #links-container a:hover::after {
+  .navLink:active a::after,
+  .navLink:hover a::after {
     content: "";
     width: 100%;
     position: absolute;
     margin-bottom: -35px;
+  }
+
+  .navLink {
+    display: flex;
+    justify-content: center;
+    align-items: auto;
   }
 
   #top-nav a {
