@@ -87,7 +87,7 @@
   ],
   "friends": [
     {
-      "id": 1,
+      "id": 10,
       "srcUserId": 1,
       "userId": 2,
       "accepted": true
@@ -105,22 +105,10 @@
       "accepted": false
     },
     {
-      "srcUserId": 1,
-      "userId": 4,
-      "accepted": false,
-      "id": 4
-    },
-    {
       "srcUserId": 4,
       "userId": 1,
-      "accepted": false,
+      "accepted": true,
       "id": 5
-    },
-    {
-      "srcUserId": 1,
-      "userId": 4,
-      "accepted": false,
-      "id": 6
     },
     {
       "srcUserId": 4,
@@ -129,16 +117,34 @@
       "id": 7
     },
     {
-      "srcUserId": 1,
-      "userId": 4,
-      "accepted": false,
-      "id": 8
-    },
-    {
       "srcUserId": 4,
       "userId": 1,
       "accepted": false,
       "id": 9
+    },
+    {
+      "srcUserId": 1,
+      "userId": 7,
+      "accepted": false,
+      "id": 14
+    },
+    {
+      "srcUserId": 1,
+      "userId": 6,
+      "accepted": false,
+      "id": 15
+    },
+    {
+      "srcUserId": 1,
+      "userId": 5,
+      "accepted": false,
+      "id": 16
+    },
+    {
+      "srcUserId": 1,
+      "userId": 4,
+      "accepted": false,
+      "id": 17
     }
   ],
   "tasks": [

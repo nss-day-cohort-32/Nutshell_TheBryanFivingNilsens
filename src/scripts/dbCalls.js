@@ -166,7 +166,7 @@ const API = {
                     fetch(`http://localhost:8088/friends?userId=${reply[0].user.id}&srcUserId=${userId}`)
                         .then(response => response.json())
                         .then(reply => {
-                            var recordId = reply[0].id
+                            let recordId = reply[0].id
                             fetch(`http://localhost:8088/friends/${recordId}`, {
                                 method: "PATCH",
                                 headers: {
@@ -178,7 +178,8 @@ const API = {
                     fetch(`http://localhost:8088/friends?userId=${userId}&srcUserId=${reply[0].user.id}`)
                         .then(response => response.json())
                         .then(reply => {
-                            var recordId = reply[0].id
+                            console.log(userId)
+                            let recordId = reply[0].id
                             fetch(`http://localhost:8088/friends/${recordId}`, {
                                 method: "PATCH",
                                 headers: {
@@ -188,6 +189,19 @@ const API = {
                             })
                         })
                 }
+            })
+    },
+    deleteFriend: function (userId, friendId) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&userId=${friendId}`)
+            .then(response => response.json())
+            .then(friendTableId => {
+                return fetch(`http://localhost:8088/friends/${friendTableId[0].id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
             })
     },
     deleteNews: function (newsId) {

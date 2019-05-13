@@ -68,6 +68,10 @@ color {
 }
 
 /* begin nf-login-container */
+#login-page-container {
+  display: flex;
+  justify-content: center
+}
 
 #login-container {
   background-color: #3e8989;
@@ -100,6 +104,28 @@ color {
 }
 
 /* end nf-login-container */
+
+/* begin nf-friends-container */
+
+.find-friend {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4%
+}
+
+#searchFriends {
+  margin-left:1%;
+  width: 50%;
+
+}
+
+#sendRequestBtn {
+  margin-left:4%;
+  flex-basis: 40%;
+  width: 40%
+}
+
+/* end nf-friends-container */
 
 #news-container {
   display: flex;
