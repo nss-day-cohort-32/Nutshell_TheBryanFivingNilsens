@@ -400,4 +400,8 @@ color {
 .complete-check:checked + .line-through > span {
   display: none;
 }
+
+#cancel-edit-btn {
+  /* padding:  */
+}
 /* END TASK PAGE STYLES */

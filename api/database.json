@@ -159,57 +159,7 @@
       "id": 9
     }
   ],
-  "tasks": [
-    {
-      "userId": 2,
-      "name": "Clean up Task listeners",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "name": "Click on task name to edit",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "name": "Block edit if form is already populated",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "name": "Edit test 1A",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "name": "Edit test 2",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "name": "Edit test 3B",
-      "targetCompletionDate": "2019-05-12",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "name": "mess",
-      "targetCompletionDate": "2019-05-13",
-      "completed": false,
-      "id": 10
-    }
-  ],
+  "tasks": [],
   "events": [
     {
       "id": 1,

@@ -15,7 +15,6 @@ const myNewsBtn = document.querySelector("#my-news-link");
 const primaryContainer = document.querySelector("#primary-container");
 
 // TASKS - targeted elements
-// const targets = {
 const hiddenInput = document.querySelector('#hidden-input');
 const taskName = document.querySelector('#task-input');
 const completionDate = document.querySelector('#task-completion-date');
@@ -24,7 +23,9 @@ const submitBtn = document.querySelector('#save-task-btn');
 const noTaskOrDateMessage = document.querySelector('#task-and-date-message');
 const taskNameMessage = document.querySelector('#task-name-message');
 const taskCompletionDateMessage = document.querySelector('#task-date-message');
-// }
+const myTasksLink = document.querySelector("#my-tasks-link");
+const tasksContainer = document.querySelector("#tasks-container");
+
 const targets = {
     hiddenInput,
     taskName,
@@ -77,8 +78,12 @@ friendsContainer.addEventListener("click", (e) => {
 const userId = 2;   // temporary userId
 tasks.renderUserTasks(userId) // temporary call to load user tasks
 
+// My Tasks Link - listener : to show tasks component
+myTasksLink.addEventListener('click', (e) => {
+    tasksContainer.classList.remove('hidden');
+})
+
 primaryContainer.addEventListener('click', (e) => {
-    console.log(e.target.id)
     if (e.target.id === 'cancel-edit-btn') {
         e.preventDefault()
         tasks.handleCancelEditBtn(targets)

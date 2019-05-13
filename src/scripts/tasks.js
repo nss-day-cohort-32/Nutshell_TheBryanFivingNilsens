@@ -26,9 +26,12 @@ const tasks = {
     renderUserTasks(userId) {
         API.getUserTasks(userId)
             .then(userTasks => {
-                userTasks.forEach(task => {
-                    tasks.addToTaskList(task)
-                })
+                if (userTasks.length > 0) {
+                    taskListInstructions.classList.remove('hidden');
+                    userTasks.forEach(task => {
+                        tasks.addToTaskList(task)
+                    })
+                }
             })
     },
     createNewTaskObject(userId, name, targetCompletionDate) {
@@ -101,10 +104,13 @@ const tasks = {
     removeTaskFromDOM(taskId) { // Remove task item from list when selected for edit
         const taskToRemove = document.querySelector(`#task-div--${taskId}`);
         taskToRemove.parentNode.removeChild(taskToRemove);
+        const count = tasks.getTaskItemsCount();
+        if (count < 1) {
+            taskListInstructions.classList.add('hidden');
+        }
     },
     removeAndDeleteTask(taskId) {   // Remove task item from DOM and delete task from db
-        const taskToRemove = document.querySelector(`#task-div--${taskId}`);
-        taskToRemove.parentNode.removeChild(taskToRemove);
+        tasks.removeTaskFromDOM(taskId);
         API.deleteTask(taskId)
     },
     saveTheDate(date) {
@@ -113,6 +119,10 @@ const tasks = {
         dateArray.push(year);
         const formattedDate = dateArray.join('-');
         return formattedDate;
+    },
+    getTaskItemsCount() {
+        const taskItemsCount = document.querySelectorAll('.task-div');
+        return taskItemsCount.length;
     },
     // Event Listener Functionality
     handleSubmitBtn(targets, userId) {   // Save or Update Task
@@ -170,12 +180,10 @@ const tasks = {
     },
     clearMessage(targets, targetId, targetValue) {    // Clear incomplete fields messages
         if (targetId === 'task-input' && targetValue) {
-            console.log(targetValue);
             targets.taskNameMessage.classList.add('hidden');
             targets.noTaskOrDateMessage.classList.add('hidden');
         }
         if (targetId === 'task-completion-date' && targetValue) {
-            console.log(targetValue);
             targets.taskCompletionDateMessage.classList.add('hidden');
             targets.noTaskOrDateMessage.classList.add('hidden');
         }
