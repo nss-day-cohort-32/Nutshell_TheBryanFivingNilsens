@@ -61,27 +61,27 @@
   ],
   "news": [
     {
-      "id": 1,
       "userId": 1,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
+      "url": "",
+      "dateAdded": "2015-09-12",
       "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ..."
+      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+      "id": 1
     },
     {
-      "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
+      "userId": 1,
+      "url": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/10/Family-portrait-FAMILY-GROUP.jpg?fit=750%2C600&ssl=1",
+      "dateAdded": "2019-05-14",
+      "title": "Annoying Friends Made A Child",
       "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
       "id": 2
     },
     {
       "userId": 2,
-      "url": "https://www.cnn.com/2019/05/06/politics/house-democrats-fox-news/index.html",
-      "dateAdded": "datetime",
-      "title": "House Democrats aim -- and train -- for more air time on Fox News",
-      "synopsis": "(CNN) The Democratic National Committee is keeping Fox News off the presidential primary debate calendar, but Democrats in the House of ...",
+      "url": "https://www.traveldudes.org/sites/default/files/styles/image_node_main/public/offthepath.jpg",
+      "dateAdded": "2015-09-12",
+      "title": "Trust-Funded Friend Travels Abroad....Again",
+      "synopsis": "Lorem ipsum dolor amet you probably haven't heard of them ethical raclette, knausgaard vice enamel pin craft beer pok pok pabst. Raw denim leggings cloud bread jianbing. Gastropub single-origin coffee 8-bit taiyaki yr blog cloud bread sriracha drinking vinegar jean shorts master cleanse slow-carb shoreditch DIY. Authentic vexillologist raw denim mixtape kombucha. Succulents pour-over viral tote bag mustache mixtape +1.",
       "id": 3
     }
   ],
@@ -195,12 +195,21 @@
     },
     {
       "userId": 2,
-      "name": "party",
-      "description": "its a party.",
-      "eventDate": "datetime",
+      "name": "Sausage Party w/ Jonah Hill",
+      "description": "Lorem ipsum dolor amet enamel pin small batch vaporware, hell of microdosing typewriter bicycle rights. Polaroid celiac listicle vexillologist lomo migas YOLO fam single-origin coffee health goth. Marfa tousled 8-bit skateboard everyday carry af. Helvetica health goth quinoa slow-carb af.",
+      "eventDate": "2015-09-12",
       "location": "My house",
-      "url": "",
-      "id": 4
+      "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "name": "Sausage Party w/ Jonah Hill",
+      "description": "Lorem ipsum dolor amet enamel pin small batch vaporware, hell of microdosing typewriter bicycle rights. Polaroid celiac listicle vexillologist lomo migas YOLO fam single-origin coffee health goth. Marfa tousled 8-bit skateboard everyday carry af. Helvetica health goth quinoa slow-carb af.",
+      "eventDate": "2015-09-12",
+      "location": "My house",
+      "url": "https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
     },
     {
       "userId": 2,
