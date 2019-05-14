@@ -63,13 +63,13 @@ color {
 #friends-container {
   display: flex;
   flex-direction: column;
-  flex-basis: 15%;
+  flex-basis: 25%;
   background-color: #d7dedc;
 }
 
 #primary-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-basis: 85%;
   flex-wrap: wrap;
   padding-right: 20px;
@@ -77,6 +77,10 @@ color {
 }
 
 /* begin nf-login-container */
+#login-page-container {
+  display: flex;
+  justify-content: center
+}
 
 #login-container {
   background-color: white;
@@ -94,7 +98,6 @@ color {
 
 #login-container * {
   padding: 1%;
-  margin-top: 1%
 }
 
 #login-container label {
@@ -155,6 +158,33 @@ color {
 
 /* end nf-login-container */
 
+/* begin nf-friends-container */
+
+#friends-container button {
+  flex-basis: 40%;
+  background-color: #3e8989;
+  border-radius: 8px;
+  color: white;
+  font-size: .5em;
+  padding: 2% 4%;
+
+  margin-left: 2%
+}
+
+.find-friend {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4%
+}
+
+#searchFriends {
+  margin-left:4%;
+  width: 50%;
+}
+
+
+/* end nf-friends-container */
+
 #news-container {
   display: flex;
   /* border: 1px solid grey; */
@@ -199,7 +229,7 @@ color {
   position: relative;
   width: 100%;
   overflow: hidden;
-  
+
 }
 
 .event-image-container {
@@ -239,8 +269,8 @@ color {
   /* position: ; */
   width:40em;
   height:40em;
-  margin-top: 10em; 
-  margin-left: 25em; 
+  margin-top: 10em;
+  margin-left: 25em;
   background-color: white;
   padding: 20px;
   justify-content: center;
@@ -310,7 +340,7 @@ color {
   position: relative;
   width: 100%;
   overflow: hidden;
-  
+
 }
 
 .news-image-container {
@@ -350,8 +380,8 @@ color {
   /* position: ; */
   width:40em;
   height:40em;
-  margin-top: 10em; 
-  margin-left: 25em; 
+  margin-top: 10em;
+  margin-left: 25em;
   background-color: white;
   padding: 20px;
   justify-content: center;
@@ -483,7 +513,7 @@ color {
 }
 
 /* #tasks-form {
-  
+
 } */
 
 #form-elements {
@@ -497,7 +527,7 @@ color {
 }
 
 .task-div {
-  width: 100%; 
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;

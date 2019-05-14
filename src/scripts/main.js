@@ -10,11 +10,14 @@ var moment = require('moment');
 moment().format();
 
 console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
+import handleFriends from "./friendsList"
 
-const loginContainer = document.querySelector("#login-container")
+const navContainer = document.querySelector("#links-container")
+const loginContainer = document.querySelector("#login-page-container")
 const friendsContainer = document.querySelector("#friends-container")
-const username = document.querySelector("#username")
-const email = document.querySelector("#email")
+const friendRequestContainer = document.querySelector("#friend-requests")
+const logOutBtn = document.querySelector("#logout")
+
 
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
@@ -44,10 +47,40 @@ const targets = {
     taskCompletionDateMessage
 }
 
+if (sessionStorage.length === 0) {
+    handleUser.renderLogin()
+} else {
+    let currentUser = sessionStorage.getItem("activeUser")
+    logOutBtn.classList.remove("hidden")
+    API.getFriendsList(currentUser, "true", "true")
+        .then(friends => {
+            handleFriends.makeFriendsList(friends)
+        })
+    API.getFriendsList(currentUser, "false", "false")
+        .then(friends => {
+            handleFriends.makeFriendRequestList(friends)
+        })
+}
+
+console.log(sessionStorage)
+
+// nf handle logout
+navContainer.addEventListener("click", (e) => {
+    e.preventDefault()
+    if (e.target.id === "logout") {
+        handleUser.logOut()
+        location.reload()
+    }
+})
+
+// nf login listeners
+
 
 
 // LOGIN - LOGIN LISTENER
 loginContainer.addEventListener("click", (e) => {
+    const username = document.querySelector("#username")
+    const email = document.querySelector("#email")
     e.preventDefault()
     //handle login
     if (e.target.id === "login-btn") {
@@ -62,24 +95,39 @@ loginContainer.addEventListener("click", (e) => {
         handleUser.register(username.value, email.value)
         username.value = ""
         email.value = ""
-    } else if (e.target.id === "logout") {
-        handleUser.logOut()
     }
 })
 
-
-
-// FRIENDS LISTENER
+// nf friends listeners
 friendsContainer.addEventListener("click", (e) => {
     e.preventDefault()
-    console.log(e)
-    // handle remove friend
-    if (e.target.id === "friend-in-list") {
-        console.log(e.target)
+    // handle friend
+    if (e.target.className === "friendName") {
+        const friendDiv = e.target.nextElementSibling
+        const friendBtn = friendDiv.nextElementSibling
+        friendDiv.classList.toggle("hidden")
+        friendBtn.classList.toggle("hidden")
+        // handle delete friend
+    } else if (e.target.className === "deleteFriend") {
+        const deleteFriendId = e.target.id.split("--")[1]
+        handleFriends.deleteFriend(deleteFriendId)
+        let friendToRemove = e.target.parentNode
+        //handle accept friend
+    } else if (e.target.className === "acceptFriend") {
+        let friendToAccept = `${e.target.previousElementSibling.textContent}`
+        handleFriends.acceptFriendRequest(friendToAccept)
+        let friendToMove = e.target.parentNode
+        //handle send request
+    } else if (e.target.id === "sendRequestBtn") {
+        const searchFriendInput = document.querySelector("#searchFriends")
+        let friendName = searchFriendInput.value
+        handleFriends.sendFriendRequest(friendName)
+        searchFriendInput.value = ""
+
     }
 })
 
-
+//start event listeners
 
 // TASK LISTENERS SECTION ///////////////////////////////////////////////////
 tasks.renderUserTasks(userId) // temporary call to load user tasks

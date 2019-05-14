@@ -92,38 +92,44 @@ const API = {
             .then(response => response.json())
     },
     addFriends: function (currentUserId, friendName) {
-        fetch(`http://localhost:8088/friends?srcUserId=${currentUserId}&_expand=user`)
+        return fetch(`http://localhost:8088/friends?srcUserId=${currentUserId}&_expand=user`)
             .then(response => response.json())
             .then(friends => {
-                if (friends.find(friend => friend.user.username === friendName) === undefined) {
-                    fetch(`http://localhost:8088/users?username=${friendName}`)
+                if (friends.find(freind => freind.user.username === friendName) === undefined) {
+                    return fetch(`http://localhost:8088/users?username=${friendName}`)
                         .then(response => response.json())
                         .then(reply => {
                             console.log(reply)
                             let obj1 = {
-                                srcUserId: currentUserId,
+                                srcUserId: Number(currentUserId),
                                 userId: reply[0].id,
+                                initiate: true,
                                 accepted: false
                             }
                             let obj2 = {
                                 srcUserId: reply[0].id,
-                                userId: currentUserId,
+                                userId: Number(currentUserId),
+                                initiate: false,
                                 accepted: false
                             }
-                            fetch("http://localhost:8088/friends", {
+                            return fetch("http://localhost:8088/friends", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json"
                                 },
                                 body: JSON.stringify(obj1)
                             })
-                            fetch("http://localhost:8088/friends", {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify(obj2)
-                            })
+                                .then(response => response.json())
+                                .then(response => {
+                                    return fetch("http://localhost:8088/friends", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(obj2)
+                                    })
+                                        .then(response => response.json())
+                                })
                         })
                 }
             })
@@ -183,37 +189,44 @@ const API = {
             .then(response => response.json())
     },
     acceptFriends: function (userId, friendUsername) {
-        let obj = { accepted: true }
+        let obj = {
+            accepted: true,
+            initiate: true
+        }
         return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=false&_expand=user`)
             .then(response => response.json())
             .then(reply => {
-                console.log("reply", reply)
+                // debugger
+                // console.log("reply", reply)
                 if (reply.find(freind => freind.user.username === friendUsername) != undefined) {
-                    fetch(`http://localhost:8088/friends?userId=${reply[0].user.id}&srcUserId=${userId}`)
+                    // debugger
+                    return fetch(`http://localhost:8088/friends?userId=${reply[0].user.id}&srcUserId=${userId}`)
                         .then(response => response.json())
                         .then(reply => {
-                            var recordId = reply[0].id
-                            fetch(`http://localhost:8088/friends/${recordId}`, {
+                            let recordId = reply[0].id
+                            return fetch(`http://localhost:8088/friends/${recordId}`, {
                                 method: "PATCH",
                                 headers: {
                                     "Content-Type": "application/json"
                                 },
                                 body: JSON.stringify(obj)
                             })
-                        })
-                    fetch(`http://localhost:8088/friends?userId=${userId}&srcUserId=${reply[0].user.id}`)
-                        .then(response => response.json())
-                        .then(reply => {
-                            var recordId = reply[0].id
-                            fetch(`http://localhost:8088/friends/${recordId}`, {
-                                method: "PATCH",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify(obj)
-                            })
+                                .then(response => response.json())
                         })
                 }
+            })
+    },
+    deleteFriend: function (userId, friendId) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&userId=${friendId}`)
+            .then(response => response.json())
+            .then(friendTableId => {
+                return fetch(`http://localhost:8088/friends/${friendTableId[0].id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
             })
     },
     deleteNews: function (newsId) {
@@ -280,8 +293,8 @@ const API = {
         })
             .then(response => response.json())
     },
-    getFriendsList: function (userId, TorF) {
-        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=${TorF}&_expand=user`)
+    getFriendsList: function (userId, TorF, iTorF) {
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=${TorF}&initiate=${iTorF}&_expand=user`)
             .then(response => response.json())
     }
 }
