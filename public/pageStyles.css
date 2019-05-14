@@ -71,7 +71,7 @@ color {
 
 #primary-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-basis: 85%;
   flex-wrap: wrap;
   padding-right: 20px;
@@ -83,6 +83,7 @@ color {
   display: flex;
   justify-content: center;
   margin-top: 20%;
+  margin: auto;
 }
 
 #login-container {
@@ -189,18 +190,21 @@ color {
 
 #news-container {
   display: flex;
-  border: 1px solid grey;
   flex: 1;
+  flex-grow: 1;
   align-items: center;
+  flex-wrap: wrap;
   overflow: auto;
+  height: 600px;
 }
 
 #events-container {
   display: flex;
   flex: 1;
-  border: 1px solid grey;
+  flex-grow: 1;
   height: 50%;
   align-items: center;
+  flex-wrap: wrap;
   overflow: auto;
 }
 
@@ -224,6 +228,7 @@ color {
   margin: 0px 0px 20px 20px;
   border-bottom: 3px solid #3e8989;
 }
+
 
 
 
@@ -448,6 +453,14 @@ color {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+.friends-img {
+  display: flex;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  flex: 6;
+}
+
 .friends p  {
   display: block;
   height: auto;
@@ -456,9 +469,7 @@ color {
   text-overflow: ellipsis;
 }
 
-.friends-img{
-  object-fit: fill;
-}
+
 
 .modal {
   display: none;
@@ -475,16 +486,17 @@ color {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   position: relative;
   background-color: #fefefe;
-  height: 600px;
-  width: 400px;
+  height: 800px;
+  width: 800px;
   left: 25%;
   top: 150px;
-  margin-left: -150px;
+  margin-left: 175px;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
   animation-name: animatetop;
   animation-duration: 0.5s;
 }
@@ -539,7 +551,7 @@ color {
   background-color: white;
   padding: 10px;
   padding-bottom: 20px;
-  width: 75%;
+  width: 600px;
   flex-basis: 100%;
   margin: auto;
   margin-bottom: 10px;

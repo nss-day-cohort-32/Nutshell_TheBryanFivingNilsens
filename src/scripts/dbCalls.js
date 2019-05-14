@@ -256,7 +256,7 @@ const API = {
             .then(response => response.json())
     },
     getAllMessages: function () {
-        return fetch("http://localhost:8088/messages?_expand=user")
+        return fetch("http://localhost:8088/messages?_expand=user&_sort=sendDate&_order=desc")
             .then(response => response.json())
     },
     getUserRelationships: function (sessionUser, messageUser) {

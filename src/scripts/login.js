@@ -39,6 +39,28 @@ const handleUser = {
                     .then(friends => {
                         handleFriends.makeFriendRequestList(friends)
                     })
+                const primary = document.querySelector("#primary-container");
+                const innerDiv = document.createElement("div")
+                const news = document.createElement("div")
+                const horizRule = document.createElement("hr");
+                news.setAttribute("id", "news-container")
+                const newsModal = document.createElement("div")
+                newsModal.setAttribute("id", "news-modals")
+                const events = document.createElement("div")
+                events.setAttribute("id", "events-container")
+                const eventsModal = document.createElement("div")
+                eventsModal.setAttribute("id", "events-modals")
+                primary.innerHTML = "";
+                news.appendChild(newsModal)
+                events.appendChild(eventsModal)
+                innerDiv.appendChild(news)
+                innerDiv.appendChild(horizRule);
+                innerDiv.appendChild(events)
+                primary.appendChild(innerDiv)
+                friendsEvents.createFriendsEvents()
+                friendsEvents.createEventListener()
+                friendsNews.createFriendsNews()
+                friendsNews.createNewsListener()
                 friendsEvents.createFriendsEvents()
                 friendsEvents.createEventListener()
                 friendsNews.createFriendsNews()

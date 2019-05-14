@@ -203,6 +203,7 @@ myFriedndsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
     const innerDiv = document.createElement("div")
     const news = document.createElement("div")
+    const horizRule = document.createElement("hr");
     news.setAttribute("id", "news-container")
     const newsModal = document.createElement("div")
     newsModal.setAttribute("id", "news-modals")
@@ -214,6 +215,7 @@ myFriedndsBtn.addEventListener("click", (e) => {
     news.appendChild(newsModal)
     events.appendChild(eventsModal)
     innerDiv.appendChild(news)
+    innerDiv.appendChild(horizRule);
     innerDiv.appendChild(events)
     primary.appendChild(innerDiv)
     friendsEvents.createFriendsEvents()

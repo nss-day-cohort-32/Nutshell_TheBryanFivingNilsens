@@ -161,6 +161,44 @@
       "id": 20
     }
   ],
+  "messages": [
+    {
+      "userId": 1,
+      "message": "Hey guys! Anyone on AIM?",
+      "sendDate": "2019-05-14T15:36:04.604Z",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "Hello?",
+      "sendDate": "2019-05-14T15:38:48.676Z",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "message": "Hey man, what's up? Want to grab some tacos for el lunche?",
+      "sendDate": "2019-05-14T15:55:48.676Z",
+      "id": 3
+    },
+    {
+      "userId": 33,
+      "message": "Hey guys, can I come along? I want some of those mexican cokes with the real sugar.",
+      "sendDate": "2019-05-14T16:38:48.676Z",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "message": "sean sucks",
+      "sendDate": "2019-05-14T15:55:56.852Z",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "message": "cohort 32",
+      "sendDate": "2019-05-14T15:57:36.697Z",
+      "id": 6
+    }
+  ],
   "events": [
     {
       "id": 7,
@@ -185,7 +223,7 @@
       "userId": 1,
       "name": "Wine Tasting and Other Assorted Snobbery",
       "description": "We will use terms like musty, fleshy, and earthen aftertaste.",
-      "eventDate": "2019-05-22",
+      "eventDate": "2019-05-01",
       "location": "Wine 280",
       "url": "https://images.pexels.com/photos/1097425/pexels-photo-1097425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
