@@ -1,4 +1,57 @@
-# Nutshell: The Information Dashboard
+# Project Nutshell
+insert img here
+
+
+
+## Brought to you by the Bryan F'n Nilsens
+- Nate Flemming
+- Jason Collum
+- Colin Sandlin
+- Sean Glavin
+
+### Setup Nutshell
+1. Clone this repo.
+2. In Terminal navigate to src/lib.
+```
+ $ npm install
+ ```
+3. Run Grunt.
+
+### Technology Used
+
+This application uses the following technology for development
+
+1. HTML
+2. CSS
+3. Javascript
+4. Grunt
+5. Browserfy
+6. ESlint
+7. Moment.js
+
+### Incorporated concepts
+
+This project utilized the following concepts that we have learned throughout the course.
+
+1. Functions
+2. Databases/API
+3. Github
+4. Objects
+5. CSS
+6. Handling user events
+7. Factory functions
+8. Data entry/editing
+9. Modular code with Browserify
+10. Relational data
+
+
+### Database Diagram
+
+Below is the Entity Relation Diagram (ERD) used during the planning process of this project
+
+![alt text](public/images/erd.png)
+
+# Nutshell: The Information Dashboard - Assignment Requirements
 
 Nutshell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.
 
