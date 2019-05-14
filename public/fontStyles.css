@@ -2,11 +2,11 @@
 h1, h2, h3 {
     font-family: 'Crimson Text', serif;
   }
-  
+
   h4, h5, h6, p {
     font-family: 'Work Sans', sans-serif;
   }
-  
+
   h1 {
     font-size: 2em;
     color: #1f5858;
@@ -99,4 +99,12 @@ h1, h2, h3 {
     text-transform: uppercase;
     letter-spacing: .2em;
     font-size: .7em;
+  }
+
+  #friends-container p {
+    color: #1f5858
+  }
+
+  .friendEmail {
+    color: white;
   }
