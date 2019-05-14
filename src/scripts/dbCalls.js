@@ -31,6 +31,10 @@ const API = {
         return fetch(`http://localhost:8088/tasks?userId=${userId}`)
             .then(response => response.json())
     },
+    getSingleUserTask: function (taskId) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`)
+            .then(response => response.json())
+    },
     getUserEvents: function (userId) {
         return fetch(`http://localhost:8088/events?userId=${userId}`)
             .then(response => response.json())
@@ -164,8 +168,8 @@ const API = {
         })
             .then(response => response.json())
     },
-    editTask: function (tasksId, obj) {
-        return fetch(`http://localhost:8088/tasks/${tasksId}`, {
+    editTask: function (taskId, obj) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -226,8 +230,8 @@ const API = {
         })
             .then(response => response.json())
     },
-    deleteTask: function (tasksId) {
-        return fetch(`http://localhost:8088/tasks/${tasksId}`, {
+    deleteTask: function (taskId) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

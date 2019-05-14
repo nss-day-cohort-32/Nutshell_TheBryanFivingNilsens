@@ -2,69 +2,94 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>BFN Nutshell</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./pageStyles.css" />
-  <link rel="stylesheet" href="./fontStyles.css" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i|Work+Sans:200,300,400,500,600,700,800,900"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BFN Nutshell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./pageStyles.css" />
+    <link rel="stylesheet" href="./fontStyles.css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i|Work+Sans:200,300,400,500,600,700,800,900"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
 </head>
 
 <body>
-  <nav id="top-nav">
-    <div id="logo-container">
-      <!-- <img src="#" /> -->
-      <h1>Bryan F'n Nilsens</h1>
-    </div>
-    <div id="links-container">
-      <a href="#">My Friends</a>
-      <a href="#" id="my-news-link">My News</a>
-      <a href="#" id="my-events-link">My Events</a>
-      <a href="#">My Tasks</a>
-      <a href="#">My Messages</a>
-      <a href="" id="logout" class="hidden">Log Out</a>
-    </div>
-  </nav>
+    <nav id="top-nav">
+        <div id="logo-container">
+            <!-- <img src="#" /> -->
+            <h1>Bryan F'n Nilsens</h1>
+        </div>
+        <div id="links-container">
+            <a href="#">My Friends</a>
+            <a href="#" id="my-news-link">My News</a>
+            <a href="#" id="my-events-link">My Events</a>
+            <a href="#" id="my-tasks-link">My Tasks</a>
+            <a href="#">My Messages</a>
+            <a href="" id="logout" class="hidden">Log Out</a>
+        </div>
+    </nav>
 
-  <main id="page-container">
+    <main id="page-container">
 
-    <aside id="friends-container" class="">
-      <div id="friend-list">
-      </div>
-      <div id="friend-request"></div>
-    </aside>
+        <aside id="friends-container" class="">
+            <div id="friend-list">
+            </div>
+            <div id="friend-request"></div>
+        </aside>
 
-    <div id="primary-container" class="">
-      <div id="login-container" class="hidden">
-        <label id="">Username:</label>
-        <input type="text" id="username" />
-        <label id="">Email:</label>
-        <input type="text" id="email" />
-        <button id="login-btn">Login</button>
-        <a href="#" id="register-link">Register</a>
-        <button id="register-btn" class="hidden">Register</button>
-      </div>
-      <div id="news-container"></div>
-      <div id="events-container"></div>
-    </div>
-  </main>
+        <div id="primary-container" class="">
+            <div id="login-container" class="hidden">
+                <label id="">Username:</label>
+                <input type="text" id="username" />
+                <label id="">Email:</label>
+                <input type="text" id="email" />
+                <button id="login-btn">Login</button>
+                <a href="#" id="register-link">Register</a>
+                <button id="register-btn" class="hidden">Register</button>
+            </div>
+            <div id="news-container"></div>
+            <div id="events-container"></div>
 
-  <footer id="footer-nav">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-    <a href="#">Link 4</a>
-    <a href="#">Link 5</a>
-  </footer>
+            <div id="tasks-container" class="hidden">
+                <form id="tasks-form">
+                    <div id="form-elements">
+                        <fieldset>
+                            <input type="text" id="hidden-input" class="hidden">
+                            <input type="text" id="task-input" placeholder="Enter a task...">
+                            <label for="task-completion-date">Complete Task By: </label>
+                            <input type="date" name="task-completion-date" id="task-completion-date" required>
+                            <button id="cancel-edit-btn" class="hidden">Cancel</button>
+                            <input id="save-task-btn" type="submit" value="Save Task">
+                        </fieldset>
+                        <div id="messageDiv">
+                            <p id="task-and-date-message" class="hidden error">Enter both a task name and target
+                                completion
+                                date
+                            </p>
+                            <p id="task-name-message" class="hidden error">Enter a task name</p>
+                            <p id="task-date-message" class="hidden error">Choose a completion date goal</p>
+                            <p id="task-list-instructions" class="hidden">Click on a task name to edit</p>
+                        </div>
+                    </div>
+                </form>
+                <div id="task-list-container"></div>
+            </div>
+        </div>
+    </main>
 
-  <script src="bundle.js"></script>
+    <footer id="footer-nav">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+    </footer>
+
+    <script src="bundle.js"></script>
 </body>
 
 </html>
