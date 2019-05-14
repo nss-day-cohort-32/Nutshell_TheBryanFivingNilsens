@@ -69,7 +69,7 @@ const messageBoard = {
         messageInfoContainer.setAttribute("class", "msg-info-container");
 
         const userName = document.createElement("h2");
-        userName.innerText = `${message.user.email}`;
+        userName.innerText = `${message.user.username}`;
 
         const sendDate = document.createElement("h5");
         sendDate.innerText = `${message.sendDate}`
@@ -111,7 +111,7 @@ const messageBoard = {
         messageInfoContainer.setAttribute("class", "msg-info-container");
 
         const userName = document.createElement("h2");
-        userName.innerText = `${message.user.email}`;
+        userName.innerText = `${message.user.username}`;
         userName.setAttribute("id", `message--${message.id}`);
 
         const sendDate = document.createElement("h5");
@@ -147,7 +147,7 @@ const messageBoard = {
         messageInfoContainer.setAttribute("class", "msg-info-container");
 
         const userName = document.createElement("h2");
-        userName.innerText = `${message.user.email}`;
+        userName.innerText = `${message.user.username}`;
 
         const sendDate = document.createElement("h5");
         sendDate.innerText = `${message.sendDate}`

@@ -216,6 +216,7 @@ myFriedndsBtn.addEventListener("click", (e) => {
     tasksContainer.classList.add('hidden');
     const innerDiv = document.createElement("div")
     const news = document.createElement("div")
+    const horizRule = document.createElement("hr");
     news.setAttribute("id", "news-container")
     const newsModal = document.createElement("div")
     newsModal.setAttribute("id", "news-modals")
@@ -227,6 +228,7 @@ myFriedndsBtn.addEventListener("click", (e) => {
     news.appendChild(newsModal)
     events.appendChild(eventsModal)
     innerDiv.appendChild(news)
+    innerDiv.appendChild(horizRule);
     innerDiv.appendChild(events)
     primary.appendChild(innerDiv)
     friendsEvents.createFriendsEvents()
@@ -363,10 +365,10 @@ messageBoardBtn.addEventListener("click", (e) => {
 
 primaryContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("acceptFriend")) {
-        let itemArray = e.target.id.split("--");
-        let targetId = itemArray[1];
+        const personToAdd = e.target.parentNode.firstChild.textContent;
+        console.log(personToAdd);
         if (confirm("Are you sure you want to add this friend?") == true) {
-            messageBoard.addFriend(targetId);
+            handleFriends.sendFriendRequest(personToAdd);
         }
     }
 })

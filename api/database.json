@@ -11,7 +11,7 @@
     {
       "userId": 1,
       "url": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/10/Family-portrait-FAMILY-GROUP.jpg?fit=750%2C600&ssl=1",
-      "dateAdded": "Monday, May 13th 2019, 11:04:08 am",
+      "dateAdded": "May 13th 2019, 11:04:08 am",
       "title": "Annoying Friends Made A Child...Again",
       "synopsis": "As if they weren't annoying enough, your two friends that wouldn't shutup about kids decided to make another one.",
       "id": 2
@@ -35,7 +35,7 @@
     {
       "userId": 1,
       "url": "https://i.kinja-img.com/gawker-media/image/upload/s--eg8BGANK--/c_scale,dpr_2.0,f_auto,fl_progressive,q_80,w_800/ebojo6byriwo8a1a0owg.jpg",
-      "dateAdded": "Monday, May 13th 2019, 10:35:21 am",
+      "dateAdded": "May 13th 2019, 10:35:21 am",
       "title": "Duke Anthropology Professor Devastated To Learn Promising Student Dropping Out",
       "synopsis": "Zion was always staying after class to chat, or coming to my office hours, but now he’s throwing his life away for reasons I can’t begin to understand. I told him that we could arrange some sort of financial aid, but he just said this wasn’t the place for him. I’m afraid the loss of such a promising young academic will be devastating for the whole field.",
       "id": 5
@@ -115,7 +115,7 @@
     {
       "userId": 2,
       "url": "https://i.kinja-img.com/gawker-media/image/upload/s--eg8BGANK--/c_scale,dpr_2.0,f_auto,fl_progressive,q_80,w_800/ebojo6byriwo8a1a0owg.jpg",
-      "dateAdded": "Monday, May 13th 2019, 10:35:21 am",
+      "dateAdded": "May 13th 2019, 10:35:21 am",
       "title": "Duke Anthropology Professor Devastated To Learn Promising Student Dropping Out",
       "synopsis": "Zion was always staying after class to chat, or coming to my office hours, but now he’s throwing his life away for reasons I can’t begin to understand. I told him that we could arrange some sort of financial aid, but he just said this wasn’t the place for him. I’m afraid the loss of such a promising young academic will be devastating for the whole field.",
       "id": 15
@@ -161,6 +161,56 @@
       "id": 20
     }
   ],
+  "messages": [
+    {
+      "userId": 1,
+      "message": "Hey guys! Anyone on AIM?",
+      "sendDate": "2019-05-14T15:36:04.604Z",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "Hello?",
+      "sendDate": "2019-05-14T15:38:48.676Z",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "message": "Hey man, what's up? Want to grab some tacos for el lunche?",
+      "sendDate": "2019-05-14T15:55:48.676Z",
+      "id": 3
+    },
+    {
+      "userId": 33,
+      "message": "Hey guys, can I come along? I want some of those mexican cokes with the real sugar.",
+      "sendDate": "2019-05-14T16:38:48.676Z",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "message": "sean sucks",
+      "sendDate": "2019-05-14T15:55:56.852Z",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "message": "cohort 32",
+      "sendDate": "2019-05-14T15:57:36.697Z",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "message": "Does anyone else wish we hadnt just had that presentation?",
+      "sendDate": "2019-05-14T16:35:18.995Z",
+      "id": 7
+    },
+    {
+      "userId": 33,
+      "message": "Hey Sean, thanks for sliding into my DM's",
+      "sendDate": "2019-05-14T16:46:45.472Z",
+      "id": 8
+    }
+  ],
   "events": [
     {
       "id": 7,
@@ -185,7 +235,7 @@
       "userId": 1,
       "name": "Wine Tasting and Other Assorted Snobbery",
       "description": "We will use terms like musty, fleshy, and earthen aftertaste.",
-      "eventDate": "2019-05-22",
+      "eventDate": "2019-05-01",
       "location": "Wine 280",
       "url": "https://images.pexels.com/photos/1097425/pexels-photo-1097425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
@@ -194,7 +244,7 @@
       "userId": 1,
       "name": "Food Truck Festival",
       "description": "It's decent food that wouldn't make it in a Brick-and-mortar, but still costs the same.",
-      "eventDate": "2019-05-09",
+      "eventDate": "2019-04-25",
       "location": "Centennial Park",
       "url": "https://images.pexels.com/photos/1053769/pexels-photo-1053769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
@@ -331,6 +381,20 @@
       "initiate": true,
       "accepted": true,
       "id": 6
+    },
+    {
+      "srcUserId": 1,
+      "userId": 33,
+      "initiate": true,
+      "accepted": true,
+      "id": 7
+    },
+    {
+      "srcUserId": 33,
+      "userId": 1,
+      "initiate": true,
+      "accepted": true,
+      "id": 8
     }
   ],
   "tasks": [],
