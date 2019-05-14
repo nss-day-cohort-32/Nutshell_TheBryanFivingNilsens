@@ -34,7 +34,7 @@ if (sessionStorage.length === 0) {
 
 console.log(sessionStorage)
 
-//handle logout
+// nf handle logout
 navContainer.addEventListener("click", (e) => {
     e.preventDefault()
     if (e.target.id === "logout") {
@@ -78,10 +78,12 @@ friendsContainer.addEventListener("click", (e) => {
         const deleteFriendId = e.target.id.split("--")[1]
         handleFriends.deleteFriend(deleteFriendId)
         let friendToRemove = e.target.parentNode
+        //handle accept friend
     } else if (e.target.className === "acceptFriend") {
         let friendToAccept = `${e.target.previousElementSibling.textContent}`
         handleFriends.acceptFriendRequest(friendToAccept)
         let friendToMove = e.target.parentNode
+        //handle send request
     } else if (e.target.id === "sendRequestBtn") {
         const searchFriendInput = document.querySelector("#searchFriends")
         let friendName = searchFriendInput.value
