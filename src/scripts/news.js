@@ -8,6 +8,7 @@ import API from "./dbCalls";
 
 
 
+
 const newsPage = {
     getUserNews(userId) {
         API.getUserNews(userId).then(news => {
@@ -85,7 +86,7 @@ const newsPage = {
                 <input type="text" id="news-title" placeholder="News title">
             </div>
             <div>
-                <input type="date" id="news-date">
+                <input type="date" id="news-date" class="hidden">
             </div>
             <div>
                 <input type="text" id="news-image" placeholder="News Image URL">
@@ -105,8 +106,12 @@ const newsPage = {
         </div>`;
     },
     captureNewNewsData() {
+
+        var moment = require('moment');
+        moment().format();
+
         const newNewsTitle = document.querySelector("#news-title").value;
-        const newNewsDate = document.querySelector("#news-date").value;
+        const newNewsDate = moment().format("MMMM Do YYYY, h:mm:ss a");
         const newNewsImg = document.querySelector("#news-image").value;
         const newNewsUserId = sessionStorage.getItem("activeUser");
         const newNewsUserIdNum = parseInt(newNewsUserId);
@@ -156,8 +161,11 @@ const newsPage = {
         })
     },
     captureEditedNewsData() {
+        var moment = require('moment');
+        moment().format();
+
         const editedNewsTitle = document.querySelector("#news-title").value;
-        const editedNewsDate = document.querySelector("#news-date").value;
+        const editedNewsDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
         const editedNewsImg = document.querySelector("#news-image").value;
         const editedNewsUserId = sessionStorage.getItem("activeUser");
         const editedNewsUserIdNum = parseInt(editedNewsUserId);

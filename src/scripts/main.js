@@ -3,6 +3,12 @@ import handleUser from "./login"
 import API from "./dbCalls";
 import eventsPage from "./events";
 import newsPage from "./news";
+import messageBoard from "./messageBoard";
+
+var moment = require('moment');
+moment().format();
+
+console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
 const loginContainer = document.querySelector("#login-container")
 const friendsContainer = document.querySelector("#friends-container")
@@ -11,7 +17,9 @@ const email = document.querySelector("#email")
 
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
+const messageBoardBtn = document.querySelector("#message-board")
 const primaryContainer = document.querySelector("#primary-container");
+
 
 
 loginContainer.addEventListener("click", (e) => {
@@ -176,5 +184,55 @@ primaryContainer.addEventListener("click", (e) => {
                 newsPage.newNewsSuccessMsg();
             })
         }
+    }
+})
+
+/////////////////////Messages////////////////////////////
+
+messageBoardBtn.addEventListener("click", (e) => {
+    if (e.target.id === "message-board") {
+        console.log("working")
+        messageBoard.getMessages();
+    }
+})
+
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("acceptFriend")) {
+        let itemArray = e.target.id.split("--");
+        let targetId = itemArray[1];
+        if (confirm("Are you sure you want to add this friend?") == true) {
+            messageBoard.addFriend(targetId);
+        }
+    }
+})
+
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.id === "new-msg-submit-btn") {
+        const newMessage = messageBoard.captureNewMessage();
+        API.addMessages(newMessage).then(response => {
+            messageBoard.getMessages();
+        })
+    }
+})
+
+// Bring up edit form and populate with exist data
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("edit-msg-btn")) {
+        let itemArray = e.target.id.split("--");
+        let targetId = itemArray[1];
+        messageBoard.populateExistingMsgData(targetId);
+    }
+})
+
+// send edited data to JSON
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.id === "edited-msg-submission-btn") {
+        const newMessageObj = messageBoard.captureEditedMessage();
+        const hiddenValue = document.querySelector("#hiddenField").value;
+        API.editMessages(hiddenValue, newMessageObj)
+            .then(response => {
+                console.log("response", response)
+                messageBoard.getMessages();
+            })
     }
 })
