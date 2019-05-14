@@ -1,6 +1,7 @@
 
 import handleUser from "./login"
 import API from "./dbCalls";
+import tasks from "./tasks"
 import eventsPage from "./events";
 import newsPage from "./news";
 import handleFriends from "./friendsList"
@@ -16,6 +17,28 @@ const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
 const primaryContainer = document.querySelector("#primary-container");
 
+// TASKS - targeted elements
+const hiddenInput = document.querySelector('#hidden-input');
+const taskName = document.querySelector('#task-input');
+const completionDate = document.querySelector('#task-completion-date');
+const cancelEditBtn = document.querySelector('#cancel-edit-btn');
+const submitBtn = document.querySelector('#save-task-btn');
+const noTaskOrDateMessage = document.querySelector('#task-and-date-message');
+const taskNameMessage = document.querySelector('#task-name-message');
+const taskCompletionDateMessage = document.querySelector('#task-date-message');
+const myTasksLink = document.querySelector("#my-tasks-link");
+const tasksContainer = document.querySelector("#tasks-container");
+
+const targets = {
+    hiddenInput,
+    taskName,
+    completionDate,
+    cancelEditBtn,
+    submitBtn,
+    noTaskOrDateMessage,
+    taskNameMessage,
+    taskCompletionDateMessage
+}
 
 if (sessionStorage.length === 0) {
     handleUser.renderLogin()
@@ -44,6 +67,10 @@ navContainer.addEventListener("click", (e) => {
 })
 
 // nf login listeners
+
+
+
+// LOGIN - LOGIN LISTENER
 loginContainer.addEventListener("click", (e) => {
     const username = document.querySelector("#username")
     const email = document.querySelector("#email")
@@ -94,6 +121,55 @@ friendsContainer.addEventListener("click", (e) => {
 })
 
 //start event listeners
+
+// TASK LISTENERS SECTION ///////////////////////////////////////////////////
+// const userId = 2;   // temporary userId
+tasks.renderUserTasks(userId) // temporary call to load user tasks
+
+// My Tasks Link - listener : to show tasks component
+myTasksLink.addEventListener('click', (e) => {
+    tasksContainer.classList.remove('hidden');
+})
+
+// Tasks Container Event Listener
+tasksContainer.addEventListener('click', (e) => {
+    if (e.target.id === 'cancel-edit-btn') {
+        e.preventDefault()
+        tasks.handleCancelEditBtn(targets)
+    }
+    if (e.target.id === 'save-task-btn') {
+        e.preventDefault()
+        tasks.handleSubmitBtn(targets, userId)
+    }
+    if (e.target.className === 'complete-check') {  // Task Form - Checkbox
+        tasks.handleCheckbox(e)
+    }
+    if (e.target.className === 'task-item-link') { // Task List - Anchor Tag
+        e.preventDefault()
+        const taskToEditId = e.target.id.split('--')[1]
+        tasks.editTask(targets, taskToEditId)
+    }
+    // Task List - Remove Button
+    if (e.target.className === 'remove-btn') {  // Task List - Remove Button
+        e.preventDefault()
+        const taskId = e.target.id.split('--')[1];
+        tasks.removeAndDeleteTask(targets, taskId);  // Remove task from DOM & Delete task from db
+    }
+})
+
+// Task Form INPUT Listener
+targets.taskName.addEventListener('keyup', (e) => {
+    tasks.clearMessage(targets, e.target.id, e.target.value);
+})
+// Task Form DATE Listener
+targets.completionDate.addEventListener('change', (e) => {
+    tasks.clearMessage(targets, e.target.id, e.target.value);
+})
+
+// END TASK SECTION //////////////////////////////////////////////////////////
+
+
+
 
 myEventsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");

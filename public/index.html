@@ -27,7 +27,7 @@
       <a href="#">My Friends</a>
       <a href="#" id="my-news-link">My News</a>
       <a href="#" id="my-events-link">My Events</a>
-      <a href="#">My Tasks</a>
+      <a href="#" id="my-tasks-link">My Tasks</a>
       <a href="#">My Messages</a>
       <a href="" id="logout" class="hidden">Log Out</a>
     </div>
@@ -47,6 +47,33 @@
       <div id="news-container"></div>
       <div id="events-container"></div>
     </div>
+  </main>
+
+  <div id="tasks-container" class="hidden">
+    <form id="tasks-form">
+      <div id="form-elements">
+        <fieldset>
+          <input type="text" id="hidden-input" class="hidden">
+          <input type="text" id="task-input" placeholder="Enter a task...">
+          <label for="task-completion-date">Complete Task By: </label>
+          <input type="date" name="task-completion-date" id="task-completion-date" required>
+          <button id="cancel-edit-btn" class="hidden">Cancel</button>
+          <input id="save-task-btn" type="submit" value="Save Task">
+        </fieldset>
+        <div id="messageDiv">
+          <p id="task-and-date-message" class="hidden error">Enter both a task name and target
+            completion
+            date
+          </p>
+          <p id="task-name-message" class="hidden error">Enter a task name</p>
+          <p id="task-date-message" class="hidden error">Choose a completion date goal</p>
+          <p id="task-list-instructions" class="hidden">Click on a task name to edit</p>
+        </div>
+      </div>
+    </form>
+    <div id="task-list-container"></div>
+  </div>
+  </div>
   </main>
 
   <footer id="footer-nav">
