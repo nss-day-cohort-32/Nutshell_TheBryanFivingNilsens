@@ -87,64 +87,46 @@
   ],
   "friends": [
     {
-      "id": 10,
+      "srcUserId": 32,
+      "userId": 1,
+      "initiate": true,
+      "accepted": true,
+      "id": 1
+    },
+    {
       "srcUserId": 1,
+      "userId": 32,
+      "initiate": true,
+      "accepted": true,
+      "id": 2
+    },
+    {
+      "srcUserId": 32,
       "userId": 2,
-      "accepted": true
+      "initiate": true,
+      "accepted": true,
+      "id": 3
     },
     {
-      "id": 2,
-      "srcUserId": 1,
-      "userId": 3,
-      "accepted": true
+      "srcUserId": 2,
+      "userId": 32,
+      "initiate": true,
+      "accepted": true,
+      "id": 4
     },
     {
-      "id": 3,
       "srcUserId": 2,
       "userId": 1,
-      "accepted": false
-    },
-    {
-      "srcUserId": 4,
-      "userId": 1,
-      "accepted": true,
+      "initiate": true,
+      "accepted": false,
       "id": 5
     },
     {
-      "srcUserId": 4,
-      "userId": 1,
-      "accepted": false,
-      "id": 7
-    },
-    {
-      "srcUserId": 4,
-      "userId": 1,
-      "accepted": false,
-      "id": 9
-    },
-    {
       "srcUserId": 1,
-      "userId": 7,
+      "userId": 2,
+      "initiate": false,
       "accepted": false,
-      "id": 14
-    },
-    {
-      "srcUserId": 1,
-      "userId": 6,
-      "accepted": false,
-      "id": 15
-    },
-    {
-      "srcUserId": 1,
-      "userId": 5,
-      "accepted": false,
-      "id": 16
-    },
-    {
-      "srcUserId": 1,
-      "userId": 4,
-      "accepted": false,
-      "id": 17
+      "id": 6
     }
   ],
   "tasks": [

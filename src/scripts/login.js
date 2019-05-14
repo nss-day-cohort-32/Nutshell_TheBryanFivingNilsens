@@ -2,12 +2,9 @@ import API from "./dbCalls";
 import handleFriends from "./friendsList"
 
 
-const loginBtn = document.querySelector("#login-btn")
-const registerBtn = document.querySelector("#register-btn")
 const logOutBtn = document.querySelector("#logout")
-const registerLink = document.querySelector("#register-link")
-
 const loginContainer = document.querySelector("#login-page-container")
+
 
 const handleUser = {
     renderLogin() {
@@ -33,11 +30,12 @@ const handleUser = {
                 loginContainer.innerHTML = ""
                 logOutBtn.classList.remove("hidden")
                 sessionStorage.setItem("activeUser", user[0].id)
-                API.getFriendsList(user[0].id, "true")
+                sessionStorage.setItem("activeUserName", user[0].username)
+                API.getFriendsList(user[0].id, "true", "true")
                     .then(friends => {
                         handleFriends.makeFriendsList(friends)
                     })
-                API.getFriendsList(user[0].id, "false")
+                API.getFriendsList(user[0].id, "false", "false")
                     .then(friends => {
                         handleFriends.makeFriendRequestList(friends)
                     })
@@ -64,6 +62,9 @@ const handleUser = {
 
     },
     makeRegistration() {
+        const loginBtn = document.querySelector("#login-btn")
+        const registerBtn = document.querySelector("#register-btn")
+        const registerLink = document.querySelector("#register-link")
         loginBtn.className = "hidden"
         registerLink.className = "hidden"
         registerBtn.classList.remove("hidden")
@@ -71,6 +72,7 @@ const handleUser = {
     logOut() {
         console.log("logout")
         sessionStorage.removeItem("activeUser")
+        sessionStorage.removeItem("activeUserName")
     }
 }
 

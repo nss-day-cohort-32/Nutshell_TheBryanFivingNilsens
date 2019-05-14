@@ -11,6 +11,7 @@ const friendsContainer = document.querySelector("#friends-container")
 const friendRequestContainer = document.querySelector("#friend-requests")
 const logOutBtn = document.querySelector("#logout")
 
+
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
 const primaryContainer = document.querySelector("#primary-container");
@@ -21,11 +22,11 @@ if (sessionStorage.length === 0) {
 } else {
     let currentUser = sessionStorage.getItem("activeUser")
     logOutBtn.classList.remove("hidden")
-    API.getFriendsList(currentUser, "true")
+    API.getFriendsList(currentUser, "true", "true")
         .then(friends => {
             handleFriends.makeFriendsList(friends)
         })
-    API.getFriendsList(currentUser, "false")
+    API.getFriendsList(currentUser, "false", "false")
         .then(friends => {
             handleFriends.makeFriendRequestList(friends)
         })
@@ -42,6 +43,7 @@ navContainer.addEventListener("click", (e) => {
     }
 })
 
+// nf login listeners
 loginContainer.addEventListener("click", (e) => {
     const username = document.querySelector("#username")
     const email = document.querySelector("#email")
@@ -62,6 +64,7 @@ loginContainer.addEventListener("click", (e) => {
     }
 })
 
+// nf friends listeners
 friendsContainer.addEventListener("click", (e) => {
     e.preventDefault()
     // handle friend
@@ -75,17 +78,20 @@ friendsContainer.addEventListener("click", (e) => {
         const deleteFriendId = e.target.id.split("--")[1]
         handleFriends.deleteFriend(deleteFriendId)
         let friendToRemove = e.target.parentNode
-        friendRequestContainer.removeChild(friendToRemove)
     } else if (e.target.className === "acceptFriend") {
-        let friendToAccept = (e.target.previousElementSibling.textContent)
+        let friendToAccept = `${e.target.previousElementSibling.textContent}`
         handleFriends.acceptFriendRequest(friendToAccept)
-        let friendToMove = (e.target.parentNode)
-        friendRequestContainer.removeChild(friendToMove)
-        friendsContainer.appendChild(friendToMove)
+        let friendToMove = e.target.parentNode
+    } else if (e.target.id === "sendRequestBtn") {
+        const searchFriendInput = document.querySelector("#searchFriends")
+        let friendName = searchFriendInput.value
+        handleFriends.sendFriendRequest(friendName)
+        searchFriendInput.value = ""
+
     }
 })
 
-//start events handlers
+//start event listeners
 
 myEventsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
