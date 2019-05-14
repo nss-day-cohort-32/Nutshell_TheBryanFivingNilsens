@@ -1,3 +1,9 @@
+/*
+Author: Sean Glavin
+Purpose: Database fetch calls
+Date: 5/10/19
+*/
+
 import API from "./dbCalls"
 
 function createNewsCard(newz, user, container) {
