@@ -24,7 +24,7 @@ const API = {
             .then(response => response.json())
     },
     getUserNews: function (userId) {
-        return fetch(`http://localhost:8088/news?userId=${userId}`)
+        return fetch(`http://localhost:8088/news?userId=${userId}&_sort=dateAdded&_order=desc`)
             .then(response => response.json())
     },
     getUserTasks: function (userId) {
@@ -36,11 +36,15 @@ const API = {
             .then(response => response.json())
     },
     getUserEvents: function (userId) {
-        return fetch(`http://localhost:8088/events?userId=${userId}`)
+        return fetch(`http://localhost:8088/events?userId=${userId}&_sort=eventDate&_order=asc`)
             .then(response => response.json())
     },
     getSingleUserEvent: function (eventId) {
         return fetch(`http://localhost:8088/events/${eventId}`)
+            .then(response => response.json())
+    },
+    getSingleMessage: function (messageId) {
+        return fetch(`http://localhost:8088/messages/${messageId}`)
             .then(response => response.json())
     },
     getSingleUserNews: function (newsId) {
@@ -253,7 +257,11 @@ const API = {
             .then(response => response.json())
     },
     getAllMessages: function () {
-        return fetch("http://localhost:8088/messages")
+        return fetch("http://localhost:8088/messages?_expand=user")
+            .then(response => response.json())
+    },
+    getUserRelationships: function (sessionUser, messageUser) {
+        return fetch(`http://localhost:8088/friends/?userId=${sessionUser}&srcUserId=${messageUser}`)
             .then(response => response.json())
     },
     addMessages: function (obj) {
@@ -293,4 +301,4 @@ const API = {
 
 
 
-export default API
+export default API;

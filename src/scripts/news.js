@@ -8,6 +8,7 @@ import API from "./dbCalls";
 
 
 
+
 const newsPage = {
     getUserNews(userId) {
         API.getUserNews(userId).then(news => {
@@ -80,18 +81,15 @@ const newsPage = {
         const location = document.querySelector("#primary-container");
         location.innerHTML += `
         <div id="news-form">
-            <h1>New News:</h1>
+            <h1>Create News Article:</h1>
             <div>
-                <label>News Title:</label>
-                <input type="text" id="news-title">
+                <input type="text" id="news-title" placeholder="News title">
             </div>
             <div>
-                <label>Today's Date:</label>
-                <input type="date" id="news-date">
+                <input type="date" id="news-date" class="hidden">
             </div>
             <div>
-                <label>Image URL:</label>
-                <input type="text" id="news-image">
+                <input type="text" id="news-image" placeholder="News Image URL">
             </div>
             <div>
                 <input type="text" id="news-user-id" class="hidden">
@@ -100,8 +98,7 @@ const newsPage = {
                 <input type="text" id="news-id" class="hidden">
             </div>
             <div>
-                <label>Synopsis:</label>
-                <textArea type="text" id="news-desc"></textArea>
+                <textArea type="text" id="news-desc" placeholder="News synopsis"></textArea>
             </div>
             <div>
                 <input type="submit" id="submit-new-news" class="">
@@ -109,35 +106,39 @@ const newsPage = {
         </div>`;
     },
     captureNewNewsData() {
-        const newNewsTitle = document.querySelector("#news-title");
-        const newNewsDate = document.querySelector("#news-date");
-        const newNewsLocation = document.querySelector("#news-location");
-        const newNewsImg = document.querySelector("#news-image");
-        const newNewsUserId = localStorage.getItem("id");
-        const newNewsDesc = document.querySelector("#news-desc");
+
+        var moment = require('moment');
+        moment().format();
+
+        const newNewsTitle = document.querySelector("#news-title").value;
+        const newNewsDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+        const newNewsImg = document.querySelector("#news-image").value;
+        const newNewsUserId = sessionStorage.getItem("activeUser");
+        const newNewsUserIdNum = parseInt(newNewsUserId);
+        const newNewsDesc = document.querySelector("#news-desc").value;
 
 
         const newNewsObj = {
-            userId: newNewsUserId,
-            title: newNewsTitle.value,
-            synopsis: newNewsDesc.value,
-            dateAdded: newNewsDate.value,
-            url: newNewsImg.value,
-            id: ""
+            userId: newNewsUserIdNum,
+            title: newNewsTitle,
+            synopsis: newNewsDesc,
+            dateAdded: newNewsDate,
+            url: newNewsImg
         }
+        console.log(newNewsObj);
         return newNewsObj;
     },
     newNewsSuccessMsg() {
-        const userId = localStorage.getItem("id");
+        const userId = sessionStorage.getItem("activeUser");
         const location = document.querySelector("#primary-container");
         location.innerHTML = `
         <div id="news-success-msg">
-            <h1>News Successfully Submitted!</h1>
+            <h1>Success!</h1>
         </div>`
         setTimeout(() => {
             location.innerHTML = "";
             newsPage.createAddNewsButton();
-            newsPage.getMyNews(2);
+            newsPage.getUserNews(userId);
         }, 2000)
     },
     populateExistingNewsData(newsId) {
@@ -160,22 +161,25 @@ const newsPage = {
         })
     },
     captureEditedNewsData() {
-        const editedNewsTitle = document.querySelector("#news-title");
-        const editedNewsDate = document.querySelector("#news-date");
-        const editedNewsLocation = document.querySelector("#news-location");
-        const editedNewsImg = document.querySelector("#news-image");
-        const editedNewsUserId = localStorage.getItem("id");
-        const editedNewsDesc = document.querySelector("#news-desc");
-        const editedNewsId = document.querySelector("#news-id");
+        var moment = require('moment');
+        moment().format();
+
+        const editedNewsTitle = document.querySelector("#news-title").value;
+        const editedNewsDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+        const editedNewsImg = document.querySelector("#news-image").value;
+        const editedNewsUserId = sessionStorage.getItem("activeUser");
+        const editedNewsUserIdNum = parseInt(editedNewsUserId);
+        const editedNewsDesc = document.querySelector("#news-desc").value;
+        const editedNewsId = document.querySelector("#news-id").value;
 
 
         const editedNewsObj = {
-            userId: editedNewsUserId,
-            title: editedNewsTitle.value,
-            synopsis: editedNewsDesc.value,
-            dateAdded: editedNewsDate.value,
-            url: editedNewsImg.value,
-            id: editedNewsId.value
+            userId: editedNewsUserIdNum,
+            title: editedNewsTitle,
+            synopsis: editedNewsDesc,
+            dateAdded: editedNewsDate,
+            url: editedNewsImg,
+            id: editedNewsId
         }
         return editedNewsObj;
     }
