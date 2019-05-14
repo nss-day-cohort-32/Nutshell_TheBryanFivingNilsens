@@ -12,12 +12,14 @@ h1, h2, h3 {
     color: #1f5858;
     margin: 10px;
     font-weight: 700;
+    line-height: 1em;
   }
   h2 {
     font-size: 1.75em;
     color: #1f5858;
     margin: 10px;
     font-weight: 700;
+    line-height: 1em;
   }
   h3 {
     font-size: 1.5em;
@@ -87,6 +89,13 @@ h1, h2, h3 {
     text-transform: uppercase;
     letter-spacing: .2em;
     font-size: .75em;
+  }
+
+  #top-nav a:last-of-type {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #154545;
+    letter-spacing: 0em;
   }
 
   #footer-nav a {

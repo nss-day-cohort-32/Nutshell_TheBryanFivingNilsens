@@ -6,6 +6,12 @@ import friendsNews from "./friendsNews"
 import tasks from "./tasks"
 import eventsPage from "./events";
 import newsPage from "./news";
+import messageBoard from "./messageBoard";
+
+var moment = require('moment');
+moment().format();
+
+console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 import handleFriends from "./friendsList"
 
 const navContainer = document.querySelector("#links-container")
@@ -18,6 +24,7 @@ const logOutBtn = document.querySelector("#logout")
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
 const myFriedndsBtn = document.querySelector("#my-friends-link")
+const messageBoardBtn = document.querySelector("#message-board")
 const primaryContainer = document.querySelector("#primary-container");
 
 // TASKS - targeted elements
@@ -177,14 +184,17 @@ targets.completionDate.addEventListener('change', (e) => {
 myEventsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
     primary.innerHTML = "";
-    eventsPage.getMyEvents(2);
+    const userId = sessionStorage.getItem("activeUser");
+    eventsPage.getMyEvents(userId);
     eventsPage.createAddEventButton();
 })
 
 myNewsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
     primary.innerHTML = "";
-    newsPage.getUserNews(2);
+    const userId = sessionStorage.getItem("activeUser");
+    console.log(userId);
+    newsPage.getUserNews(userId);
     newsPage.createAddNewsButton();
 })
 
@@ -227,7 +237,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.id === "new-event-submission-btn") {
         e.preventDefault();
         const newEventObj = eventsPage.captureNewEventData();
-        API.addEvents(newEventObj);
+        API.addEvent(newEventObj);
         eventsPage.newEventSuccessMsg();
     }
 })
@@ -237,7 +247,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("edit-event-btn")) {
         let itemArray = e.target.id.split("--");
         let targetId = itemArray[1];
-        eventsPage.populateExistingEventData(5);
+        eventsPage.populateExistingEventData(targetId);
     }
 })
 
@@ -257,6 +267,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-event-btn")) {
         let itemArray = e.target.id.split("--");
         let targetId = itemArray[1];
+        console.log(targetId)
         if (confirm("Are you sure you want to cancel this event?") == true) {
             API.deleteEvents(targetId).then(() => {
                 eventsPage.newEventSuccessMsg();
@@ -275,7 +286,7 @@ primaryContainer.addEventListener("click", (e) => {
         primary.innerHTML = "";
         newsPage.renderNewsForm();
         const submitButton = document.querySelector("#submit-new-news");
-        submitButton.setAttribute("id", "new-submission-btn");
+        submitButton.setAttribute("id", "new-news-submission-btn");
     }
 })
 
@@ -284,6 +295,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.id === "new-news-submission-btn") {
         e.preventDefault();
         const newNewsObj = newsPage.captureNewNewsData();
+        console.log(newNewsObj);
         API.addNews(newNewsObj);
         newsPage.newNewsSuccessMsg();
     }
@@ -294,7 +306,7 @@ primaryContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("edit-news-btn")) {
         let itemArray = e.target.id.split("--");
         let targetId = itemArray[1];
-        newsPage.populateExistingNewsData(2);
+        newsPage.populateExistingNewsData(targetId);
     }
 })
 
@@ -317,8 +329,58 @@ primaryContainer.addEventListener("click", (e) => {
         let targetId = itemArray[1];
         if (confirm("Are you sure you want to delete this news item?") == true) {
             API.deleteNews(targetId).then(() => {
-                newssPage.newNewsSuccessMsg();
+                newsPage.newNewsSuccessMsg();
             })
         }
+    }
+})
+
+/////////////////////Messages////////////////////////////
+
+messageBoardBtn.addEventListener("click", (e) => {
+    if (e.target.id === "message-board") {
+        console.log("working")
+        messageBoard.getMessages();
+    }
+})
+
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("acceptFriend")) {
+        let itemArray = e.target.id.split("--");
+        let targetId = itemArray[1];
+        if (confirm("Are you sure you want to add this friend?") == true) {
+            messageBoard.addFriend(targetId);
+        }
+    }
+})
+
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.id === "new-msg-submit-btn") {
+        const newMessage = messageBoard.captureNewMessage();
+        API.addMessages(newMessage).then(response => {
+            messageBoard.getMessages();
+        })
+    }
+})
+
+// Bring up edit form and populate with exist data
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("edit-msg-btn")) {
+        let itemArray = e.target.id.split("--");
+        let targetId = itemArray[1];
+        messageBoard.populateExistingMsgData(targetId);
+    }
+})
+
+// send edited data to JSON
+primaryContainer.addEventListener("click", (e) => {
+    if (e.target.id === "edited-msg-submission-btn") {
+        const newMessageObj = messageBoard.captureEditedMessage();
+        const hiddenValue = document.querySelector("#hiddenField").value;
+        API.editMessages(hiddenValue, newMessageObj)
+            .then(response => {
+                console.log("response", response)
+                messageBoard.getMessages();
+            })
     }
 })

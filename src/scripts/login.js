@@ -13,10 +13,8 @@ const handleUser = {
         loginContainer.innerHTML = `
         <div id="login-container" class="">
             <h2>Login or Sign up</h2>
-            <label id="">Username:</label>
-            <input type="text" id="username" />
-            <label id="">Email:</label>
-            <input type="text" id="email" />
+            <input type="text" id="username" placeholder="Enter username"/>
+            <input type="text" id="email" placeholder="Enter email"/>
             <button id="login-btn">Login</button>
             <a href="#" id="register-link">Register</a>
             <button id="register-btn" class="hidden">Register</button>

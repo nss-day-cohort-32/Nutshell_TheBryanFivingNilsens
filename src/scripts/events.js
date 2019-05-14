@@ -84,20 +84,20 @@ const eventsPage = {
         <div id="event-form">
             <h1>Info for Your Party Peeps:</h1>
             <div>
-                <label>Event Title:</label>
-                <input type="text" id="event-title">
+               
+                <input type="text" id="event-title" placeholder="Event title">
             </div>
             <div>
-                <label>Event Date:</label>
+               
                 <input type="date" id="event-date">
             </div>
             <div>
-                <label>Location:</label>
-                <input type="text" id="event-location">
+                
+                <input type="text" id="event-location" placeholder="Event location">
             </div>
             <div>
-                <label>Image URL:</label>
-                <input type="text" id="event-image">
+                
+                <input type="text" id="event-image" placeholder="Event Image URL">
             </div>
             <div>
                 <input type="text" id="event-user-id" class="hidden">
@@ -106,8 +106,8 @@ const eventsPage = {
                 <input type="text" id="event-id" class="hidden">
             </div>
             <div>
-                <label>Event Description:</label>
-                <textArea type="text" id="event-desc"></textArea>
+                
+                <textArea type="text" id="event-desc" placeholder="Event description"></textArea>
             </div>
             <div>
                 <input type="submit" id="submit-new-event" class="">
@@ -115,36 +115,37 @@ const eventsPage = {
         </div>`;
     },
     captureNewEventData() {
-        const newEventTitle = document.querySelector("#event-title");
-        const newEventDate = document.querySelector("#event-date");
-        const newEventLocation = document.querySelector("#event-location");
-        const newEventImg = document.querySelector("#event-image");
-        const newEventUserId = localStorage.getItem("id");
-        const newEventDesc = document.querySelector("#event-desc");
+        const newEventTitle = document.querySelector("#event-title").value;
+        const newEventDate = document.querySelector("#event-date").value;
+        const newEventLocation = document.querySelector("#event-location").value;
+        const newEventImg = document.querySelector("#event-image").value;
+        const newEventUserId = sessionStorage.getItem("activeUser");
+        const newEventUserIdNum = parseInt(newEventUserId);
+        const newEventDesc = document.querySelector("#event-desc").value;
 
 
         const newEventObj = {
-            userId: newEventUserId,
-            name: newEventTitle.value,
-            description: newEventDesc.value,
-            eventDate: newEventDate.value,
-            location: newEventLocation.value,
-            url: newEventImg.value,
-            id: ""
+            userId: newEventUserIdNum,
+            name: newEventTitle,
+            description: newEventDesc,
+            eventDate: newEventDate,
+            location: newEventLocation,
+            url: newEventImg
         }
+        console.log(newEventObj);
         return newEventObj;
     },
     newEventSuccessMsg() {
-        const userId = localStorage.getItem("id");
+        const userId = sessionStorage.getItem("activeUser");
         const location = document.querySelector("#primary-container");
         location.innerHTML = `
         <div id="event-success-msg">
-            <h1>Event Successfully Submitted!</h1>
+            <h1>Success!</h1>
         </div>`
         setTimeout(() => {
             location.innerHTML = "";
             eventsPage.createAddEventButton();
-            eventsPage.getMyEvents(2);
+            eventsPage.getMyEvents(userId);
         }, 2000)
     },
     populateExistingEventData(eventId) {
@@ -168,23 +169,24 @@ const eventsPage = {
         })
     },
     captureEditedEventData() {
-        const editedEventTitle = document.querySelector("#event-title");
-        const editedEventDate = document.querySelector("#event-date");
-        const editedEventLocation = document.querySelector("#event-location");
-        const editedEventImg = document.querySelector("#event-image");
-        const editedEventUserId = localStorage.getItem("id");
-        const editedEventDesc = document.querySelector("#event-desc");
-        const editedEventId = document.querySelector("#event-id");
+        const editedEventTitle = document.querySelector("#event-title").value;
+        const editedEventDate = document.querySelector("#event-date").value;
+        const editedEventLocation = document.querySelector("#event-location").value;
+        const editedEventImg = document.querySelector("#event-image").value;
+        const editedEventUserId = sessionStorage.getItem("activeUser");
+        const editedEventUserIdNum = parseInt(editedEventUserId);
+        const editedEventDesc = document.querySelector("#event-desc").value;
+        const editedEventId = document.querySelector("#event-id").value;
 
 
         const editedEventObj = {
-            userId: editedEventUserId,
-            name: editedEventTitle.value,
-            description: editedEventDesc.value,
-            eventDate: editedEventDate.value,
-            location: editedEventLocation.value,
-            url: editedEventImg.value,
-            id: editedEventId.value
+            userId: editedEventUserIdNum,
+            name: editedEventTitle,
+            description: editedEventDesc,
+            eventDate: editedEventDate,
+            location: editedEventLocation,
+            url: editedEventImg,
+            id: editedEventId
         }
         return editedEventObj;
     }
