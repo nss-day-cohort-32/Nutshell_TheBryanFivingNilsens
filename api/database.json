@@ -164,24 +164,7 @@
       "id": 9
     }
   ],
-  "tasks": [
-    {
-      "id": 1,
-      "userId": 1,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "complete": false
-    },
-    {
-      "userId": 2,
-      "task": "Get shit done",
-      "name": "Thing to do",
-      "targetCompletionDate": "datetime",
-      "complete": false,
-      "id": 2
-    }
-  ],
+  "tasks": [],
   "events": [
     {
       "id": 1,
