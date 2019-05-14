@@ -1,4 +1,6 @@
 import API from "./dbCalls";
+import friendsNews from "./friendsNews";
+import friendsEvents from "./friendsEvents"
 import handleFriends from "./friendsList"
 
 
@@ -37,6 +39,10 @@ const handleUser = {
                     .then(friends => {
                         handleFriends.makeFriendRequestList(friends)
                     })
+                friendsEvents.createFriendsEvents()
+                friendsEvents.createEventListener()
+                friendsNews.createFriendsNews()
+                friendsNews.createNewsListener()
             }
         })
     },

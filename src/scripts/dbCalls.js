@@ -99,7 +99,6 @@ const API = {
                     return fetch(`http://localhost:8088/users?username=${friendName}`)
                         .then(response => response.json())
                         .then(reply => {
-                            console.log(reply)
                             let obj1 = {
                                 srcUserId: Number(currentUserId),
                                 userId: reply[0].id,
@@ -135,7 +134,7 @@ const API = {
             })
     },
     getFriendsNews: function (userId) {
-        return fetch(`http://localhost:8088/friends?srcUserId=${userId}`)
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=true`)
             .then(response => response.json())
             .then(friendList => {
                 const friendDetails = friendList.map(freindObj => {
@@ -147,7 +146,7 @@ const API = {
             })
     },
     getFriendsEvents: function (userId) {
-        return fetch(`http://localhost:8088/friends?srcUserId=${userId}`)
+        return fetch(`http://localhost:8088/friends?srcUserId=${userId}&accepted=true`)
             .then(response => response.json())
             .then(friendList => {
                 const friendDetails = friendList.map(freindObj => {

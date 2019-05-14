@@ -23,12 +23,12 @@
       <img src="https://i.ibb.co/m8s9gZH/Bryan-Logo-01.png" />
     </div>
     <div id="links-container">
-      <a href="#">My Friends</a>
-      <a href="#" id="my-news-link">My News</a>
-      <a href="#" id="my-events-link">My Events</a>
-      <a href="#" id="my-tasks-link">My Tasks</a>
-      <a href="#" id="message-board">Message Board</a>
-      <a href="" id="logout" class="hidden">Log Out</a>
+      <div class="navLink"><a href="#" id="my-friends-link">My Friends</a></div>
+      <div class="navLink"><a href="#" id="my-news-link">My News</a></div>
+      <div class="navLink"><a href="#" id="my-events-link">My Events</a></div>
+      <div class="navLink"><a href="#" id="my-tasks-link">My Tasks</a></div>
+      <div class="navLink"><a href="#" id="message-board">My Messages</a></div>
+      <div class="navLink"><a href="" id="logout" class="hidden">Log Out</a></div>
     </div>
   </nav>
 
@@ -41,39 +41,40 @@
     </aside>
 
     <div id="primary-container" class="">
-      <div id="login-page-container">
-
-      </div>
-      <div id="news-container"></div>
-      <div id="events-container"></div>
-    </div>
-  </main>
-
-  <div id="tasks-container" class="hidden">
-    <form id="tasks-form">
-      <div id="form-elements">
-        <fieldset>
-          <input type="text" id="hidden-input" class="hidden">
-          <input type="text" id="task-input" placeholder="Enter a task...">
-          <label for="task-completion-date">Complete Task By: </label>
-          <input type="date" name="task-completion-date" id="task-completion-date" required>
-          <button id="cancel-edit-btn" class="hidden">Cancel</button>
-          <input id="save-task-btn" type="submit" value="Save Task">
-        </fieldset>
-        <div id="messageDiv">
-          <p id="task-and-date-message" class="hidden error">Enter both a task name and target
-            completion
-            date
-          </p>
-          <p id="task-name-message" class="hidden error">Enter a task name</p>
-          <p id="task-date-message" class="hidden error">Choose a completion date goal</p>
-          <p id="task-list-instructions" class="hidden">Click on a task name to edit</p>
+      <div id="login-page-container"></div>
+      <div id="news-container">
+        <div id="news-modals">
         </div>
       </div>
-    </form>
-    <div id="task-list-container"></div>
-  </div>
-  </div>
+      <div id="events-container">
+        <div id="events-modals"></div>
+      </div>
+
+      <div id="tasks-container" class="hidden">
+        <form id="tasks-form">
+          <div id="form-elements">
+            <fieldset>
+              <input type="text" id="hidden-input" class="hidden">
+              <input type="text" id="task-input" placeholder="Enter a task...">
+              <label for="task-completion-date">Complete Task By: </label>
+              <input type="date" name="task-completion-date" id="task-completion-date" required>
+              <button id="cancel-edit-btn" class="hidden">Cancel</button>
+              <input id="save-task-btn" type="submit" value="Save Task">
+            </fieldset>
+            <div id="messageDiv">
+              <p id="task-and-date-message" class="hidden error">Enter both a task name and target
+                completion
+                date
+              </p>
+              <p id="task-name-message" class="hidden error">Enter a task name</p>
+              <p id="task-date-message" class="hidden error">Choose a completion date goal</p>
+              <p id="task-list-instructions" class="hidden">Click on a task name to edit</p>
+            </div>
+          </div>
+        </form>
+        <div id="task-list-container"></div>
+      </div>
+    </div>
   </main>
 
   <footer id="footer-nav">

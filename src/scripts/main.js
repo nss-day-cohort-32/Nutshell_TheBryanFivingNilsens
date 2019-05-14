@@ -1,6 +1,8 @@
 
 import handleUser from "./login"
-import API from "./dbCalls";
+import API from "./dbCalls"
+import friendsEvents from "./friendsEvents"
+import friendsNews from "./friendsNews"
 import tasks from "./tasks"
 import eventsPage from "./events";
 import newsPage from "./news";
@@ -21,6 +23,7 @@ const logOutBtn = document.querySelector("#logout")
 
 const myEventsBtn = document.querySelector("#my-events-link");
 const myNewsBtn = document.querySelector("#my-news-link");
+const myFriedndsBtn = document.querySelector("#my-friends-link")
 const messageBoardBtn = document.querySelector("#message-board")
 const primaryContainer = document.querySelector("#primary-container");
 
@@ -130,7 +133,8 @@ friendsContainer.addEventListener("click", (e) => {
 //start event listeners
 
 // TASK LISTENERS SECTION ///////////////////////////////////////////////////
-// tasks.renderUserTasks(userId) // temporary call to load user tasks
+const userId = 1   // temporary userId
+tasks.renderUserTasks(userId) // temporary call to load user tasks
 
 // My Tasks Link - listener : to show tasks component
 myTasksLink.addEventListener('click', (e) => {
@@ -194,6 +198,30 @@ myNewsBtn.addEventListener("click", (e) => {
     newsPage.createAddNewsButton();
 })
 
+myFriedndsBtn.addEventListener("click", (e) => {
+    console.log(e)
+    const primary = document.querySelector("#primary-container");
+    const innerDiv = document.createElement("div")
+    const news = document.createElement("div")
+    news.setAttribute("id", "news-container")
+    const newsModal = document.createElement("div")
+    newsModal.setAttribute("id", "news-modals")
+    const events = document.createElement("div")
+    events.setAttribute("id", "events-container")
+    const eventsModal = document.createElement("div")
+    eventsModal.setAttribute("id", "events-modals")
+    primary.innerHTML = "";
+    news.appendChild(newsModal)
+    events.appendChild(eventsModal)
+    innerDiv.appendChild(news)
+    innerDiv.appendChild(events)
+    primary.appendChild(innerDiv)
+    friendsEvents.createFriendsEvents()
+    friendsEvents.createEventListener()
+    friendsNews.createFriendsNews()
+    friendsNews.createNewsListener()
+})
+
 /////////////////////EVENTS////////////////////////////
 
 // Plus button to bring up new event form
@@ -226,7 +254,6 @@ primaryContainer.addEventListener("click", (e) => {
     }
 })
 
-// Submit edited data to database
 primaryContainer.addEventListener("click", (e) => {
     if (e.target.id === "edited-event-submission-btn") {
         console.log("edited event button");
