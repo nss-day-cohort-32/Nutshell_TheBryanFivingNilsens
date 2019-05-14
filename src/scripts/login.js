@@ -1,29 +1,43 @@
 import API from "./dbCalls";
-import makeFriendsList from "./friendsList"
+import handleFriends from "./friendsList"
 
-const loginBtn = document.querySelector("#login-btn")
-const registerBtn = document.querySelector("#register-btn")
-const registerLink = document.querySelector("#register-link")
+
 const logOutBtn = document.querySelector("#logout")
-const mainDiv = document.querySelector("#primary-container")
+const loginContainer = document.querySelector("#login-page-container")
+
 
 const handleUser = {
+    renderLogin() {
+        loginContainer.innerHTML = `
+        <div id="login-container" class="">
+            <h2>Login or Sign up</h2>
+            <label id="">Username:</label>
+            <input type="text" id="username" />
+            <label id="">Email:</label>
+            <input type="text" id="email" />
+            <button id="login-btn">Login</button>
+            <a href="#" id="register-link">Register</a>
+            <button id="register-btn" class="hidden">Register</button>
+        </div>
+        `
+    },
     login(username, email) {
         API.loginUser(username, email).then(user => {
             if (user.length === 0) {
                 alert("username and email do not match")
             } else {
                 console.log(user[0].id)
-                mainDiv.innerHTML = ""
+                loginContainer.innerHTML = ""
                 logOutBtn.classList.remove("hidden")
                 sessionStorage.setItem("activeUser", user[0].id)
-                API.getFriendsList(user[0].id, "true")
+                sessionStorage.setItem("activeUserName", user[0].username)
+                API.getFriendsList(user[0].id, "true", "true")
                     .then(friends => {
-                        makeFriendsList(friends)
+                        handleFriends.makeFriendsList(friends)
                     })
-                API.getFriendsList(user[0].id, "false")
+                API.getFriendsList(user[0].id, "false", "false")
                     .then(friends => {
-                        makeFriendsList(friends)
+                        handleFriends.makeFriendRequestList(friends)
                     })
             }
         })
@@ -48,12 +62,17 @@ const handleUser = {
 
     },
     makeRegistration() {
+        const loginBtn = document.querySelector("#login-btn")
+        const registerBtn = document.querySelector("#register-btn")
+        const registerLink = document.querySelector("#register-link")
         loginBtn.className = "hidden"
         registerLink.className = "hidden"
         registerBtn.classList.remove("hidden")
     },
     logOut() {
+        console.log("logout")
         sessionStorage.removeItem("activeUser")
+        sessionStorage.removeItem("activeUserName")
     }
 }
 
