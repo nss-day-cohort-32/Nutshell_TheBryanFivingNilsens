@@ -126,7 +126,7 @@ friendsContainer.addEventListener("click", (e) => {
 //start event listeners
 
 // TASK LISTENERS SECTION ///////////////////////////////////////////////////
-const userId = sessionStorage.getItem(activeUser);   // temporary userId
+const userId = 1   // temporary userId
 tasks.renderUserTasks(userId) // temporary call to load user tasks
 
 // My Tasks Link - listener : to show tasks component
