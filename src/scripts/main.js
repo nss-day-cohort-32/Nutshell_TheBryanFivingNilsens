@@ -38,6 +38,7 @@ const taskNameMessage = document.querySelector('#task-name-message');
 const taskCompletionDateMessage = document.querySelector('#task-date-message');
 const myTasksLink = document.querySelector("#my-tasks-link");
 const tasksContainer = document.querySelector("#tasks-container");
+const taskListContainer = document.querySelector("#task-list-container");
 
 const targets = {
     hiddenInput,
@@ -133,23 +134,30 @@ friendsContainer.addEventListener("click", (e) => {
 //start event listeners
 
 // TASK LISTENERS SECTION ///////////////////////////////////////////////////
-const userId = 1   // temporary userId
-tasks.renderUserTasks(userId) // temporary call to load user tasks
 
-// My Tasks Link - listener : to show tasks component
+// My Tasks Link - listener : to show tasks container / hide primary container
 myTasksLink.addEventListener('click', (e) => {
-    tasksContainer.classList.remove('hidden');
+    if (sessionStorage.length === 0) {
+        // Must login message
+    } else {
+        primaryContainer.setAttribute('style', 'display: none');
+        tasksContainer.classList.remove('hidden');
+        taskListContainer.innerHTML = '';
+        const taskUserId = sessionStorage.getItem('activeUser')   // Task userId
+        tasks.renderUserTasks(taskUserId) // Load user tasks
+    }
 })
 
 // Tasks Container Event Listener
 tasksContainer.addEventListener('click', (e) => {
+    const taskUserId = sessionStorage.getItem('activeUser')   // Task userId
     if (e.target.id === 'cancel-edit-btn') {
         e.preventDefault()
         tasks.handleCancelEditBtn(targets)
     }
     if (e.target.id === 'save-task-btn') {
         e.preventDefault()
-        tasks.handleSubmitBtn(targets, userId)
+        tasks.handleSubmitBtn(targets, taskUserId)
     }
     if (e.target.className === 'complete-check') {  // Task Form - Checkbox
         tasks.handleCheckbox(e)
@@ -183,6 +191,8 @@ targets.completionDate.addEventListener('change', (e) => {
 
 myEventsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
+    primary.setAttribute('style', 'display: flex');
+    tasksContainer.classList.add('hidden');
     primary.innerHTML = "";
     const userId = sessionStorage.getItem("activeUser");
     eventsPage.getMyEvents(userId);
@@ -191,6 +201,8 @@ myEventsBtn.addEventListener("click", (e) => {
 
 myNewsBtn.addEventListener("click", (e) => {
     const primary = document.querySelector("#primary-container");
+    primary.setAttribute('style', 'display: flex');
+    tasksContainer.classList.add('hidden');
     primary.innerHTML = "";
     const userId = sessionStorage.getItem("activeUser");
     console.log(userId);
@@ -199,8 +211,9 @@ myNewsBtn.addEventListener("click", (e) => {
 })
 
 myFriedndsBtn.addEventListener("click", (e) => {
-    console.log(e)
     const primary = document.querySelector("#primary-container");
+    primary.setAttribute('style', 'display: flex');
+    tasksContainer.classList.add('hidden');
     const innerDiv = document.createElement("div")
     const news = document.createElement("div")
     news.setAttribute("id", "news-container")
@@ -342,7 +355,8 @@ primaryContainer.addEventListener("click", (e) => {
 
 messageBoardBtn.addEventListener("click", (e) => {
     if (e.target.id === "message-board") {
-        console.log("working")
+        primaryContainer.setAttribute('style', 'display: flex');
+        tasksContainer.classList.add('hidden');
         messageBoard.getMessages();
     }
 })
