@@ -678,3 +678,55 @@ color {
   /* padding:  */
 }
 /* END TASK PAGE STYLES */
+
+#form-elements {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#task-list-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#form-elements > fieldset {
+  width: 100%;
+  background-color: white;
+  height: 200px;
+}
+
+#form-elements > fieldset > input {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  background-color: transparent;
+  color: rgb(147, 147, 147);
+  background-color: transparent;
+  border-style: none;
+  border-bottom: 2px solid #2d7e7e;
+  align-self: center;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  width: 400px;
+  padding: 5px;
+}
+
+#form-elements > fieldset > label {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  color: #2d7e7e;
+}
+
+#form-elements > fieldset > [id=save-task-btn] {
+  align-self: center;
+  width: 100px;
+  margin-top: 8%;
+  padding: 10px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: .75em;
+  text-transform: uppercase;
+  background-color: #2d7e7e;
+  color: #c9eddc;
+}
