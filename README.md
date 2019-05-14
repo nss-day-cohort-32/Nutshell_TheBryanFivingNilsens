@@ -1,6 +1,6 @@
 # Project Nutshell
-insert img here
 
+![alt text](public/images/BNilsen-headshot.jpg)
 
 
 ## Brought to you by the Bryan F'n Nilsens
