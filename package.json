@@ -10,7 +10,10 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "json-server": "^0.15.0",
+    "moment": "^2.24.0",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "babelify": "^10.0.0",
@@ -23,9 +26,5 @@
     "load-grunt-config": "^0.19.2",
     "nss-domcomponent": "^0.1.0",
     "grunt-bg-shell": "^2.3.3"
-  },
-  "dependencies": {
-    "json-server": "^0.15.0",
-    "moment": "^2.24.0"
   }
 }
