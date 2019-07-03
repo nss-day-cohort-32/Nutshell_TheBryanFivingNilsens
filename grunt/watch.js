@@ -1,7 +1,7 @@
 module.exports = {
     scripts: {
         files: [
-            "../scripts/**/*.js",
+            "./src/scripts/**/*.js",
             "!node_modules/**/*.js"
         ],
         tasks: ["eslint", "browserify"],

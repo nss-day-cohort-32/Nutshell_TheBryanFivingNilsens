@@ -59,18 +59,10 @@
     {
       "userId": 1,
       "url": "https://i.kinja-img.com/gawker-media/image/upload/s--wbhiwa-N--/c_scale,dpr_2.0,f_auto,fl_progressive,q_80,w_800/xvkfbgb3m9menhz6yuir.jpg",
-      "dateAdded": "May 21st 2019, 05:18:24 am",
-      "title": "Kobe Bryant Confident He Could Still Berate Teammates For 20 Minutes A Night",
+      "dateAdded": "Saturday, May 25th 2019, 4:36:26 pm",
+      "title": "Kobe Confident He Could Still Berate Teammates For 20 Minutes A Night",
       "synopsis": "When I see guys like LeBron and CP3 out there browbeating people well into their 30s, I know that I could still play the victim in crunch time. Sure, maybe my barbs have lost some of their sharpness, but I still doubt there is anyone in the NBA who can scold at crunch time like I can.",
       "id": 8
-    },
-    {
-      "userId": 1,
-      "url": "https://i.kinja-img.com/gawker-media/image/upload/s--hqON7Ngo--/c_scale,dpr_2.0,f_auto,fl_progressive,q_80,w_800/oiq5sqy3sll0dikgqibd.png",
-      "dateAdded": "May 13th 2019, 9:44:00 am",
-      "title": "SpongeBob SquarePants Turns 21",
-      "synopsis": "Creative team realizes making a Broadway musical would be the perfect way to run this thing into the ground.",
-      "id": 9
     },
     {
       "userId": 1,
@@ -209,6 +201,12 @@
       "message": "Hey Sean, thanks for sliding into my DM's",
       "sendDate": "2019-05-14T16:46:45.472Z",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "message": "Hey Smiths!",
+      "sendDate": "2019-05-25T15:05:28.640Z",
+      "id": 9
     }
   ],
   "events": [
@@ -244,8 +242,8 @@
       "userId": 1,
       "name": "Food Truck Festival",
       "description": "It's decent food that wouldn't make it in a Brick-and-mortar, but still costs the same.",
-      "eventDate": "2019-04-25",
-      "location": "Centennial Park",
+      "eventDate": "2019-04-17",
+      "location": "Centennial Park!",
       "url": "https://images.pexels.com/photos/1053769/pexels-photo-1053769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
     {
@@ -337,6 +335,15 @@
       "eventDate": "2019-05-09",
       "location": "Centennial Park",
       "url": "https://images.pexels.com/photos/1053769/pexels-photo-1053769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+      "userId": 1,
+      "name": "Hang out with family",
+      "description": "Its going to be a pleasure",
+      "eventDate": "2019-05-25",
+      "location": "House",
+      "url": "",
+      "id": 21
     }
   ],
   "friends": [
@@ -397,7 +404,29 @@
       "id": 8
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "userId": "1",
+      "name": "Take out the garbage",
+      "targetCompletionDate": "2019-05-25",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "name": "Feed the dog",
+      "targetCompletionDate": "2019-05-19",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "name": "cook dinner",
+      "targetCompletionDate": "2019-05-25",
+      "completed": true,
+      "id": 3
+    }
+  ],
   "users": [
     {
       "username": "sean",
