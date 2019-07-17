@@ -3,9 +3,7 @@ Author: Sean Glavin
 Purpose: Database fetch calls
 Date: 5/8/19
 */
-const baseUrl = process.env.NODE_ENV === 'production'
-    ? "/api/"
-    : "http://localhost:8088/api/";
+const baseUrl = "/api/"
 
 const API = {
     loginUser: function (username, email) {
