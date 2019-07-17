@@ -3,7 +3,7 @@
 ![alt text](public/images/BNilsen-headshot.jpg)
 
 
-## Brought to you by the Bryan F'n Nilsens
+## Brought to you by the Bryan Fiving Nilsens
 - Nate Flemming
 - Jason Collum
 - Colin Sandlin
